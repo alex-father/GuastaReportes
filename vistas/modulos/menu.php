@@ -4,7 +4,11 @@
 
 		<ul class="sidebar-menu">
 
-			<li>
+			<?php
+
+			if($_SESSION["perfil"] == "Usuario" || $_SESSION["perfil"] == "Empleado" || $_SESSION["perfil"] == "Administrador"){
+
+			echo'<li>
 
 				<a href="inicio">
 
@@ -13,9 +17,16 @@
 
 				</a>
 
-			</li>
+			</li>';
 
-			<li>
+		}
+
+
+
+
+			if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"]== "Empleado"){
+
+			echo '<li>
 
 				<a href="empleados">
 
@@ -46,9 +57,14 @@
 
 				</a>
 
-			</li>
+			</li>';
 
-			<li>
+		}
+
+
+		if($_SESSION["perfil"] == "Usuario" || $_SESSION["perfil"] == "Empleado" || $_SESSION["perfil"] == "Administrador"){
+
+			echo '<li>
 
 				<a href="reporte-usuario">
 
@@ -57,10 +73,17 @@
 
 				</a>
 
-			</li>
+			</li>';
+		}
 
 
-			<li class="treeview">
+
+
+
+		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"]== "Empleado"){
+
+
+			echo '<li class="treeview">
 
 				<a href="#">
 
@@ -109,7 +132,11 @@
 
 						</a>
 
-					</li>
+					</li>';
+
+				}
+
+				?>
 
 				</ul>
 

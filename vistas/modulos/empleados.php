@@ -42,7 +42,13 @@
                       <th>Usuario</th>
                       <th>Foto</th>
                       <th>Perfirl</th>
-                      <th>estado</th>
+                      <?php  
+                      if($_SESSION["perfil"] =="Administrador"){
+
+                     echo ' <th>estado</th>';
+                   }
+                      ?>
+                      
                       <th>Ultimo Login</th>
                       <th>Acción</th>
 
@@ -57,14 +63,11 @@
                 $item = null;
                 $valor = null;
 
-   $empleados = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
-
-            
-
-                foreach ($empleados as $key => $value){
-         
-
-                  echo ' 
+               $empleados = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
+              
+              foreach ($empleados as $key => $value){
+                      
+                       echo ' 
                           <td>'.$value["id"].'</td>
                           <td>'.$value["nombre"].'</td>
                           <td>'.$value["usuario"].'</td>';
@@ -82,6 +85,8 @@
 
                    echo '<td>'.$value["perfil"].'</td>';
 
+                     if($_SESSION["perfil"] =="Administrador"){
+
                   if($value["estado"] != 0){
 
                     echo '<td><button class="btn btn-success btn-xs btnActivar" idEmpleado="'.$value["id"].'" estadoEmpleado="0">Activado</button></td>';
@@ -91,7 +96,9 @@
 
                     echo '<td><button class="btn btn-danger btn-xs btnActivar" idEmpleado="'.$value["id"].'" estadoEmpleado="1">Desactivado</button></td>';
 
-                  }             
+                  } 
+
+                }            
 
                     echo '<td>'.$value["ultimo_login"].'</td>
 

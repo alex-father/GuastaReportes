@@ -167,11 +167,11 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
             Activar Usuario
           =============================================*/
 
-$(".tablas").on("click", ".btnActivar", function(){
+$(".btnActivar").change(function(){
 
   var idUsuario = $(this).attr("idUsuario");
   var estadoUsuario = $(this).attr("estadoUsuario");
-
+  
   var datos = new FormData();
   datos.append("activarId", idUsuario);
   datos.append("activarUsuario", estadoUsuario);

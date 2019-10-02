@@ -43,7 +43,15 @@
                       <th>Perfirl</th>
                       <th>estado</th>
                       <th>Ultimo Login</th>
-                      <th>Acción</th>
+
+                      <?php  
+
+                       if($_SESSION["perfil"] =="Administrador"){
+
+                             echo '<th>Acción</th>';
+                          }
+
+                      ?>
 
                   </tr>
 
@@ -89,9 +97,12 @@
 
                   }             
 
-                    echo '<td>'.$value["ultimo_login"].'</td>
+                    echo '<td>'.$value["ultimo_login"].'</td>';
 
-                        <td>
+
+                     if($_SESSION["perfil"] =="Administrador"){
+                            
+                            echo'<td>
 
                           <div class="btn-group">
                               
@@ -101,9 +112,10 @@
 
                           </div>  
 
-                        </td>
+                        </td>';
+                      }
 
-                  </tr>';
+               echo '</tr>';
                  }
               ?>
                 

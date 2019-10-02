@@ -75,7 +75,7 @@ class ControladorUsuarios{
 							
 							echo '<script>
 
-								window.location = "reportes";
+								window.location = "reporte-usuario";
 
 								</script>';
 
