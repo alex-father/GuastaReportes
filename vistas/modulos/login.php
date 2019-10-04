@@ -49,12 +49,6 @@
               $login = new ControladorUsuarios();
               $login -> ctrIngresoUsuario();
 
-            
-              $crearUsuarioLogin = new ControladorUsuarios();
-              $crearUsuarioLogin -> ctrCrearUsuarioLogin();
-
-              
-
 
               ?>
 
@@ -151,6 +145,18 @@
                     
                   </div>
 
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="9999-9999" data-content="Must be a valid phone number (9999-9999)"required>
+                      
+                    </div>
+                    
+                  </div>
+
                   <!-- entrada para seleccionar el perfil -->
 
                   <div class="form-group">
@@ -188,7 +194,7 @@
 
                 </div>
 
-        <!--=============================================
+          <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
@@ -207,7 +213,12 @@
 
       </div>
 
+  </div>
+
+              <?php 
 
 
-    </div>
+              $crearUsuarioLogin = new ControladorUsuarios();
+              $crearUsuarioLogin -> ctrCrearUsuarioLogin();
 
+               ?>

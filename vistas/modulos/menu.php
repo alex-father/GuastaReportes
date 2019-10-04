@@ -26,7 +26,17 @@
 
 			if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"]== "Empleado"){
 
-			echo '<li>
+		echo '<li>
+
+				<a href="categoria">
+
+					<i class="fa fa-th"></i>
+					<span>Categorías</span>
+
+				</a>
+
+			</li>
+			<li>
 
 				<a href="empleados">
 
@@ -46,17 +56,6 @@
 
 				</a>
 
-			</li>
-
-			<li>
-
-				<a href="categorias">
-
-					<i class="fa fa-th"></i>
-					<span>Categorías</span>
-
-				</a>
-
 			</li>';
 
 		}
@@ -68,7 +67,7 @@
 
 				<a href="reporte-usuario">
 
-					<i class="ion ion-clipboard"></i>
+					<i class="fa fa-pencil-square-o"></i>
 					<span>Reportes de Usuarios</span>
 
 				</a>
@@ -105,7 +104,7 @@
 
 						<a href="reporte-admin">
 							
-							<i class="fa fa-circle-o"></i>
+							<i class="fa fa-clipboard"></i>
 							<span>Administrar Reportes</span>
 
 						</a>
@@ -116,7 +115,7 @@
 
 						<a href="crear-reporte">
 							
-							<i class="fa fa-circle-o"></i>
+							<i class="fa fa-pencil-square-o"></i>
 							<span>Crear Reporte</span>
 
 						</a>
@@ -127,7 +126,7 @@
 
 						<a href="crear-informe">
 							
-							<i class="fa fa-circle-o"></i>
+							<i class="fa  fa-pie-chart"></i>
 							<span>Informe de Reportes</span>
 
 						</a>

@@ -1,7 +1,7 @@
 /*=============================================
 SUBIENDO LA FOTO DEL EMPLEADO
 =============================================*/
-$(".nuevaFoto").change(function(){
+$(".nuevaFotoEmpleado").change(function(){
 
   var imagen = this.files[0];
   
@@ -52,18 +52,6 @@ $(".nuevaFoto").change(function(){
 
 
 
-$(".nuevafoto").on("click", ".btnCerrar", function(){
-
-  var imagen = this.files[0];
-
-  console.log("imagen",imagen);
-
-
-$("input").val('');
-
-})
-
-
 
 $(document).on("click", ".btnEditarEmpleado", function(){
 
@@ -112,7 +100,7 @@ $(document).on("click", ".btnEditarEmpleado", function(){
             Activar Empleado
           =============================================*/
 
-$(document).on("click", ".btnActivar", function(){
+$(document).on("click", ".btnActivarEmpleado", function(){
 
   var idEmpleado = $(this).attr("idEmpleado");
   var estadoEmpleado = $(this).attr("estadoEmpleado");

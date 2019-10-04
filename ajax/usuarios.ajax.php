@@ -42,6 +42,8 @@ class AjaxUsuarios{
 
 		$respuesta = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
 
+		echo json_encode($respuesta);
+
 	}
 
 	/*=============================================
