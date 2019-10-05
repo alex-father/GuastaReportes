@@ -24,7 +24,7 @@
 
       <div class="box-header with-border">
   
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarReporte">
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarReporte">
           
           Agregar Reporte
 
@@ -159,7 +159,41 @@ MODAL AGREGAR Reporte
 
         <div class="modal-body">
 
-          <div class="box-body">
+          <div class="box-body">  
+
+            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" name="nuevaCategoria" required>
+                  
+                  <option value="">Selecionar categoría</option>
+
+                  <?php 
+
+                      $item = null;
+                      $valor = null;
+
+                      $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                      foreach ($categorias as $key => $value) {
+                      
+
+                      echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+
+                      }
+
+                   ?>
+
+                </select>
+
+              </div>
+
+            </div>
 
             <!-- ENTRADA PARA EL CÓDIGO -->
             
@@ -170,26 +204,6 @@ MODAL AGREGAR Reporte
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar No. contador" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
-
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <select class="form-control input-lg" name="nuevaCategoria">
-                  
-                  <option value="">Selecionar categoría</option>
-
-                  <option value="ReporteElectrico">Reportes Eléctricos</option>
-
-                </select>
 
               </div>
 

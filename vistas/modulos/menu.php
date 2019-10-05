@@ -38,6 +38,16 @@
 			</li>
 			<li>
 
+				<a href="lugares">
+
+					<i class="fa fa-map-marker"></i>
+					<span>Ubicaciones</span>
+
+				</a>
+
+			</li>
+			<li>
+
 				<a href="empleados">
 
 					<i class="fa fa-users"></i>
@@ -61,7 +71,7 @@
 		}
 
 
-		if($_SESSION["perfil"] == "Usuario" || $_SESSION["perfil"] == "Empleado" || $_SESSION["perfil"] == "Administrador"){
+		if($_SESSION["perfil"] == "Usuario"){
 
 			echo '<li>
 

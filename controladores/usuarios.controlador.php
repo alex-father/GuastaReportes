@@ -114,6 +114,7 @@ class ControladorUsuarios{
 
 			if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
+				preg_match('/^[0-9]+$/', $_POST["nuevoNumero"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 				
@@ -214,7 +215,9 @@ class ControladorUsuarios{
 									"usuario" => $_POST["nuevoUsuario"],
 									"password" => $encriptar,
 									"perfil" => $_POST["nuevoPerfil"],
-									"ruta"=> $ruta);
+									"ruta"=> $ruta,
+									"telefono" => $_POST["nuevoNumero"]);
+					var_dump($datos);
 
 					$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
@@ -305,7 +308,7 @@ class ControladorUsuarios{
 
 			if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
-				preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
+				preg_match('/^[0-9]+$/', $_POST["nuevoNumero"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 				
@@ -406,11 +409,11 @@ class ControladorUsuarios{
 					$datos = array(	"nombre" => $_POST["nuevoNombre"],
 									"usuario" => $_POST["nuevoUsuario"],
 									"password" => $encriptar,
-									"telefono" => $_POST["nuevoTelefono"],
 									"perfil" => $_POST["nuevoPerfil"],
 									"estado" => $estado,
-									"ruta"=> $ruta);
-					var_dump($datos);
+									"ruta"=> $ruta,
+									"telefono" => $_POST["nuevoNumero"]);
+					
 
 					$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 

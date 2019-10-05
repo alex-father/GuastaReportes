@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar usuarios
+      Administrar Ubicación
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar usuarios</li>
+      <li class="active">Administrar ubicación</li>
     
     </ol>
 
@@ -26,9 +26,9 @@
 
         <div class="box-header with-border">
   
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarLugar">
           
-          Agregar usuario
+          Agregar Ubicación
 
         </button>
 
@@ -42,12 +42,10 @@
 
                   <tr>
                       <th style="width: 10px">#</th>
-                      <th>Nombre</th>
-                      <th>Usuario</th>
-                      <th>Foto</th>
-                      <th>Perfirl</th>
-                      <th>estado</th>
-                      <th>Ultimo Login</th>
+                      <th>Codigo</th>
+                      <th>Municipio</th>
+                      <th>Ubicación</th>
+                      <th>Fecha</th>
 
                       <?php  
 
@@ -69,39 +67,18 @@
                 $item = null;
                 $valor = null;
 
-                $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+                $usuarios = ControladorLugares::ctrMostrarLugares($item, $valor);
 
                 foreach ($usuarios as $key => $value){
          
                   echo ' <tr>
                           <td>'.($key+1).'</td>
-                          <td>'.$value["nombre"].'</td>
-                          <td>'.$value["usuario"].'</td>';
+                          <td>'.$value["codigo"].'</td>
+                          <td>'.$value["municipio"].'</td>
+                          <td>'.$value["aldea"].'</td>
+                          <td>'.$value["fecha"].'</td>';
 
-                  if($value["foto"] != ""){
-
-                    echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
-
-                    }
-                    else  {
-
-                    echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
-
-                    }
-
-                   echo '<td>'.$value["perfil"].'</td>';
-
-                  if($value["estado"] != 0){
-
-                    echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
-
-                  }else{
-
-                    echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
-
-                  }             
-
-                    echo '<td>'.$value["ultimo_login"].'</td>';
+                  
 
 
                      if($_SESSION["perfil"] =="Administrador"){
@@ -112,9 +89,9 @@
 
 
                               
-                            <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
-                            <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                           </div>  
 
@@ -141,7 +118,7 @@
 MODAL AGREGAR Empleado
 ======================================-->
 
-<div id="modalAgregarUsuario" class="modal fade" role="dialog">
+<div id="modalAgregarLugar" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -157,7 +134,7 @@ MODAL AGREGAR Empleado
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Empleados</h4>
+          <h4 class="modal-title">Agregar Ubicacion</h4>
 
         </div>
 
@@ -265,8 +242,8 @@ MODAL AGREGAR Empleado
 
         <?php
 
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
+          $crearUsuario = new ControladorLugares();
+          $crearUsuario -> ctrCrearLugar();
 
         ?>
 
@@ -284,7 +261,7 @@ MODAL AGREGAR Empleado
     <!--=============================================
   =           Modal Editar Usiario         =
   =============================================-->
-<div id="modalEditarUsuario" class="modal fade" role="dialog">
+<div id="modalEditarLugar" class="modal fade" role="dialog">
   <div class="modal-dialog">
   
 
@@ -406,13 +383,6 @@ MODAL AGREGAR Empleado
 
                 </div>
 
-                <?php
-
-                $editarUsuario = new ControladorUsuarios();
-                $editarUsuario -> ctrEditarUsuario();
-
-                ?>
-
             </form>
 
         </div>
@@ -421,10 +391,4 @@ MODAL AGREGAR Empleado
 
     </div>
 
-    <?php
-
-    $borrarUsuario = new ControladorUsuarios();
-    $borrarUsuario -> ctrBorrarUsuario();
-
-
-    ?>
+   

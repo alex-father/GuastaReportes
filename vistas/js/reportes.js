@@ -82,7 +82,7 @@ $(document).on("click", ".btnActivarReporte", function(){
         }
 
      }
- 
+
 
   })
 
@@ -203,7 +203,7 @@ $(".nuevaImagen").change(function(){
 EDITAR PRODUCTO
 =============================================*/
 
-$(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
+$(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
 	var idProducto = $(this).attr("idProducto");
 	

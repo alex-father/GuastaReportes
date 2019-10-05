@@ -125,7 +125,8 @@
 
                       <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                      <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario" placeholder="Ingresar usuario" required>
+                      <input type="text" class="form-control input-lg" name="nuevoUsuario"
+                       id="nuevoUsuario" placeholder="Ingresar usuario" required>
                       
                     </div>
                     
@@ -139,23 +140,29 @@
 
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-                      <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                      <input type="password" class="form-control input-lg" name="nuevoPassword"
+                       placeholder="Ingresar contraseña" required>
                       
                     </div>
                     
                   </div>
+
+                  <!-- entrada del usuario -->
 
                   <div class="form-group">
 
                     <div class="input-group">
 
-                      <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                      <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="9999-9999" data-content="Must be a valid phone number (9999-9999)"required>
+                      <input type="text" class="form-control input-lg" name="nuevoNumero" id="nuevoNumero" 
+                      placeholder="Ingresar su número" >
                       
                     </div>
                     
                   </div>
+
+                  
 
                   <!-- entrada para seleccionar el perfil -->
 

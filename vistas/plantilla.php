@@ -109,6 +109,7 @@ CUERPO DOCUMENTO
 
       if($_GET["ruta"] == "inicio" ||
         $_GET["ruta"] == "categoria" ||
+        $_GET["ruta"] == "lugares" ||
          $_GET["ruta"] == "empleados" ||
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "reporte-usuario" ||
@@ -148,10 +149,11 @@ CUERPO DOCUMENTO
   ?>
 
 
-<script src="vistas/js/plantilla.js"></script>
-<script src="vistas/js/usuarios.js"></script>
-<script src="vistas/js/empleados.js"></script>
 <script src="vistas/js/categorias.js"></script>
+<script src="vistas/js/lugares.js"></script>
+<script src="vistas/js/empleados.js"></script>
+<script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/reportes.js"></script>
+<script src="vistas/js/usuarios.js"></script>
 </body>
 </html>
