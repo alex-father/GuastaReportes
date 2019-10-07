@@ -31,7 +31,7 @@ class ControladorReportes{
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = "vistas/img/reportes/default/anonymous.png";
+			   	$ruta = "";
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
@@ -44,7 +44,7 @@ class ControladorReportes{
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-					$directorio = "vistas/img/productos/".$_POST["nuevoCodigo"];
+					$directorio = "vistas/img/reportes/".$_POST["nuevoCodigo"];
 
 					mkdir($directorio, 0755);
 
@@ -60,7 +60,7 @@ class ControladorReportes{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/reportes/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
 
 						$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
 
@@ -80,7 +80,7 @@ class ControladorReportes{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/reportes/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
 
 						$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
 
@@ -97,7 +97,7 @@ class ControladorReportes{
 		
 
 		$tabla = "reportes";
-		$ruta = "vistas/img/reportes/default/anonymous.png";
+		
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
 							   "codigo_reporte" => $_POST["nuevoCodigo"],
