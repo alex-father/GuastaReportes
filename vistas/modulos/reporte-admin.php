@@ -43,6 +43,7 @@
            <th style="width:10px">#</th>
            <th>Imagen</th>
            <th>Código</th>
+           <th>Usuario</th>
            <th>Descripción</th>
            <th>Categoría</th>
            <th>Lugar</th>
@@ -203,7 +204,29 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Ingresar Codigo" readonly>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Codigo Categoria" readonly>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL Usuario -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <?php 
+
+                   $usuario = $_SESSION["usuario"];
+
+                   echo' <input type="text" class="form-control input-lg" name="usuario" id="usuario" placeholder="'.$_SESSION["usuario"].'" readonly>'
+
+
+                 ?>
+
+               
 
               </div>
 
@@ -220,33 +243,21 @@ MODAL AGREGAR Reporte
                 <select class="form-control input-lg" name="nuevaCategoria">
                   
                   <option value="">Selecionar Barrio o Aldea</option>
+                  <?php 
 
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
-                  <option value="ReporteElectrico">EL Barrial</option>
-                  <option value="ReporteElectrico">Casas Viejas</option>
+                    $item = null;
+                    $valor = null;
+
+                    $ubicacion = ControladorLugares::ctrMostrarLugares($item, $valor);
+
+                    foreach ($ubicacion as $key => $value) {
+
+                      echo '<option value="'.$value["codigo"].'">'.$value["aldea"].'</option>';
+
+                      
+                    }
+
+                   ?>
 
                 </select>
 
@@ -275,7 +286,7 @@ MODAL AGREGAR Reporte
 
               <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail" width="100px">
+              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  ver" width="100px">
 
             </div>
 
@@ -294,6 +305,11 @@ MODAL AGREGAR Reporte
           <button type="submit" class="btn btn-success">Guardar Reporte</button>
 
         </div>
+
+         <?php 
+
+          $crearReporte = new ControladorReportes();
+         ?>
 
       </form>
 

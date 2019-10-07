@@ -20,7 +20,7 @@ class ControladorReportes{
 	CREAR Reportes
 	=============================================*/
 
-	static public function ctrCrearProducto(){
+	static public function ctrCrearReportes(){
 
 		if(isset($_POST["nuevaDescripcion"])){
 

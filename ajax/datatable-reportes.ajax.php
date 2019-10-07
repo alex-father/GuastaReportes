@@ -68,6 +68,7 @@ class TablaReportes{
 			      "'.($i+1).'",
 			      "'.$imagen.'",
 			      "'.$reportes[$i]["codigo_reporte"].'",
+			      "'.$reportes[$i]["usuario"].'",
 			      "'.$reportes[$i]["descripcion"].'",
 			      "'.$categorias["categoria"].'",
 			      "'.$reportes[$i]["lugar"].'",

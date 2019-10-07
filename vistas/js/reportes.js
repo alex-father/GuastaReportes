@@ -153,7 +153,7 @@ $("#nuevaCategoria").change(function(){
 SUBIENDO LA FOTO DEL PRODUCTO
 =============================================*/
 
-$("#imagenReporte").change(function(){
+$("#nuevaImagen").change(function(){
 
 	var imagen = this.files[0];
 	
