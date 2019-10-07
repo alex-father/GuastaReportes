@@ -21,19 +21,17 @@ class ControladorReportes{
 	=============================================*/
 
 	static public function ctrCrearReportes(){
+		if (isset($_POST["nuevaCategoria"])){
 
-		if(isset($_POST["nuevaDescripcion"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&	
-			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) &&
-			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
+					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"])){
 
-		   		/*=============================================
+
+						/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = "vistas/img/productos/default/anonymous.png";
+			   	$ruta = "vistas/img/reportes/default/anonymous.png";
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
@@ -96,17 +94,24 @@ class ControladorReportes{
 
 				}
 
-				$tabla = "productos";
+		
+
+		$tabla = "reportes";
+		$ruta = "vistas/img/reportes/default/anonymous.png";
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
-							   "codigo" => $_POST["nuevoCodigo"],
+							   "codigo_reporte" => $_POST["nuevoCodigo"],
+							   "usuario" => $_POST["usuario"],
+							   "lugar" => $_POST["nuevoLugar"],
 							   "descripcion" => $_POST["nuevaDescripcion"],
-							   "stock" => $_POST["nuevoStock"],
-							   "precio_compra" => $_POST["nuevoPrecioCompra"],
-							   "precio_venta" => $_POST["nuevoPrecioVenta"],
 							   "imagen" => $ruta);
 
-				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
+
+
+				$respuesta = ModeloReportes::mdlIngresarReporte($tabla, $datos);
+
+
+				var_dump($respuesta);
 
 				if($respuesta == "ok"){
 
@@ -117,20 +122,19 @@ class ControladorReportes{
 							  title: "El producto ha sido guardado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
-							  }).then(function(result){
+							  }).then((result) => {
 										if (result.value) {
 
-										window.location = "productos";
+										window.location = "reporte-admin";
 
 										}
 									})
 
 						</script>';
 
-				}
+					}
 
-
-			}else{
+				}else{
 
 				echo'<script>
 
@@ -139,17 +143,20 @@ class ControladorReportes{
 						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						  }).then((result) => {
 							if (result.value) {
 
-							window.location = "productos";
+							window.location = "reporte-admin";
 
 							}
 						})
 
 			  	</script>';
 			}
+
 		}
+
+	
 
 	}
 

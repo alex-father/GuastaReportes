@@ -116,6 +116,8 @@ $("#nuevaCategoria").change(function(){
 
 	var idCategoria = $(this).val();
 
+  console.log(idCategoria);
+
 	var datos = new FormData();
   	datos.append("idCategoria", idCategoria);
 

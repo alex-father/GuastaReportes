@@ -221,7 +221,7 @@ MODAL AGREGAR Reporte
 
                    $usuario = $_SESSION["usuario"];
 
-                   echo' <input type="text" class="form-control input-lg" name="usuario" id="usuario" placeholder="'.$_SESSION["usuario"].'" readonly>'
+                   echo' <input type="text" class="form-control input-lg" name="usuario" value="'.$_SESSION["usuario"].'" placeholder="'.$_SESSION["usuario"].'" readonly>'
 
 
                  ?>
@@ -240,7 +240,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <select class="form-control input-lg" name="nuevaCategoria">
+                <select class="form-control input-lg" name="nuevoLugar">
                   
                   <option value="">Selecionar Barrio o Aldea</option>
                   <?php 
@@ -252,7 +252,7 @@ MODAL AGREGAR Reporte
 
                     foreach ($ubicacion as $key => $value) {
 
-                      echo '<option value="'.$value["codigo"].'">'.$value["aldea"].'</option>';
+                      echo '<option value="'.$value["aldea"].'">'.$value["aldea"].'</option>';
 
                       
                     }
@@ -271,7 +271,7 @@ MODAL AGREGAR Reporte
 
                 <label for="comment">Descripción:</label>
 
-                <textarea class="form-control" rows="4" id="descripcion" required></textarea>
+                <textarea class="form-control" rows="4" id="nuevaDescripcion" name="nuevaDescripcion" required></textarea>
 
 
             </div>
@@ -309,6 +309,7 @@ MODAL AGREGAR Reporte
          <?php 
 
           $crearReporte = new ControladorReportes();
+          $crearReporte->ctrCrearReportes();
          ?>
 
       </form>
