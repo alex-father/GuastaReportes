@@ -169,7 +169,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" name="nuevaCategoria" required>
+                <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" required>
                   
                   <option value="">Selecionar categoría</option>
 
@@ -183,7 +183,7 @@ MODAL AGREGAR Reporte
                       foreach ($categorias as $key => $value) {
                       
 
-                      echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+                      echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
 
                       }
 
@@ -203,7 +203,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar No. contador" required>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Ingresar Codigo" readonly>
 
               </div>
 

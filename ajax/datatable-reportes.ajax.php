@@ -60,14 +60,14 @@ class TablaReportes{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarReporte' idReporte='".$reportes[$i]["id"]."' data-toggle='modal' data-target='#modalEditarReporte'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarReporte' idReporte='".$reportes[$i]["id"]."' codigo='".$reportes[$i]["codigo"]."' imagen='".$reportes[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>";
+		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarReporte' idReporte='".$reportes[$i]["id"]."' data-toggle='modal' data-target='#modalEditarReporte'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarReporte' idReporte='".$reportes[$i]["id"]."' codigo='".$reportes[$i]["codigo_reporte"]."' imagen='".$reportes[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>";
 
 
 
 		  	$datosJson .='[
 			      "'.($i+1).'",
 			      "'.$imagen.'",
-			      "'.$reportes[$i]["codigo"].'",
+			      "'.$reportes[$i]["codigo_reporte"].'",
 			      "'.$reportes[$i]["descripcion"].'",
 			      "'.$categorias["categoria"].'",
 			      "'.$reportes[$i]["lugar"].'",

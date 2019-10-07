@@ -30,6 +30,18 @@ class AjaxReportes{
 
 	}
 
+		public $idCategoria;
+	public function ajaxCreadCodigoReporte(){
+
+		$item = "id_categoria";
+		$valor = $this->idCategoria;
+
+		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
+
+		echo json_encode($respuesta);
+		
+	}
+
 
 }
 
@@ -43,5 +55,17 @@ if(isset($_POST["activarReporte"])){
 	$activarReporte -> activarReporte = $_POST["activarReporte"];
 	$activarReporte -> activarId = $_POST["activarId"];
 	$activarReporte -> ajaxActivarReporte();
+
+}
+
+		/*=============================================
+				Activar Reporte
+		=============================================*/	
+
+if(isset($_POST["idCategoria"])){
+
+	$activarReporte = new AjaxReportes();
+	$activarReporte -> idCategoria = $_POST["idCategoria"];
+	$activarReporte -> ajaxCreadCodigoReporte();
 
 }

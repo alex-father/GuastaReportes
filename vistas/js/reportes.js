@@ -137,7 +137,7 @@ $("#nuevaCategoria").change(function(){
 
       	}else{
 
-      		var nuevoCodigo = Number(respuesta["codigo"]) + 1;
+      		var nuevoCodigo = Number(respuesta["codigo_reporte"]) + 1;
           	$("#nuevoCodigo").val(nuevoCodigo);
 
       	}
@@ -153,7 +153,7 @@ $("#nuevaCategoria").change(function(){
 SUBIENDO LA FOTO DEL PRODUCTO
 =============================================*/
 
-$(".nuevaImagen").change(function(){
+$("#imagenReporte").change(function(){
 
 	var imagen = this.files[0];
 	
@@ -192,7 +192,7 @@ $(".nuevaImagen").change(function(){
 
   			var rutaImagen = event.target.result;
 
-  			$(".previsualizar").attr("src", rutaImagen);
+  			$(".ver").attr("src", rutaImagen);
 
   		})
 
