@@ -2,6 +2,8 @@
 
 require_once "../controladores/usuarios.controlador.php";
 require_once "../modelos/usuarios.modelo.php";
+require_once "../controladores/reportes.controlador.php";
+require_once "../modelos/reportes.modelo.php";
 
 class AjaxUsuarios{
 
@@ -13,10 +15,10 @@ class AjaxUsuarios{
 	
 	public function ajaxEditarUsuario(){
 
-		$item = "id";
+		$item = "id_categoria";
 		$valor = $this->idUsuario;
 
-		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
 
 		echo json_encode($respuesta);
 

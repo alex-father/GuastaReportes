@@ -207,16 +207,17 @@ $("#nuevaImagen").change(function(){
 
 $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
-	 var idReporte = $(this).attr("idReporte");
+	var idReporte = $(this).attr("idReporte");
+  console.log("respuesta", idReporte);
 
 
-	console.log("respuesta", idReporte);
-	   var datos = new FormData();
-     datos.append("idReporte", idReporte);
+	
+	var datos = new FormData();
+    datos.append("idReporte", idReporte);
 
      $.ajax({
 
-      url:"ajax/reportes.ajax.php",
+      url: "ajax/reportes.ajax.php",
       method: "POST",
       data: datos,
       cache: false,
@@ -225,11 +226,13 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
       dataType:"json",
       success:function(respuesta){
 
-        console.log("respuesta1", respuesta);
+        console.log("respuesta", respuesta);
           
-         }
+          
 
-  });
+      }
+
+  })
 
 })
 
@@ -237,30 +240,3 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 ELIMINAR PRODUCTO
 =============================================*/
 
-$(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
-
-	var idProducto = $(this).attr("idProducto");
-	var codigo = $(this).attr("codigo");
-	var imagen = $(this).attr("imagen");
-	
-	swal({
-
-		title: '¿Está seguro de borrar el producto?',
-		text: "¡Si no lo está puede cancelar la accíón!",
-		type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar producto!'
-        }).then(function(result){
-        if (result.value) {
-
-        	window.location = "index.php?ruta=productos&idProducto="+idProducto+"&imagen="+imagen+"&codigo="+codigo;
-
-        }
-
-
-	})
-
-})
