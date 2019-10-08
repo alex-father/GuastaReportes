@@ -255,6 +255,14 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
           $("#editarCodigo").val(respuesta["codigo_reporte"]);
           $("#editarUsuario").val(respuesta["usuario"]);
           $("#editarLugar").val(respuesta["lugar"]);
+          $("#editarDescripcion").val(respuesta["descripcion"]);
+
+          if(respuesta["imagen"] != ""){
+
+          $("#imagenActual").val(respuesta["imagen"]);
+          $(".ver").attr("src", respuesta["imagen"]);
+
+        }
 
       }
 
