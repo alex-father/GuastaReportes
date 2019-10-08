@@ -361,7 +361,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" name="editarCategoria" id="editarCategoria" readonly>
+                <select class="form-control input-lg" name="editarCategoria"  readonly>
                   
                   <option id="editarCategoria"></option>
 
@@ -392,7 +392,7 @@ MODAL AGREGAR Reporte
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-                 <input type="text" class="form-control input-lg" name="editarUsuario" name="editarUsuario" id="editarusuario" readonly>
+                 <input type="text" class="form-control input-lg" name="editarUsuario" name="editarUsuario" id="editarUsuario" readonly>
 
                
 

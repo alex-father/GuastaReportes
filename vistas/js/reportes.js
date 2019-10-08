@@ -243,16 +243,18 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
           success:function(respuesta){
 
             console.log("respuesta2",respuesta);
+
+            $("#editarCategoria").val(respuesta["id"]);
+            $("#editarCategoria").html(respuesta["categoria"]);
+
+
           }
-
-
-
-
-
 
         })
           
-          
+          $("#editarCodigo").val(respuesta["codigo_reporte"]);
+          $("#editarUsuario").val(respuesta["usuario"]);
+          $("#editarLugar").val(respuesta["lugar"]);
 
       }
 
