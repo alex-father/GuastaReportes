@@ -68,12 +68,14 @@
 				Editar Lugares
 	=============================================*/
 
-	static public function mdlEditarCategoria($tabla, $datos){
+	static public function mdlEditarLugar($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET codigo = :codigo, municipio = :municipio, aldea = :aldea WHERE id = :id");
 
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
+		$stmt -> bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
+		$stmt -> bindParam(":municipio", $datos["municipio"], PDO::PARAM_STR);
+		$stmt -> bindParam(":aldea", $datos["aldea"], PDO::PARAM_STR);
+		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

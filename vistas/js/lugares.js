@@ -1,5 +1,7 @@
 
-
+      /*=============================================
+              Editar Ubicacion
+      =============================================*/
 
 $(".tablas").on("click", ".btnEditarLugar", function(){
 
@@ -20,11 +22,21 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
     processData: false,
     dataType: "json",
     success: function(respuesta){
+
+      console.log("respuesta", respuesta);
       
       
       $("#editarMunicipio").val(respuesta["municipio"]);
+      $("#idMunicipio").val(respuesta["id"]);
+      
+
       $("#editarUbicacion").val(respuesta["aldea"]);
+      $("#idUbicacion").val(respuesta["aldea"]);
+     
+
       $("#editarCodigo").val(respuesta["codigo"]);
+      $("#idCodigo").val(respuesta["codigo"]);
+      
 
 
     }
@@ -32,3 +44,38 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
   });
 
 })
+
+
+      /*=============================================
+            Eliminar Ubicacion
+      =============================================*/
+
+
+$(".tablas").on("click", ".btnEliminarUbicacion", function(){
+
+      var idcodigo = $(this).attr("idEmpleado");
+      var municipio = $(this).attr("fotoEmpleado");
+      var ubicacion = $(this).attr("usuario");
+
+
+      swal({
+        title: '¿Desea eliminar el usuario?',
+        text: "¡Puede cancelar la accíón!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Si, borrar usuario!'
+      }).then(function(result){
+
+        if(result.value){
+
+          window.location = "index.php?ruta=empleados&idEmpleado="+idEmpleado+"&usuario="+usuario+"&fotoEmpleado="+fotoEmpleado;
+
+        }
+
+      })
+
+
+    })

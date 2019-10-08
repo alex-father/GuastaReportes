@@ -91,7 +91,7 @@
                               
                             <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
-                            <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger btnEliminarUsuario" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                           </div>  
 
@@ -261,7 +261,8 @@
 
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-              <input type="text" class="form-control input-lg" id="editarMunicipio"  value="" readonly>
+              <input type="text" class="form-control input-lg" id="editarMunicipio"  name="editarMunicipio" value="" readonly>
+              <input type="hidden"  name="idMunicipio" id="idMunicipio" required>
 
             </div>
             
@@ -274,7 +275,8 @@
 
               <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-              <input type="text" class="form-control input-lg" id="editarUbicacion"  value="" required>
+              <input type="text" class="form-control input-lg" id="editarUbicacion"  name="editarUbicacion" value="" required>
+              <input type="hidden"  name="idUbicacion" id="idUbicacion" required>
               
             </div>
 
@@ -288,8 +290,9 @@
 
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-              <input type="text" class="form-control input-lg"  placeholder="Ingresar nuevo código" id="editarCodigo" value="" required>
-              <input type="hidden" id="codigodActual" name="codigodActual">
+              <input type="text" class="form-control input-lg"   id="editarCodigo" name="editarCodigo" value="" required>
+              <input type="hidden"  name="idCodigo" id="idCodigo" required>
+              
               
             </div>
             
@@ -310,6 +313,15 @@
                   <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
                 </div>
+
+
+              <?php 
+
+                $editarUbicacion = new ControladorLugares();
+                $editarUbicacion ->ctrEditarLugar();
+
+
+               ?>
 
             </form>
 

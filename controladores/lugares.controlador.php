@@ -78,6 +78,83 @@ class ControladorLugares{
 
 
 			}
+
+
+			/*=============================================
+				Editar Ubicación
+			=============================================*/
+
+	static public function ctrEditarLugar(){
+
+		var_dump($_POST);
+
+		if(isset($_POST["editarCodigo"])){
+
+			if(	preg_match('/^[0-9]+$/', $_POST["editarCodigo"]) && 
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarMunicipio"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["editarUbicacion"])){
+
+				$tabla = "aldeas";
+
+				$datos = array("codigo"=>$_POST["editarCodigo"],
+								"municipio"=>$_POST["editarMunicipio"],
+								"aldea"=>$_POST["editarUbicacion"],
+								"id"=>$_POST["idMunicipio"]);
+
+				$respuesta = ModeloLugares::mdlEditarLugar($tabla, $datos);
+
+				if($respuesta == "ok"){
+
+					echo'<script>
+
+					swal({
+						  type: "success",
+						  title: "La categoría ha sido actualizada correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "lugares";
+
+									}
+								})
+
+					</script>';
+
+				}
+
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "lugares";
+
+							}
+						})
+
+			  	</script>';
+
+			}
+
+		}
+
+	}
+
+
+
+
+
+
 		}
 
 
