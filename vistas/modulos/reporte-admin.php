@@ -392,7 +392,8 @@ MODAL AGREGAR Reporte
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-                 <input type="text" class="form-control input-lg" name="editarUsuario" name="editarUsuario" id="editarUsuario" readonly>
+
+                 <input type="text" class="form-control input-lg" name="editarUsuario"  id="editarUsuario" readonly>
 
                
 
@@ -439,7 +440,7 @@ MODAL AGREGAR Reporte
 
               <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  ver" width="100px">
+              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  verimagen" width="100px">
               <input type="hidden" name="imagenActual" id="imagenActual">
 
             </div>
@@ -459,6 +460,15 @@ MODAL AGREGAR Reporte
           <button type="submit" class="btn btn-success">Guardar Cambios</button>
 
         </div>
+
+        <?php 
+
+          $editar = new ControladorReportes();
+          $editar->ctrEditarProducto();
+
+
+
+         ?>
 
          
 

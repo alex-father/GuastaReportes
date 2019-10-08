@@ -192,13 +192,13 @@ class ControladorReportes{
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-					$directorio = "vistas/img/productos/".$_POST["editarCodigo"];
+					$directorio = "vistas/img/reportes/".$_POST["editarCodigo"];
 
 					/*=============================================
 					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
 					=============================================*/
 
-					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png"){
+					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/reportes/default/anonymous.png"){
 
 						unlink($_POST["imagenActual"]);
 
@@ -220,7 +220,7 @@ class ControladorReportes{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/reportes/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
 
 						$origen = imagecreatefromjpeg($_FILES["editarImagen"]["tmp_name"]);						
 
@@ -240,7 +240,7 @@ class ControladorReportes{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["editarCodigo"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/reportes/".$_POST["editarCodigo"]."/".$aleatorio.".png";
 
 						$origen = imagecreatefrompng($_FILES["editarImagen"]["tmp_name"]);						
 
@@ -254,17 +254,16 @@ class ControladorReportes{
 
 				}
 
-				$tabla = "productos";
+				$tabla = "reportes";
 
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
-							   "codigo" => $_POST["editarCodigo"],
+							   "codigo_reporte" => $_POST["editarCodigo"],
+							   "usuario" => $_POST["editarUsuario"],
+							   "lugar" => $_POST["editarUbicacion"],
 							   "descripcion" => $_POST["editarDescripcion"],
-							   "stock" => $_POST["editarStock"],
-							   "precio_compra" => $_POST["editarPrecioCompra"],
-							   "precio_venta" => $_POST["editarPrecioVenta"],
 							   "imagen" => $ruta);
 
-				$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
+				$respuesta = ModeloReportes::mdlEditarReporte($tabla, $datos);
 
 				if($respuesta == "ok"){
 
@@ -272,13 +271,13 @@ class ControladorReportes{
 
 						swal({
 							  type: "success",
-							  title: "El producto ha sido editado correctamente",
+							  title: "El reporte ha sido editado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "productos";
+										window.location = "reporte-admin";
 
 										}
 									})
@@ -294,13 +293,13 @@ class ControladorReportes{
 
 					swal({
 						  type: "error",
-						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El reporte no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "productos";
+							window.location = "reporte-admin";
 
 							}
 						})
