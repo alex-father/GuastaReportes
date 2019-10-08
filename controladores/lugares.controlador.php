@@ -151,6 +151,44 @@ class ControladorLugares{
 	}
 
 
+	/*=============================================
+				Borrar Ubicacion
+	=============================================*/
+
+	static public function ctrBorrarLugar(){
+
+
+		if(isset($_GET["idLugar"])){
+
+			$tabla ="aldeas";
+			$datos = $_GET["idLugar"];
+
+			$respuesta = ModeloLugares::mdlBorrarLugar($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+					swal({
+						  type: "success",
+						  title: "La Ubicacion ha sido eliminada correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "lugares";
+
+									}
+								})
+
+					</script>';
+			}
+		}
+		
+	}
+
+
 
 
 

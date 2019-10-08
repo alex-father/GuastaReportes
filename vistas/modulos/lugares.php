@@ -91,7 +91,7 @@
                               
                             <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
-                            <button class="btn btn-danger btnEliminarUsuario" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger btnEliminarLugar" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                           </div>  
 
@@ -330,5 +330,14 @@
       </div>
 
     </div>
+
+    <?php 
+
+      $borrarUbicacion = new ControladorLugares();
+      $borrarUbicacion ->ctrBorrarLugar();
+
+
+
+     ?>
 
    

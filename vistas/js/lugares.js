@@ -51,11 +51,10 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
       =============================================*/
 
 
-$(".tablas").on("click", ".btnEliminarUbicacion", function(){
+$(".tablas").on("click", ".btnEliminarLugar", function(){
 
-      var idcodigo = $(this).attr("idEmpleado");
-      var municipio = $(this).attr("fotoEmpleado");
-      var ubicacion = $(this).attr("usuario");
+      var idLugar = $(this).attr("idLugar");
+      
 
 
       swal({
@@ -71,7 +70,7 @@ $(".tablas").on("click", ".btnEliminarUbicacion", function(){
 
         if(result.value){
 
-          window.location = "index.php?ruta=empleados&idEmpleado="+idEmpleado+"&usuario="+usuario+"&fotoEmpleado="+fotoEmpleado;
+          window.location = "index.php?ruta=lugares&idLugar="+idLugar;
 
         }
 

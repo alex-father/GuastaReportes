@@ -96,7 +96,7 @@
 			Borrar Lugares
 	=============================================*/
 
-	static public function mdlBorrarCategoria($tabla, $datos){
+	static public function mdlBorrarLugar($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
