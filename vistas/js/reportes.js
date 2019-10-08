@@ -202,19 +202,21 @@ $("#nuevaImagen").change(function(){
 })
 
 /*=============================================
-EDITAR PRODUCTO
+        EDITAR PRODUCTO
 =============================================*/
 
 $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
-	var idProducto = $(this).attr("idProducto");
-	
-	var datos = new FormData();
-    datos.append("idProducto", idProducto);
+	 var idReporte = $(this).attr("idReporte");
+
+
+	console.log("respuesta", idReporte);
+	   var datos = new FormData();
+     datos.append("idReporte", idReporte);
 
      $.ajax({
 
-      url:"ajax/productos.ajax.php",
+      url:"ajax/reportes.ajax.php",
       method: "POST",
       data: datos,
       cache: false,
@@ -222,49 +224,12 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
+
+        console.log("respuesta1", respuesta);
           
-          var datosCategoria = new FormData();
-          datosCategoria.append("idCategoria",respuesta["id_categoria"]);
+         }
 
-           $.ajax({
-
-              url:"ajax/categorias.ajax.php",
-              method: "POST",
-              data: datosCategoria,
-              cache: false,
-              contentType: false,
-              processData: false,
-              dataType:"json",
-              success:function(respuesta){
-                  
-                  $("#editarCategoria").val(respuesta["id"]);
-                  $("#editarCategoria").html(respuesta["categoria"]);
-
-              }
-
-          })
-
-           $("#editarCodigo").val(respuesta["codigo"]);
-
-           $("#editarDescripcion").val(respuesta["descripcion"]);
-
-           $("#editarStock").val(respuesta["stock"]);
-
-           $("#editarPrecioCompra").val(respuesta["precio_compra"]);
-
-           $("#editarPrecioVenta").val(respuesta["precio_venta"]);
-
-           if(respuesta["imagen"] != ""){
-
-           	$("#imagenActual").val(respuesta["imagen"]);
-
-           	$(".previsualizar").attr("src",  respuesta["imagen"]);
-
-           }
-
-      }
-
-  })
+  });
 
 })
 

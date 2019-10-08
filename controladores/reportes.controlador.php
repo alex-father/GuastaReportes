@@ -7,6 +7,8 @@ class ControladorReportes{
 	=============================================*/
 
 	static public function ctrMostrarReportes($item, $valor){
+		
+
 
 		$tabla = "reportes";
 
