@@ -136,11 +136,11 @@ $("#nuevaCategoria").change(function(){
         
         console.log("respuesta", respuesta);
 
-      	if(!respuesta){
+      	if(respuesta == false){
 
-      		var nuevoCodigos = respuesta["id_categoria"]+"01";
+      		var nuevoCodigos = idCategoria +"01";
           $("#nuevoCodigo").val(nuevoCodigos);
-          
+
 
       	}else{
 
