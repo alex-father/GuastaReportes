@@ -208,7 +208,7 @@ $("#nuevaImagen").change(function(){
 $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
 	var idReporte = $(this).attr("idReporte");
-  console.log("respuesta", idReporte);
+  
 
 
 	
@@ -232,6 +232,18 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
         datosCategorias.append("idCategoria",respuesta["id_categoria"]);
 
         $.ajax({
+
+          url: "ajax/categorias.ajax.php",
+          method: "POST",
+          data: datosCategorias,
+          cache: false,
+          contentType: false,
+          processData: false,
+          dataType: "json",
+          success:function(respuesta){
+
+            console.log("respuesta2",respuesta);
+          }
 
 
 
