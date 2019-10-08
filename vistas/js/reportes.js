@@ -63,6 +63,8 @@ $(document).on("click", ".btnActivarReporte", function(){
         processData: false,
         success: function(respuesta){
 
+          console.log("respuesta", respuesta);
+
           if(window.matchMedia("(max-width:1400px)").matches){
     
            swal({
@@ -116,14 +118,14 @@ $("#nuevaCategoria").change(function(){
 
 	var idCategoria = $(this).val();
 
-  console.log(idCategoria);
+  
 
 	var datos = new FormData();
   	datos.append("idCategoria", idCategoria);
 
   	$.ajax({
 
-      url:"ajax/reportes.ajax.php",
+      url:"ajax/categorias.ajax.php",
       method: "POST",
       data: datos,
       cache: false,
@@ -131,11 +133,15 @@ $("#nuevaCategoria").change(function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
+        
 
-      	if(!respuesta){
+      	if(!respuesta["codigo"]){
 
-      		var nuevoCodigo = idCategoria+"01";
-      		$("#nuevoCodigo").val(nuevoCodigo);
+          
+
+      		var nuevoCodigo = respuesta["id"]+"01";
+          $("#nuevoCodigo").val(nuevoCodigo);
+      		
 
       	}else{
 

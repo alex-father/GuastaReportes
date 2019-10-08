@@ -6,9 +6,29 @@ require_once "../modelos/reportes.modelo.php";
 
 class AjaxReportes{
 
-	/*=============================================
-	EDITAR USUARIO
-	=============================================*/	
+
+	public $activarReportes;
+	public $activarId;
+
+
+	public function ajaxActivarReportes(){
+
+		$tabla = "reportes";
+
+		$item1 = "estado";
+		$valor1 = $this->activarReporte;
+
+		$item2 = "id";
+		$valor2 = $this->activarId;
+
+		$respuesta = ModeloReportes::mdlActualizarReporte($tabla, $item1, $valor1, $item2, $valor2);
+
+		echo json_encode($respuesta);
+	}
+
+
+
+
 
 	public $idUsuario;
 	
@@ -35,6 +55,19 @@ if(isset($_POST["idReporte"])){
 	$editar = new AjaxReportes();
 	$editar -> idUsuario = $_POST["idReporte"];
 	$editar -> ajaxEditarReporte();
+
+}
+
+/*=============================================
+activar reportes
+=============================================*/	
+
+if(isset($_POST["activarReporte"])){
+
+	$activarEmpleado = new AjaxReportes();
+	$activarEmpleado -> activarReporte = $_POST["activarReporte"];
+	$activarEmpleado -> activarId = $_POST["activarId"];
+	$activarEmpleado -> ajaxActivarReportes();
 
 }
 

@@ -23,7 +23,10 @@ class ControladorReportes{
 	=============================================*/
 
 	static public function ctrCrearReportes(){
-		if (isset($_POST["nuevaCategoria"])){
+
+		var_dump($_POST);
+
+		if (isset($_POST["nuevoCodigo"])){
 
 
 					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"])){
@@ -33,7 +36,7 @@ class ControladorReportes{
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = "";
+			   	$ruta = "vistas/img/reportes/default/anonymous.png";;
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
@@ -121,7 +124,7 @@ class ControladorReportes{
 
 						swal({
 							  type: "success",
-							  title: "El producto ha sido guardado correctamente",
+							  title: "El reporte ha sido guardado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then((result) => {
@@ -142,7 +145,7 @@ class ControladorReportes{
 
 					swal({
 						  type: "error",
-						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El reporte no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then((result) => {

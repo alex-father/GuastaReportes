@@ -204,7 +204,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Codigo Categoria" readonly>
+                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" readonly>
 
               </div>
 
