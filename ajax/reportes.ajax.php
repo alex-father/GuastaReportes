@@ -4,6 +4,9 @@
 require_once "../controladores/reportes.controlador.php";
 require_once "../modelos/reportes.modelo.php";
 
+require_once "../controladores/categorias.controlador.php";
+require_once "../modelos/categorias.modelo.php";
+
 class AjaxReportes{
 
 
@@ -30,12 +33,26 @@ class AjaxReportes{
 
 
 
-	public $idUsuario;
+	public $idReporte;
 	
 	public function ajaxEditarReporte(){
 
+		$item = "id";
+		$valor = $this->idReporte;
+
+		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+
+	public $idCategoria;
+	
+	public function ajaxCrearCodigo(){
+
 		$item = "id_categoria";
-		$valor = $this->idUsuario;
+		$valor = $this->idCategoria;
 
 		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
 
@@ -53,7 +70,7 @@ Editar Reporte
 if(isset($_POST["idReporte"])){
 
 	$editar = new AjaxReportes();
-	$editar -> idUsuario = $_POST["idReporte"];
+	$editar -> idReporte = $_POST["idReporte"];
 	$editar -> ajaxEditarReporte();
 
 }
@@ -68,6 +85,17 @@ if(isset($_POST["activarReporte"])){
 	$activarEmpleado -> activarReporte = $_POST["activarReporte"];
 	$activarEmpleado -> activarId = $_POST["activarId"];
 	$activarEmpleado -> ajaxActivarReportes();
+
+}
+
+/*=============================================
+ crear numero de codigo
+=============================================*/
+if(isset($_POST["idCategoria"])){
+
+	$editar = new AjaxReportes();
+	$editar -> idCategoria = $_POST["idCategoria"];
+	$editar -> ajaxCrearCodigo();
 
 }
 

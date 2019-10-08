@@ -125,7 +125,7 @@ $("#nuevaCategoria").change(function(){
 
   	$.ajax({
 
-      url:"ajax/categorias.ajax.php",
+      url:"ajax/reportes.ajax.php",
       method: "POST",
       data: datos,
       cache: false,
@@ -134,19 +134,19 @@ $("#nuevaCategoria").change(function(){
       dataType:"json",
       success:function(respuesta){
         
+        console.log("respuesta", respuesta);
 
-      	if(!respuesta["codigo"]){
+      	if(!respuesta){
 
+      		var nuevoCodigos = respuesta["id_categoria"]+"01";
+          $("#nuevoCodigo").val(nuevoCodigos);
           
-
-      		var nuevoCodigo = respuesta["id"]+"01";
-          $("#nuevoCodigo").val(nuevoCodigo);
-      		
 
       	}else{
 
-      		var nuevoCodigo = Number(respuesta["codigo_reporte"]) + 1;
+      		var nuevoCodigo = Number(respuesta["codigo_reporte"])+1;
           	$("#nuevoCodigo").val(nuevoCodigo);
+            
 
       	}
                 
@@ -215,9 +215,6 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
 	var idReporte = $(this).attr("idReporte");
   
-
-
-	
 	var datos = new FormData();
     datos.append("idReporte", idReporte);
 
@@ -248,7 +245,7 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
-            console.log("respuesta2",respuesta);
+            
 
             $("#editarCategoria").val(respuesta["id"]);
             $("#editarCategoria").html(respuesta["categoria"]);
@@ -260,7 +257,7 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
           
           $("#editarCodigo").val(respuesta["codigo_reporte"]);
           $("#editarUsuario").val(respuesta["usuario"]);
-          $("#editarLugar").val(respuesta["lugar"]);
+          $("#editarUbicacion").val(respuesta["lugar"]);
           $("#editarDescripcion").val(respuesta["descripcion"]);
 
           if(respuesta["imagen"] != ""){

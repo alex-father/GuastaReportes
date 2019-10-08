@@ -24,7 +24,7 @@ class ControladorReportes{
 
 	static public function ctrCrearReportes(){
 
-		var_dump($_POST);
+		
 
 		if (isset($_POST["nuevoCodigo"])){
 

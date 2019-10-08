@@ -408,11 +408,11 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <select class="form-control input-lg" name="nuevoLugar">
+                
                   
-                  <option id="editarLugar"></option>
+                  <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
 
-                </select>
+                
 
               </div>
 
