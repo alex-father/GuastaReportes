@@ -21,9 +21,10 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
     dataType: "json",
     success: function(respuesta){
       
-      $("#editarCodigo").val(respuesta["codigo"]);
+      
       $("#editarMunicipio").val(respuesta["municipio"]);
-      $("#editarLugar").html(respuesta["lugar"]);
+      $("#editarUbicacion").val(respuesta["aldea"]);
+      $("#editarCodigo").val(respuesta["codigo"]);
 
 
     }

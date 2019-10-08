@@ -9,13 +9,13 @@ class ControladorLugares{
 
 					if(preg_match('/^[0-9]+$/', $_POST["nuevoCodigo"]) &&
 						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoMunicipio"]) &&
-						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoLugar"])){
+						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["nuevaUbicacion"])){
 
 						$tabla = "aldeas";
 
 						$datos = array("codigo" => $_POST["nuevoCodigo"],
 										"municipio" => $_POST["nuevoMunicipio"],
-										"aldea" => $_POST["nuevoLugar"]);
+										"aldea" => $_POST["nuevaUbicacion"]);
 
 						$respuesta = ModeloLugares::mdlIngresarLugar($tabla, $datos);
 
@@ -27,7 +27,7 @@ class ControladorLugares{
 
 							swal({
 								  type: "success",
-								  title: "Ha sido guardada correctamente",
+								  title: "Ha Ubicacion se guardo correctamente",
 								  showConfirmButton: true,
 								  confirmButtonText: "Cerrar"
 								  }).then(function(result){

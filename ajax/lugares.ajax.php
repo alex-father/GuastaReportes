@@ -1,13 +1,15 @@
 <?php
 
+
 require_once "../controladores/lugares.controlador.php";
 require_once "../modelos/lugares.modelo.php";
 
-class AjaxLugares{
+require_once "../controladores/reportes.controlador.php";
+require_once "../modelos/reportes.modelo.php";
 
-	/*=============================================
-	EDITAR lUGARES
-	=============================================*/	
+
+
+class AjaxLugares{
 
 	public $idLugar;
 	
@@ -16,17 +18,19 @@ class AjaxLugares{
 		$item = "id";
 		$valor = $this->idLugar;
 
-		var_dump($item);
-
 		$respuesta = ControladorLugares::ctrMostrarLugares($item, $valor);
 
 		echo json_encode($respuesta);
 
 	}
 
-	/*=============================================
-		EDITAR lUGARES
-	=============================================*/
+	
+
+}
+
+/*=============================================
+Editar Reporte
+=============================================*/
 if(isset($_POST["idLugar"])){
 
 	$editar = new AjaxLugares();
@@ -34,3 +38,6 @@ if(isset($_POST["idLugar"])){
 	$editar -> ajaxEditarLugar();
 
 }
+
+
+

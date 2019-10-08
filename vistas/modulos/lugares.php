@@ -115,8 +115,8 @@
    </div>
 
    <!--=====================================
-MODAL AGREGAR Empleado
-======================================-->
+      Modal Agragar Ubicacion
+    ======================================-->
 
 <div id="modalAgregarLugar" class="modal fade" role="dialog">
   
@@ -152,9 +152,9 @@ MODAL AGREGAR Empleado
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevoMunicipio" id="nuevaMunicipio" value="Guastatoya"placeholder="Guastatoya" readonly>
 
               </div>
 
@@ -166,61 +166,25 @@ MODAL AGREGAR Empleado
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                <input type="text" class="form-control input-lg" name="nuevaUbicacion" placeholder="Ubicación" id="nuevaUbicacion"  required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA LA CONTRASEÑA -->
+            <!-- entrada para el codigo -->
 
              <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
-
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
-
-                <select class="form-control input-lg" name="nuevoPerfil">
-                  
-                  <option value="">Selecionar perfil</option>
-
-                  <option value="Administrador">Administrador</option>
-
-                  <option value="Empleado">Empleado</option>
-
-                </select>
+                <input type="number" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar código" required>
 
               </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
-             <div class="form-group">
-              
-              <div class="panel">SUBIR FOTO</div>
-
-              <input type="file" class="nuevaFoto" name="nuevaFoto">
-
-              <p class="help-block">Peso máximo de la foto 2MB</p>
-
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
             </div>
 
@@ -236,14 +200,16 @@ MODAL AGREGAR Empleado
 
           <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal" data-backdrop="false">Cerrar</button>
 
-          <button type="submit" class="btn btn-success">Crear Empleado</button>
+          <button type="submit" class="btn btn-success">Crear Ubicación</button>
 
         </div>
 
         <?php
 
-          $crearUsuario = new ControladorLugares();
-          $crearUsuario -> ctrCrearLugar();
+        $ubicacion = new ControladorLugares();
+        $ubicacion ->ctrCrearLugar();
+
+        
 
         ?>
 
@@ -259,7 +225,7 @@ MODAL AGREGAR Empleado
  
 
     <!--=============================================
-  =           Modal Editar Usiario         =
+  =           Modal Editar Ubicacion        =
   =============================================-->
 <div id="modalEditarLugar" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -276,7 +242,7 @@ MODAL AGREGAR Empleado
       <div class="modal-header" style="background:#00a65a; color: white; ">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Usuarios</h4>
+        <h4 class="modal-title">Editar Ubicación</h4>
       </div>
 
         <!--=============================================
@@ -287,7 +253,7 @@ MODAL AGREGAR Empleado
 
         <div class="box-body">
 
-          <!-- entrada del empleado -->
+          <!-- entrada del municipio -->
 
           <div class="form-group">
 
@@ -295,12 +261,12 @@ MODAL AGREGAR Empleado
 
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-              <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+              <input type="text" class="form-control input-lg" id="editarMunicipio"  value="" readonly>
 
             </div>
             
           </div>
-          <!-- entrada del usuario -->
+          <!-- entrada del ubicación -->
 
           <div class="form-group">
 
@@ -308,13 +274,13 @@ MODAL AGREGAR Empleado
 
               <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-              <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" required>
+              <input type="text" class="form-control input-lg" id="editarUbicacion"  value="" required>
               
             </div>
 
           </div>
 
-          <!-- entrada del la contraseña -->
+          <!-- entrada del codigo -->
 
           <div class="form-group">
 
@@ -322,54 +288,16 @@ MODAL AGREGAR Empleado
 
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-              <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Ingresar nueva contraseña" required>
-              <input type="hidden" id="passwordActual" name="passwordActual">
+              <input type="text" class="form-control input-lg"  placeholder="Ingresar nuevo código" id="editarCodigo" value="" required>
+              <input type="hidden" id="codigodActual" name="codigodActual">
               
             </div>
             
           </div>
-
-          <!-- entrada para seleccionar el perfil -->
-
-          <div class="form-group">
-
-            <div class="input-group">
-
-              <span class="input-group-addon"><i class="fa fa-users"></i></span>
-
-                <select class="form-control input-lg" name="editarPerfil">
-
-                  <option value="" id="editarPerfil"></option>
-
-                  <option value="Administrador">Administrador</option>
-
-                  <option value="Empleado">Empleado</option>
-
-                  <option value="Usuario">Usuario</option>
-                  
-
-                </select>
-              
-            </div>
-            
-          </div>
-
-                <div class="form-group">
-              
-                    <div class="panel">Subir Foto</div>
-
-                    <input type="file" class="nuevafoto" name="editarFoto">
-
-                      <p class="help-block">Peso maximo de la foto 2MB</p>
-
-                      <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
-                      <input type="hidden" name="fotoActual" id="fotoActual">
-
-                </div>
           
-            </div> 
+        </div> 
 
-        </div>
+      </div>
 
         <!--=============================================
           =           Pie del Modal           =
