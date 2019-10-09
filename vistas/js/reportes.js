@@ -325,7 +325,35 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
 })
 
+
 /*=============================================
-ELIMINAR PRODUCTO
+        EDITAR PRODUCTO
 =============================================*/
+
+$(".tablaReportes tbody").on("click", "button.btnEliminarReporte", function(){
+
+  var idReporte = $(this).attr("idReporte");
+   var codigo = $(this).attr("codigo");
+    var imagen = $(this).attr("imagen");
+  
+   swal({
+        title: '¿Desea eliminar el Reporte?',
+        text: "¡Puede cancelar la accíón!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Si, borrar usuario!'
+      }).then(function(result){
+
+        if(result.value){
+
+          window.location = "index.php?ruta=reporte-admin&idReporte="+idReporte+"&codigo="+codigo+"&imagen="+imagen;
+
+        }
+
+      })
+
+    })
 

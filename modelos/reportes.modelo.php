@@ -155,7 +155,7 @@ class ModeloReportes{
 					BORRAR PRODUCTO
 			=============================================*/
 
-	static public function mdlEliminarProducto($tabla, $datos){
+	static public function mdlEliminarReportes($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 

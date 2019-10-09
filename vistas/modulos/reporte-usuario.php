@@ -48,7 +48,7 @@
            <th>Descripción</th>
            <th>Estado</th>
            <th>Agregado</th>
-           <th>Accion</th>
+           <th>Ver Reporte</th>
 
          </tr> 
 
@@ -103,7 +103,7 @@
                        echo ' <td>'.$value["fecha"].'</td>
 
                                <td>
-                               <div><button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                               <div><button class="btn btn-warning btnEditarReporte" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarReporte"><i class="fa fa-search-plus"></i></button>
                                </div>
 
                           </td>
@@ -316,3 +316,150 @@ MODAL AGREGAR Reporte
   </div>
 
 </div>
+
+<!--=====================================
+=            Editar Reporte          =
+======================================-->
+
+<div id="modalEditarReporte" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+        <!--=====================================
+             CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#00a65a; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Reporte</h4>
+
+        </div>
+
+        <!--=====================================
+              CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">  
+
+            <!-- Entrada para Categoria -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" name="editarCategoria"  readonly>
+                  
+                  <option id="editarCategoria"></option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para editar codigo -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarCodigo" id="editarCodigo"  readonly>
+
+              </div>
+
+            </div>
+
+            <!--Entrada para editar Usuario -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                 <input type="text" class="form-control input-lg" name="editarUsuario"  id="editarUsuario" readonly>
+
+               
+
+              </div>
+
+            </div>
+
+            <!-- entrada para editar Ubicacion -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                
+                  
+                  <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
+
+                
+
+              </div>
+
+            </div>
+
+            <!-- -->
+
+            <div class="form-group">
+
+                <label for="comment">Descripción:</label>
+
+                <textarea class="form-control" rows="4" id="editarDescripcion" name="editarDescripcion" required></textarea>
+
+
+            </div>
+
+            <!-- Entrada para editar foto -->
+
+             <div class="form-group">
+              
+              <div class="panel">SUBIR IMAGEN</div>
+
+              <input type="file" id="editarImagen" name="editarImagen">
+
+              <p class="help-block">Peso máximo de la imagen 2MB</p>
+
+              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  verimagen" width="100px">
+              <input type="hidden" name="imagenActual" id="imagenActual">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+               PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+

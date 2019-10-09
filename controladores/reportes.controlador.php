@@ -332,21 +332,23 @@ class ControladorReportes{
 	/*=============================================
 	BORRAR PRODUCTO
 	=============================================*/
-	static public function ctrEliminarProducto(){
+	static public function ctrEliminarReporte(){
 
-		if(isset($_GET["idProducto"])){
 
-			$tabla ="productos";
-			$datos = $_GET["idProducto"];
+		if(isset($_GET["idReporte"])){
+
+			$tabla ="reportes";
+			$datos = $_GET["idReporte"];
 
 			if($_GET["imagen"] != "" && $_GET["imagen"] != "vistas/img/productos/default/anonymous.png"){
 
 				unlink($_GET["imagen"]);
-				rmdir('vistas/img/productos/'.$_GET["codigo"]);
+
+				rmdir('vistas/img/reportes/'.$_GET["codigo"]);
 
 			}
 
-			$respuesta = ModeloProductos::mdlEliminarProducto($tabla, $datos);
+			$respuesta = ModeloReportes::mdlEliminarReportes($tabla, $datos);
 
 			if($respuesta == "ok"){
 
@@ -354,13 +356,13 @@ class ControladorReportes{
 
 				swal({
 					  type: "success",
-					  title: "El producto ha sido borrado correctamente",
+					  title: "El Reporte ha sido borrado correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "productos";
+								window.location = "reporte-admin";
 
 								}
 							})

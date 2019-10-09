@@ -481,6 +481,17 @@ MODAL AGREGAR Reporte
 </div>
 
 
+<?php 
+
+   $eliminarReporte = new ControladorReportes();
+   $eliminarReporte->ctrEliminarReporte();
+
+
+
+
+ ?>
+
+
 
 <!--====  End of Section comment  ====-->
 
