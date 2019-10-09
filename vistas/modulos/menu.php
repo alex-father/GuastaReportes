@@ -92,30 +92,12 @@
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"]== "Empleado"){
 
 
-			echo '<li class="treeview">
-
-				<a href="#">
-
-					<i class="fa fa-list-ul"></i>
-					
-					<span>Reportes</span>
-					
-					<span class="pull-right-container">
-					
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
+			echo '<li>
 
 						<a href="reporte-admin">
 							
 							<i class="fa fa-clipboard"></i>
-							<span>Administrar Reportes</span>
+							<span>Reportes</span>
 
 						</a>
 
@@ -123,10 +105,10 @@
 
 					<li>
 
-						<a href="crear-reporte">
+						<a href="reportes">
 							
 							<i class="fa fa-pencil-square-o"></i>
-							<span>Crear Reporte</span>
+							<span>Administrar Reportes</span>
 
 						</a>
 
@@ -137,7 +119,7 @@
 						<a href="crear-informe">
 							
 							<i class="fa  fa-pie-chart"></i>
-							<span>Informe de Reportes</span>
+							<span>Crear Reportes</span>
 
 						</a>
 

@@ -29,7 +29,9 @@ class TablaReportes{
  	 		TRAEMOS LA IMAGEN
   			=============================================*/ 
 
-		  	$imagen = "<img src='".$reportes[$i]["imagen"]."' width='40px'>";
+		  	$imagen = "<a href='".$reportes[$i]["imagen"]."' download><img src='".$reportes[$i]["imagen"]."' width='100' height='120'></a>";
+
+		  	
 
 		  	/*=============================================
  	 		TRAEMOS LA CATEGORÍA
