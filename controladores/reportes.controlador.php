@@ -18,6 +18,23 @@ class ControladorReportes{
 
 	}
 
+
+	/*=============================================
+			Mostrar Reportes de Usuario
+	=============================================*/
+
+	static public function ctrMostrarReportesUsuario($item, $valor){
+		
+
+
+		$tabla = "reportes";
+
+		$respuesta = ModeloReportes::mdlMostrarReportesUsuario($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
 	/*=============================================
 	CREAR Reportes
 	=============================================*/

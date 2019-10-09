@@ -63,7 +63,7 @@
 
          
 
-            $reportes = ControladorReportes::ctrMostrarReportes($item, $valor);
+            $reportes = ControladorReportes::ctrMostrarReportesUsuario($item, $valor);
 
            
 
