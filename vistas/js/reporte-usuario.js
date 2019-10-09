@@ -50,4 +50,74 @@ $("#nuevaCategoria").change(function(){
 
 })
 
+/*=============================================
+=           Ver Reporte          =
+=============================================*/
+
+
+$(".tablas tbody").on("click", "button.btnEditarReporte", function(){
+
+  var idReporte = $(this).attr("idReporte");
+
+  console.log("respuesta", idReporte);
+  
+  var datos = new FormData();
+    datos.append("idReporte", idReporte);
+
+     $.ajax({
+
+      url: "ajax/reportes.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+
+        console.log("respuesta", respuesta);
+
+        var datosCategorias = new FormData();
+        datosCategorias.append("idCategoria",respuesta["id_categoria"]);
+
+        $.ajax({
+
+          url: "ajax/categorias.ajax.php",
+          method: "POST",
+          data: datosCategorias,
+          cache: false,
+          contentType: false,
+          processData: false,
+          dataType: "json",
+          success:function(respuesta){
+
+            
+
+            $("#editarCategoria").val(respuesta["id"]);
+            $("#editarCategoria").html(respuesta["categoria"]);
+
+
+          }
+
+        })
+          
+          $("#editarCodigo").val(respuesta["codigo_reporte"]);
+          $("#editarUsuario").val(respuesta["usuario"]);
+          $("#editarUbicacion").val(respuesta["lugar"]);
+          $("#editarDescripcion").val(respuesta["descripcion"]);
+
+          if(respuesta["imagen"] != ""){
+
+          $("#imagenActual").val(respuesta["imagen"]);
+          $(".verimagen").attr("src", respuesta["imagen"]);
+
+        }
+
+      }
+
+  })
+
+})
+
+
 

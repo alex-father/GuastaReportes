@@ -103,7 +103,7 @@
                        echo ' <td>'.$value["fecha"].'</td>
 
                                <td>
-                               <div><button class="btn btn-warning btnEditarReporte" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarReporte"><i class="fa fa-search-plus"></i></button>
+                               <div><button class="btn btn-warning btnEditarReporte" idReporte="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarReporte"><i class="fa fa-search-plus"></i></button>
                                </div>
 
                           </td>
@@ -356,10 +356,8 @@ MODAL AGREGAR Reporte
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <select class="form-control input-lg" name="editarCategoria"  readonly>
                   
-                  <option id="editarCategoria"></option>
+                   <input class="form-control input-lg" name="editarCategoria" readonly id="editarCategoria"></input>
 
                 </select>
 
@@ -421,22 +419,20 @@ MODAL AGREGAR Reporte
 
                 <label for="comment">Descripción:</label>
 
-                <textarea class="form-control" rows="4" id="editarDescripcion" name="editarDescripcion" required></textarea>
+                <textarea class="form-control" rows="4" id="editarDescripcion" name="editarDescripcion" readonly></textarea>
 
 
             </div>
 
             <!-- Entrada para editar foto -->
 
-             <div class="form-group">
+             <div class="form-group " readonly>
               
-              <div class="panel">SUBIR IMAGEN</div>
+              <div class="panel" readonly>VER IMAGEN</div>
 
-              <input type="file" id="editarImagen" name="editarImagen">
+              <p class="help-block">Imagen del Reporte</p>
 
-              <p class="help-block">Peso máximo de la imagen 2MB</p>
-
-              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  verimagen" width="100px">
+              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  verimagen" width="100px" readonly>
               <input type="hidden" name="imagenActual" id="imagenActual">
 
             </div>
