@@ -164,7 +164,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" name="nuevaCategorias" id="nuevaCategorias" required>
+                <select class="form-control input-lg" name="categoriaUsuario" id="categoriaUsuario" required>
                   
                   <option value="">Selecionar categoría</option>
 
@@ -198,7 +198,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" readonly>
+                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" value="" readonly>
 
               </div>
 
