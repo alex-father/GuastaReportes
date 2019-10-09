@@ -123,7 +123,7 @@
 
                     <div class="input-group">
 
-                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <span class="input-group-addon"><i class="fa fa-user-secret"></i></span>
 
                       <input type="text" class="form-control input-lg" name="nuevoUsuario"
                        id="nuevoUsuario" placeholder="Ingresar usuario" required>
@@ -153,10 +153,39 @@
 
                     <div class="input-group">
 
-                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <span class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></span>
 
                       <input type="text" class="form-control input-lg" name="nuevoNumero" id="nuevoNumero" 
                       placeholder="Ingresar su número" >
+                      
+                    </div>
+                    
+                  </div>
+                  <!-- entrada del email -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoEmail" id="nuevoEmail" 
+                      placeholder="Ingresar su email" >
+                      
+                    </div>
+                    
+                  </div>
+
+                  <!-- entrada del dpi -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-code"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoDpi" id="nuevoDpi" 
+                      placeholder="Ingresa tu DPI por seguridad" >
                       
                     </div>
                     

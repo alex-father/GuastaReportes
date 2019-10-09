@@ -63,6 +63,8 @@ class ModeloUsuarios{
 		$stmt->bindParam(":usuario", $datos["usuario"],PDO::PARAM_STR);
 		$stmt->bindParam(":password", $datos["password"],PDO::PARAM_STR);
 		$stmt->bindParam(":perfil", $datos["perfil"],PDO::PARAM_STR);
+		$stmt->bindParam(":email", $datos["email"],PDO::PARAM_STR);
+		$stmt->bindParam(":dpi_user", $datos["dpi_user"],PDO::PARAM_STR);
 		$stmt->bindParam(":foto", $datos["ruta"],PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["telefono"],PDO::PARAM_STR);
 		$stmt->bindParam(":estado", $datos["estado"],PDO::PARAM_STR);
