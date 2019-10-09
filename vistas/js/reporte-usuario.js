@@ -7,11 +7,9 @@
 
 
 
-$("#categoriaUsuario").change(function(){
+$("#nuevaCategoria").change(function(){
 
   var idCategoria = $(this).val();
-
-  console.log("respuesta", idCategoria);
 
   var datos = new FormData();
     datos.append("idCategoria", idCategoria);

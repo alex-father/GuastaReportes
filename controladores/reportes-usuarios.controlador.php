@@ -1,35 +1,19 @@
 <?php
 
-class ControladorReportes{
-
-	/*=============================================
-	MOSTRAR Reportes
-	=============================================*/
-
-	static public function ctrMostrarReportes($item, $valor){
-		
-
-
-		$tabla = "reportes";
-
-		$respuesta = ModeloReportes::mdlMostrarReportes($tabla, $item, $valor);
-
-		return $respuesta;
-
-	}
+class ControladorReportesUsuarios{
 
 
 	/*=============================================
 			Mostrar Reportes de Usuario
 	=============================================*/
 
-	static public function ctrMostrarReportesUsuario($item, $valor){
+	static public function ctrMostrarReportesUsuarios($item, $valor){
 		
 
 
 		$tabla = "reportes";
 
-		$respuesta = ModeloReportes::mdlMostrarReportesUsuario($tabla, $item, $valor);
+		$respuesta = ModeloReportesUsuarios::mdlMostrarReportesUsuarios($tabla, $item, $valor);
 
 		return $respuesta;
 
@@ -39,7 +23,7 @@ class ControladorReportes{
 	CREAR Reportes
 	=============================================*/
 
-	static public function ctrCrearReportes(){
+	static public function ctrCrearReportesUsuarios(){
 
 		
 
@@ -131,10 +115,10 @@ class ControladorReportes{
 
 
 
-				$respuesta = ModeloReportes::mdlIngresarReporte($tabla, $datos);
+				$respuesta = ModeloReportesUsuarios::mdlIngresarReportesUsuarios($tabla, $datos);
 
 
-				var_dump($respuesta);
+				
 
 				if($respuesta == "ok"){
 
@@ -149,7 +133,7 @@ class ControladorReportes{
 										if (result.value) {
 											
 
-										window.location = "reporte-admin";
+										window.location = "reporte-usuario";
 
 										}
 									})
@@ -188,7 +172,7 @@ class ControladorReportes{
 	EDITAR PRODUCTO
 	=============================================*/
 
-	static public function ctrEditarProducto(){
+	static public function ctrEditarReportesUsuarios(){
 
 		if(isset($_POST["editarDescripcion"])){
 
@@ -282,7 +266,7 @@ class ControladorReportes{
 							   "descripcion" => $_POST["editarDescripcion"],
 							   "imagen" => $ruta);
 
-				$respuesta = ModeloReportes::mdlEditarReporte($tabla, $datos);
+				$respuesta = ModeloReportesUsuarios::mdlEditarReportesUsuarios($tabla, $datos);
 
 				if($respuesta == "ok"){
 
@@ -326,50 +310,6 @@ class ControladorReportes{
 			  	</script>';
 			}
 		}
-
-	}
-
-	/*=============================================
-	BORRAR PRODUCTO
-	=============================================*/
-	static public function ctrEliminarProducto(){
-
-		if(isset($_GET["idProducto"])){
-
-			$tabla ="productos";
-			$datos = $_GET["idProducto"];
-
-			if($_GET["imagen"] != "" && $_GET["imagen"] != "vistas/img/productos/default/anonymous.png"){
-
-				unlink($_GET["imagen"]);
-				rmdir('vistas/img/productos/'.$_GET["codigo"]);
-
-			}
-
-			$respuesta = ModeloProductos::mdlEliminarProducto($tabla, $datos);
-
-			if($respuesta == "ok"){
-
-				echo'<script>
-
-				swal({
-					  type: "success",
-					  title: "El producto ha sido borrado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-								if (result.value) {
-
-								window.location = "productos";
-
-								}
-							})
-
-				</script>';
-
-			}		
-		}
-
 
 	}
 

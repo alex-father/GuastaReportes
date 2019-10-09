@@ -63,14 +63,14 @@
 
          
 
-            $reportes = ControladorReportes::ctrMostrarReportesUsuario($item, $valor);
+            $reportes = ControladorReportesUsuarios::ctrMostrarReportesUsuarios($item, $valor);
 
            
 
             foreach ($reportes as $key => $value) {
 
 
-              echo '<tr>
+              echo '
                         <td>'.($key+1).'</td>
                         <td><img src="'.$value["imagen"].'" class="img-thumbnail" width="40px"></td>';
 
@@ -100,10 +100,13 @@
 
                   }
                        
-                       echo ' <td>'.$categoria["fecha"].'</td>
+                       echo ' <td>'.$value["fecha"].'</td>
 
-                               <td><button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
-                               </td>
+                               <td>
+                               <div><button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                               </div>
+
+                          </td>
 
                       </tr>';
               
@@ -164,7 +167,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" name="categoriaUsuario" id="categoriaUsuario" required>
+                <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" required>
                   
                   <option value="">Selecionar categoría</option>
 
@@ -302,8 +305,8 @@ MODAL AGREGAR Reporte
 
          <?php 
 
-          $crearReporte = new ControladorReportes();
-          $crearReporte->ctrCrearReportes();
+          $crearReporte = new ControladorReportesUsuarios();
+          $crearReporte->ctrCrearReportesUsuarios();
          ?>
 
       </form>
