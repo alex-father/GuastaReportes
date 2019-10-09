@@ -1,4 +1,5 @@
-<div class="content-wrapper">
+
+        <div class="content-wrapper">
 
   <section class="content-header">
     
@@ -12,7 +13,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Reportes</li>
+      <li class="active">Crear Reporte Final</li>
     
     </ol>
 
@@ -27,8 +28,8 @@
         <a href="crear-reporte">
 
           <button class="btn btn-success">
-        
-            Crear Reporte final
+            
+            Agregar Reportes
 
           </button>
 
@@ -49,19 +50,19 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+       <table class="table table-bordered table-striped dt-responsive tablas">
          
         <thead>
          
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Código factura</th>
-           <th>Cliente</th>
-           <th>Vendedor</th>
-           <th>Forma de pago</th>
-           <th>Neto</th>
-           <th>Total</th> 
+           <th>Código</th>
+           <th>Usuario</th>
+           <th>Empleado</th>
+           <th>Lugar</th>
+           <th>Descripción</th>
+           <th>Categoria</th> 
            <th>Fecha</th>
            <th>Acciones</th>
 
@@ -70,91 +71,42 @@
         </thead>
 
         <tbody>
+          
+          <tr>
 
-        <?php
+            <td>1</td>
 
-          if(isset($_GET["fechaInicial"])){
+            <td>1000123</td>
 
-            $fechaInicial = $_GET["fechaInicial"];
-            $fechaFinal = $_GET["fechaFinal"];
+            <td>Juan Villegas</td>
 
-          }else{
+            <td>Julio Gómez</td>
 
-            $fechaInicial = null;
-            $fechaFinal = null;
+            <td>TC-12412425346</td>
 
-          }
+            <td>$ 1,000.00</td>
 
-          $respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);
+            <td>$ 1,190.00</td>
 
-          foreach ($respuesta as $key => $value) {
-           
-           echo '<tr>
+            <td>2017-12-11 12:05:32</td>
 
-                  <td>'.($key+1).'</td>
+            <td>
 
-                  <td>'.$value["codigo"].'</td>';
+              <div class="btn-group">
+                  
+                <button class="btn btn-info"><i class="fa fa-print"></i></button>
 
-                  $itemCliente = "id";
-                  $valorCliente = $value["id_cliente"];
+                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
-                  $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+              </div>  
 
-                  echo '<td>'.$respuestaCliente["nombre"].'</td>';
+            </td>
 
-                  $itemUsuario = "id";
-                  $valorUsuario = $value["id_vendedor"];
-
-                  $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
-
-                  echo '<td>'.$respuestaUsuario["nombre"].'</td>
-
-                  <td>'.$value["metodo_pago"].'</td>
-
-                  <td>$ '.number_format($value["neto"],2).'</td>
-
-                  <td>$ '.number_format($value["total"],2).'</td>
-
-                  <td>'.$value["fecha"].'</td>
-
-                  <td>
-
-                    <div class="btn-group">
-                        
-                      <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'">
-
-                        <i class="fa fa-print"></i>
-
-                      </button>';
-
-                      if($_SESSION["perfil"] == "Administrador"){
-
-                      echo '<button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
-
-                      <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-                    }
-
-                    echo '</div>  
-
-                  </td>
-
-                </tr>';
-            }
-
-        ?>
-               
+          </tr>
+          
         </tbody>
 
        </table>
-
-       <?php
-
-      $eliminarVenta = new ControladorVentas();
-      $eliminarVenta -> ctrEliminarVenta();
-
-      ?>
-       
 
       </div>
 
@@ -165,5 +117,4 @@
 </div>
 
 
-
-
+        

@@ -116,7 +116,7 @@
 
 					<li>
 
-						<a href="crear-informe">
+						<a href="crear-reporte">
 							
 							<i class="fa  fa-pie-chart"></i>
 							<span>Crear Reportes</span>
