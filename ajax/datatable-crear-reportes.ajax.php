@@ -32,6 +32,12 @@ class TablaCrearReportes{
 		  	$imagen = "<a href='".$reportes[$i]["imagen"]."' download><img src='".$reportes[$i]["imagen"]."' width='100' height='120'></a>";
 
 
+		  	$item = "id";
+		  	$valor = $reportes[$i]["id_categoria"];
+
+		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+
 		  	/*=============================================
  	 		TRAEMOS LOS ESTADOS
   			=============================================*/
@@ -44,7 +50,7 @@ class TablaCrearReportes{
                   }
                     else{
 
-                   $estado = "<button class='btn btn-danger btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='1'>Desactivado</button>";
+                   $estado = "<button class='btn btn-danger btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."'  estadoReporte='1'>Desactivado</button>";
 
                   }
 
@@ -53,7 +59,7 @@ class TablaCrearReportes{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-success btnAgregarReporte btnrecuperarBoton' id='".$reportes[$i]["id"]."'>Agregar</button></div>";
+		  	$botones =  "<div class='btn-group'><button class='btn btn-success btnAgregarReporte btnrecuperarBoton' codigo='".$categorias["categoria"]."' id='".$reportes[$i]["id"]."'>Agregar</button></div>";
 
 
 

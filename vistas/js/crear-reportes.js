@@ -64,7 +64,7 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
         processData: false,
         success: function(respuesta){
 
-          console.log("respuesta", respuesta);
+         
 
           if(window.matchMedia("(max-width:1400px)").matches){
     
@@ -95,8 +95,10 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
 $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(){
 
 	var idReporte = $(this).attr("id");
+  var categoria = $(this).attr("codigo");
 
-	console.log("respuesta", idReporte);
+
+	console.log("respuesta", categoria);
 
 	$(this).removeClass("btn-success btnAgregarReporte");
 	$(this).addClass("btn-default");
@@ -116,10 +118,12 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
       dataType:"json",
       success:function(respuesta){
 
-        console.log("respuesta2", respuesta);
+     
 
-        var categoria = respuesta["categoria"];
+        var ubicacion = respuesta["lugar"];
         var fecha = respuesta["fecha"];
+        var usuario = respuesta["usuario"];
+        var descripcion = respuesta["descripcion"];
 
         $(".nuevoReporte").append( 
 
@@ -133,7 +137,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
                     
                       '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
                     
-                        '<input type="text" class="form-control xs" id="Usuario" name="Usuario" value="" readonly>'+
+                        '<input type="text" class="form-control xs" id="Usuario" name="Usuario" value="'+usuario+'" readonly>'+
                   
                    '</div>'+
                 
@@ -144,7 +148,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<span class="input-group-addon"><i class="fa fa-map-marker"></i></span> '+
 
-                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+                        '<input type="text" class="form-control" name="" id="" value="'+ubicacion+'" readonly>'+
 
                     '</div>'+
 
@@ -155,7 +159,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<span class="input-group-addon"><i class="fa fa-comments"></i></span>'+
 
-                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+                        '<input type="text" class="form-control" name="" id="" value="'+descripcion+'" readonly>'+
 
                     '</div>'+
 
@@ -166,7 +170,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                      '<span class="input-group-addon"><i class="fa fa-th"></i></span>'+ 
 
-                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+                        '<input type="text" class="form-control" name="" id=""  value="'+categoria+'" readonly>'+
 
                     '</div>'+
 
@@ -177,7 +181,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<span class="input-group-addon"><i class="fa fa-calendar"></i></span> '+
 
-                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+                        '<input type="text" class="form-control" name="" id="" value="'+fecha+'" readonly>'+
 
                     '</div>'+
 

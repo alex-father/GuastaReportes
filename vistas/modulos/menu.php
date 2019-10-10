@@ -105,10 +105,10 @@
 
 					<li>
 
-						<a href="reportes">
+						<a href="crear-reporte">
 							
-							<i class="fa fa-pencil-square-o"></i>
-							<span>Administrar Reportes</span>
+							<i class="fa  fa-pie-chart"></i>
+							<span>Crear Reportes</span>
 
 						</a>
 
@@ -116,10 +116,10 @@
 
 					<li>
 
-						<a href="crear-reporte">
+						<a href="reportes">
 							
-							<i class="fa  fa-pie-chart"></i>
-							<span>Crear Reportes</span>
+							<i class="fa fa-pencil-square-o"></i>
+							<span>Administrar Reportes</span>
 
 						</a>
 
