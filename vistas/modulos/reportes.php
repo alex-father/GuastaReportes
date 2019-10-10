@@ -13,7 +13,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Crear Reporte Final</li>
+      <li class="active">Administrar Reportes</li>
     
     </ol>
 
@@ -29,7 +29,7 @@
 
           <button class="btn btn-success">
             
-            Agregar Reportes
+            Crear Reporte Final
 
           </button>
 
@@ -63,7 +63,7 @@
            <th>Lugar</th>
            <th>Descripción</th>
            <th>Categoria</th> 
-           <th>Fecha</th>
+           <th>Fecha de Reclamo</th>
            <th>Acciones</th>
 
          </tr> 

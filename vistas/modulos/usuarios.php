@@ -138,7 +138,7 @@
    </div>
 
    <!--=====================================
-MODAL AGREGAR Empleado
+      Modal Agregar Usuario
 ======================================-->
 
 <div id="modalAgregarUsuario" class="modal fade" role="dialog">
