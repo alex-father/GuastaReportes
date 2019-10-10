@@ -30,7 +30,15 @@
         
         <div class="box box-success">
           
-          <div class="box-header with-border"></div>
+          <div class="box-header with-border">
+
+            <center>
+            
+              <h3 class="box-title">Informacion del Reporte</h3>
+
+            </center>
+
+          </div>
 
           <form role="form" metohd="post">
 
@@ -46,7 +54,7 @@
                 
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-user-plu"></i></span> 
 
                     <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="<?php echo $_SESSION["nombre"]?>" readonly>
 
@@ -94,24 +102,6 @@
                      ?>
                     
                     
-                  
-                  </div>
-                
-                </div>
-
-                <!--=====================================
-                        Entrada de Usuario
-                ======================================--> 
-
-                <div class="form-group">
-                  
-                  <div class="input-group">
-                    
-                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                    
-                  <input type="text" class="form-control" id="Usuario" name="Usuario" value="" readonly>
-                    
-                    <span class="input-group-addon"><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalRegistroUsuario" data-dismiss="modal">Agregar Usuario</button></span>
                   
                   </div>
                 
@@ -210,9 +200,13 @@
 
       <div class="col-lg-8 hidden-md hidden-sm hidden-xs">
         
-        <div class="box box-warning">
+        <div class="box box-success">
 
-          <div class="box-header with-border"></div>
+          <div class="box-header with-border">
+            
+              <h4>Reportes</h4>
+
+          </div>
 
           <div class="box-body">
             

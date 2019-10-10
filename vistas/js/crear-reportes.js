@@ -124,13 +124,14 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
         $(".nuevoReporte").append( 
 
 
-         
+         		 '<div class="box-body">'+
+         		 '<div class="box">'+
 
                  '<div class="form-group">'+
                   
                     '<div class="input-group">'+
                     
-                      '<span class="input-group-addon "><i class="fa fa-users"></i></span>'+
+                      '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
                     
                         '<input type="text" class="form-control xs" id="Usuario" name="Usuario" value="" readonly>'+
                   
@@ -180,7 +181,12 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 
                     '</div>'+
 
-                '</div>'
+                    '</div>'+
+
+                 '</div>'+
+                   
+
+              '</div>'
 
                  
                  )
