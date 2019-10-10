@@ -43,6 +43,8 @@ class AjaxEmpleados{
 
 		$respuesta = ModeloEmpleados::mdlActualizarEmpleado($tabla, $item1, $valor1, $item2, $valor2);
 
+
+
 	}
 
 	/*=============================================
@@ -78,7 +80,7 @@ if(isset($_POST["idEmpleado"])){
 ACTIVAR Empleado
 =============================================*/	
 
-if(isset($_POST["activarEmpleado"])){
+if(isset($_POST["activarId"])){
 
 	$activarEmpleado = new AjaxEmpleados();
 	$activarEmpleado -> activarEmpleado = $_POST["activarEmpleado"];

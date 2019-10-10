@@ -100,10 +100,11 @@ $(document).on("click", ".btnEditarEmpleado", function(){
             Activar Empleado
           =============================================*/
 
-$(document).on("click", ".btnActivarEmpleado", function(){
+$(".tablas").on("click", ".btnActivarEmpleado", function(){
 
   var idEmpleado = $(this).attr("idEmpleado");
   var estadoEmpleado = $(this).attr("estadoEmpleado");
+
 
   var datos = new FormData();
   datos.append("activarId", idEmpleado);
@@ -119,7 +120,9 @@ $(document).on("click", ".btnActivarEmpleado", function(){
         processData: false,
         success: function(respuesta){
 
-          if(window.matchMedia("(max-width:767px)").matches){
+          console.log("res", respuesta);
+
+          if(window.matchMedia("(max-width:1400px)").matches){
     
            swal({
             title: "El empleado ha sido actualizado",

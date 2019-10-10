@@ -118,10 +118,76 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 
         console.log("respuesta2", respuesta);
 
+        var categoria = respuesta["categoria"];
+        var fecha = respuesta["fecha"];
+
+        $(".nuevoReporte").append( 
 
 
-		}
-	})
+         
+
+                 '<div class="form-group">'+
+                  
+                    '<div class="input-group">'+
+                    
+                      '<span class="input-group-addon "><i class="fa fa-users"></i></span>'+
+                    
+                        '<input type="text" class="form-control xs" id="Usuario" name="Usuario" value="" readonly>'+
+                  
+                   '</div>'+
+                
+                '</div>'+
+                '<div class="form-group">'+
+              
+                    '<div class="input-group">'+
+              
+                      '<span class="input-group-addon"><i class="fa fa-map-marker"></i></span> '+
+
+                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+
+                    '</div>'+
+
+                '</div>'+
+                '<div class="form-group">'+
+              
+                    '<div class="input-group">'+
+              
+                      '<span class="input-group-addon"><i class="fa fa-comments"></i></span>'+
+
+                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+
+                    '</div>'+
+
+                '</div>'+
+                '<div class="form-group">'+
+              
+                    '<div class="input-group">'+
+              
+                     '<span class="input-group-addon"><i class="fa fa-th"></i></span>'+ 
+
+                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+
+                    '</div>'+
+
+                '</div>'+
+                '<div class="form-group">'+
+              
+                    '<div class="input-group">'+
+              
+                      '<span class="input-group-addon"><i class="fa fa-calendar"></i></span> '+
+
+                        '<input type="text" class="form-control" name="" id=""  readonly>'+
+
+                    '</div>'+
+
+                '</div>'
+
+                 
+                 )
+
+			}
+
+		})
   
 	
-})
+	})

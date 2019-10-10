@@ -420,7 +420,7 @@ class ControladorEmpleados{
 
 										swal({
 											  type: "success",
-											  title: "El usuario ha sido editado correctamente",
+											  title: "El empleado ha sido editado correctamente",
 											  showConfirmButton: true,
 											  confirmButtonText: "Cerrar"
 											  }).then(function(result){
