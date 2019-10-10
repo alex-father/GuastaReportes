@@ -64,6 +64,7 @@
            <th>Descripción</th>
            <th>Categoria</th> 
            <th>Fecha de Reclamo</th>
+           <th>Fecha de Creacion</th>
            <th>Acciones</th>
 
          </tr> 
@@ -89,6 +90,7 @@
             <td>$ 1,190.00</td>
 
             <td>2017-12-11 12:05:32</td>
+             <td>2017-12-11 12:05:32</td>
 
             <td>
 

@@ -30,7 +30,7 @@ class ControladorReportesUsuarios{
 		if (isset($_POST["nuevoCodigo"])){
 
 
-					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]) &&
+					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,.]+$/', $_POST["nuevaDescripcion"]) &&
 						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
 
 
@@ -176,7 +176,7 @@ class ControladorReportesUsuarios{
 
 		if(isset($_POST["editarDescripcion"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,. ]+$/', $_POST["editarDescripcion"])){
 
 		   		/*=============================================
 				VALIDAR IMAGEN

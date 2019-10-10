@@ -40,7 +40,7 @@
 
           </div>
 
-          <form role="form" metohd="post">
+          <form role="form" method="POST" class="formularioReporte">
 
             <div class="box-body">
   
@@ -218,7 +218,7 @@
                   <th style="width: 10px">#</th>
                   <th>Imagen</th>
                   <th>Ubicacion</th>
-                  <th>Descripcion</th>
+                  <th>Codigo Reporte</th>
                   <th>Usuario</th>
                   <th>Estado</th>
                   <th>Acciones</th>

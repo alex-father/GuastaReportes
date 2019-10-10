@@ -59,7 +59,7 @@ class TablaCrearReportes{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-success btnAgregarReporte btnrecuperarBoton' codigo='".$categorias["categoria"]."' id='".$reportes[$i]["id"]."'>Agregar</button></div>";
+		  	$botones =  "<div class='btn-group'><button class='btn btn-success btnAgregarReporte btnRecuperarBoton' codigo='".$categorias["categoria"]."' id='".$reportes[$i]["id"]."'>Agregar</button></div>";
 
 
 
@@ -68,7 +68,7 @@ class TablaCrearReportes{
 			      "'.($i+1).'",
 			      "'.$imagen.'",
 			      "'.$reportes[$i]["lugar"].'",
-			      "'.$reportes[$i]["descripcion"].'",
+			      "'.$reportes[$i]["codigo_reporte"].'",
 			      "'.$reportes[$i]["usuario"].'",
 			      "'.$estado.'",
 			      "'.$botones.'"

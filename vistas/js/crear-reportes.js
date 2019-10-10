@@ -97,9 +97,6 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 	var idReporte = $(this).attr("id");
   var categoria = $(this).attr("codigo");
 
-
-	console.log("respuesta", categoria);
-
 	$(this).removeClass("btn-success btnAgregarReporte");
 	$(this).addClass("btn-default");
 
@@ -124,6 +121,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
         var fecha = respuesta["fecha"];
         var usuario = respuesta["usuario"];
         var descripcion = respuesta["descripcion"];
+
 
         $(".nuevoReporte").append( 
 
@@ -157,17 +155,6 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                     '<div class="input-group">'+
               
-                      '<span class="input-group-addon"><i class="fa fa-comments"></i></span>'+
-
-                        '<input type="text" class="form-control" name="" id="" value="'+descripcion+'" readonly>'+
-
-                    '</div>'+
-
-                '</div>'+
-                '<div class="form-group">'+
-              
-                    '<div class="input-group">'+
-              
                      '<span class="input-group-addon"><i class="fa fa-th"></i></span>'+ 
 
                         '<input type="text" class="form-control" name="" id=""  value="'+categoria+'" readonly>'+
@@ -182,10 +169,24 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
                       '<span class="input-group-addon"><i class="fa fa-calendar"></i></span> '+
 
                         '<input type="text" class="form-control" name="" id="" value="'+fecha+'" readonly>'+
+                        
+                    '</div>'+
+
+                '</div>'+
+                '<div class="form-group">'+
+              
+                    '<div class="input-group">'+
+              
+                      '<label for="comment">Descripción:</label>'+
+
+                        '<textarea class="form-control" rows="6"  id="nuevaDescripcion" value="'+descripcion+'" readonly>"'+descripcion+'"</textarea>'+
 
                     '</div>'+
 
-                    '</div>'+
+                '</div>'+
+
+                    '<button type="button" class="btn btn-danger btn-md quitarReporte" idReporte="'+idReporte+'"><i class="fa fa-times"></i></button>'+
+
 
                  '</div>'+
                    
@@ -201,3 +202,20 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
   
 	
 	})
+
+
+$(".formularioReporte").on("click", "button.quitarReporte", function(){
+
+
+
+
+$(this).parent().parent().remove();
+
+  var idReporte = $(this).attr("idReporte");
+
+  console.log("boton", idReporte);
+
+  $("button.btnRecuperarBoton[idReporte='"+idReporte+"']").addClass('btn-success btnAgregarReporte');
+
+
+})
