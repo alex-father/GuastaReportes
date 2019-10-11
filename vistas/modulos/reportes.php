@@ -72,25 +72,40 @@
         </thead>
 
         <tbody>
+
+
+          <?php 
+
+          $item = null;
+
+          $valor = null;
+
+
+          $respuesta = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
+
+
+          foreach ($respuesta as $key => $value) {
+            # code...
           
-          <tr>
+          echo ' <tr>
 
-            <td>1</td>
+            <td>'.($key+1).'1</td>
 
-            <td>1000123</td>
+            <td>'.$value["codigo"].'</td>
 
-            <td>Juan Villegas</td>
+            <td>'.$value["id_usuario"].'</td>
 
-            <td>Julio Gómez</td>
+            <td>'.$value["id_empleado"].'</td>
 
-            <td>TC-12412425346</td>
+            <td>'.$value["lugar"].'</td>
 
-            <td>$ 1,000.00</td>
+            <td>'.$value["descripcion"].'</td>
 
-            <td>$ 1,190.00</td>
+            <td>'.$value["categoria"].'</td>
 
-            <td>2017-12-11 12:05:32</td>
-             <td>2017-12-11 12:05:32</td>
+            <td>'.$value["fecha_inicio"].'</td>
+
+            <td>'.$value["fecha"].'</td>
 
             <td>
 
@@ -104,7 +119,12 @@
 
             </td>
 
-          </tr>
+          </tr>';
+
+              }
+
+        
+           ?>
           
         </tbody>
 
