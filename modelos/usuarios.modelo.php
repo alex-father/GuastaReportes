@@ -10,6 +10,7 @@ class ModeloUsuarios{
 
 	static public function mdlMostrarUsuarios($tabla, $item, $valor){
 
+		
 
 		/* preguntamos si la variable viene vacia */
 

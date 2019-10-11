@@ -137,7 +137,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
                     
                       '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
                     
-                        '<input type="text" class="form-control xs usuario" id="Usuario" name="Usuario" value="'+usuario+'" readonly>'+
+                        '<input type="text" class="form-control xs usuario" id="usuario" name="usuario" value="'+usuario+'" readonly>'+
                   
                    '</div>'+
                 
@@ -272,8 +272,6 @@ $(".agregarReporte").click(function(){
         processData: false,
         dataType:"json",
         success:function(respuesta){
-
-           console.log("res", respuesta);
           
 
         var ubicacion = respuesta["lugar"];
@@ -294,7 +292,7 @@ $(".agregarReporte").click(function(){
                             
                               '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
                             
-                                '<input type="text" class="form-control usuario" value=""  name="Usuario"  readonly>'+
+                                '<input type="text" class="form-control usuario" value=""  name="usuario"  readonly>'+
                           
                            '</div>'+
                         
@@ -305,7 +303,7 @@ $(".agregarReporte").click(function(){
                       
                               '<span class="input-group-addon"><i class="fa fa-map-marker"></i></span> '+
 
-                                '<input type="text" class="form-control Ubicacion " name=""  readonly>'+
+                                '<input type="text" class="form-control Ubicacion " value="" name="Ubicacion"  readonly>'+
 
                             '</div>'+
 
@@ -316,7 +314,7 @@ $(".agregarReporte").click(function(){
                       
                              '<span class="input-group-addon"><i class="fa fa-th"></i></span>'+ 
 
-                                '<input type="text" class="form-control Categoria" name=""    readonly>'+
+                                '<input type="text" class="form-control Categoria" name="Categoria"    readonly>'+
 
                             '</div>'+
 
@@ -412,8 +410,6 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
   var codigoReporte = $(this).val();
 
- 
-
     var datos = new FormData();
     datos.append("idReporte", codigoReporte);
 
@@ -443,6 +439,8 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
+            console.log("ubicacion", respuesta["lugar"]);
+
              
 
             $(".Categoria").val(respuesta["categoria"]);
@@ -454,8 +452,8 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
         })
 
-          $(".Usuario").val(respuesta["usuario"]);
-          $(".Ubicacion").val(respuesta["lugar"]);
+          $(".usuario").val(respuesta["usuario"]);
+          $(".Ubicacion").val(respuesta["5"]);
           $(".Descripcion").val(respuesta["descripcion"]);
           $(".Fecha").val(respuesta["fecha"]);
 
@@ -495,7 +493,7 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
                                               })  
 
-                      console.log(listarReportes);
+                     
 
                           $("#listarReportes").val(JSON.stringify(listarReportes)); 
 

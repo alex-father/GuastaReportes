@@ -91,6 +91,7 @@
 
                       $reportes = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
 
+
                       if(!$reportes){
 
                         echo '<input type="text" class="form-control" id="nuevoReporteCreado" name="nuevoReporteCreado" value="1000" readonly>';
@@ -99,8 +100,12 @@
                       }else{
 
                         foreach ($reportes as $key => $value) {
-                          # code...
+
+
+
                         }
+
+                        var_dump($value["codigo"]);
 
                         $codigo = $value["codigo"]+ 1;
 

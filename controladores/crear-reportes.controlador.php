@@ -11,9 +11,12 @@ class ControladorCrearReportes{
 		
 
 
-		$tabla = "crear-reporte";
+		$tabla = "crear_reporte";
+
 
 		$respuesta = ModeloCrearReportes::mdlMostrarCrearReportes($tabla, $item, $valor);
+
+
 
 		return $respuesta;
 
@@ -25,9 +28,86 @@ class ControladorCrearReportes{
 
 	static public function ctrCrearReportesUsuarios(){
 
-		var_dump($_POST);
+	
 
 		
+		if(isset($_POST["nuevoReporteCreado"])){
+
+			$item = "usuario";
+			$valor = $_POST["usuario"];
+			$tabla = "usuarios";
+
+		
+
+
+			$usuario = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
+
+			$id_usuario = $usuario["id"];
+
+			
+
+			/*=============================================
+			GUARDAR LA COMPRA
+			=============================================*/	
+
+			$tabla = "crear_reporte";
+
+			$datos = array("codigo"=>$_POST["nuevoReporteCreado"],
+							"id_usuario"=>$id_usuario,
+						   "id_empleado"=>$_POST["idEmpleado"],
+						   "categoria"=>$_POST["Categoria"],
+						   "lugar"=>$_POST["Ubicacion"],
+						   "descripcion"=>$_POST["Descripcion"],
+						   "fecha_inicio"=>$_POST["Fecha"]);
+			
+			$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
+
+			
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El reporte ha sido creado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "reportes";
+
+								}
+							});
+
+							</script>';
+
+			}else{
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El reporte no se guardo",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then((result) => {
+								if (result.value) {
+
+								window.location = "crear-reporte";
+
+								}
+							}); 
+
+					</script>';
+
+
+
+
+			}
+
+		}
 
 	
 
