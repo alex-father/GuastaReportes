@@ -84,6 +84,8 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
 
         }
 
+        listarReportes();
+
      }
 
  	})
@@ -135,7 +137,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
                     
                       '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
                     
-                        '<input type="text" class="form-control xs" id="Usuario" name="Usuario" value="'+usuario+'" readonly>'+
+                        '<input type="text" class="form-control xs usuario" id="Usuario" name="Usuario" value="'+usuario+'" readonly>'+
                   
                    '</div>'+
                 
@@ -146,7 +148,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<span class="input-group-addon"><i class="fa fa-map-marker"></i></span> '+
 
-                        '<input type="text" class="form-control" name="" id="" value="'+ubicacion+'" readonly>'+
+                        '<input type="text" class="form-control ubicacion" name="Ubicacion" id="" value="'+ubicacion+'" readonly>'+
 
                     '</div>'+
 
@@ -157,7 +159,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                      '<span class="input-group-addon"><i class="fa fa-th"></i></span>'+ 
 
-                        '<input type="text" class="form-control" name="" id=""  value="'+categoria+'" readonly>'+
+                        '<input type="text" class="form-control categoria" name="Categoria"  value="'+categoria+'" readonly>'+
 
                     '</div>'+
 
@@ -168,7 +170,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<span class="input-group-addon"><i class="fa fa-calendar"></i></span> '+
 
-                        '<input type="text" class="form-control" name="" id="" value="'+fecha+'" readonly>'+
+                        '<input type="text" class="form-control fecha" name="Fecha"  value="'+fecha+'" readonly>'+
                         
                     '</div>'+
 
@@ -179,7 +181,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<label for="comment">Descripción:</label>'+
 
-                        '<textarea class="form-control" rows="6"  id="nuevaDescripcion" value="'+descripcion+'" readonly>"'+descripcion+'"</textarea>'+
+                        '<textarea class="form-control descripcion" rows="6"  name="Descripcion" value="'+descripcion+'" readonly>"'+descripcion+'"</textarea>'+
 
                     '</div>'+
 
@@ -191,10 +193,10 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
                  '</div>'+
                    
 
-              '</div>'
+              '</div>')
 
-                 
-                 )
+
+        listarReportes();
 
 			}
 
@@ -216,6 +218,9 @@ $(".tablaCrearReportes").on("draw.dt", function(){
       $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").removeClass('btn-default');
       $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").addClass('btn-sucess btnAgregarReporte');
 
+
+      listarReportes();
+
     }
 
 
@@ -236,6 +241,9 @@ $(this).parent().parent().remove();
   var idReporte = $(this).attr("idReporte");
 
   console.log("boton", idReporte);
+
+
+  listarReportes()
 
 
 })
@@ -264,7 +272,8 @@ $(".agregarReporte").click(function(){
         processData: false,
         dataType:"json",
         success:function(respuesta){
-           
+
+           console.log("res", respuesta);
           
 
         var ubicacion = respuesta["lugar"];
@@ -285,7 +294,7 @@ $(".agregarReporte").click(function(){
                             
                               '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
                             
-                                '<input type="text" class="form-control xs Usuario" name="Usuario"  readonly>'+
+                                '<input type="text" class="form-control usuario" value=""  name="Usuario"  readonly>'+
                           
                            '</div>'+
                         
@@ -318,7 +327,7 @@ $(".agregarReporte").click(function(){
                       
                               '<span class="input-group-addon"><i class="fa fa-calendar"></i></span> '+
 
-                                '<input type="text" class="form-control Fecha" name=""   readonly>'+
+                                '<input type="text" class="form-control Fecha" name="Fecha"   readonly>'+
                                 
                             '</div>'+
 
@@ -329,7 +338,7 @@ $(".agregarReporte").click(function(){
                       
                               '<label for="comment">Descripción:</label>'+
 
-                                '<textarea class="form-control Descripcion" rows="6"   readonly></textarea>'+
+                                '<textarea class="form-control Descripcion" name="Descripcion" rows="6"   readonly></textarea>'+
 
                             '</div>'+
 
@@ -349,7 +358,7 @@ $(".agregarReporte").click(function(){
                     
                            '<div class="input-group style="padding:5px 10px">'+
                         
-                                   '<select class="form-control nuevoCodigoReporte" idReporte id="reporte" name="nuevoCodigoReporte" required>'+
+                                   '<select class="form-control nuevoCodigoReporte usuario="'+usuario+'" id="reporte" name="nuevoCodigoReporte" required>'+
 
                                       '<option>Seleccione el Codigo</option>'+
 
@@ -360,6 +369,7 @@ $(".agregarReporte").click(function(){
                     '</div>'+
                       
                  '</div>');
+    listarReportes();
 
 
      respuesta.forEach(funcionForEach);
@@ -373,11 +383,17 @@ $(".agregarReporte").click(function(){
               $(".nuevoCodigoReporte").append(
 
             '<option idReporte="'+item.id+'" value="'+item.id+'">'+item.codigo_reporte+'</option>'
+
+
               )
 
-             
+            
 
          }
+
+         
+
+     
 
       }
 
@@ -396,7 +412,7 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
   var codigoReporte = $(this).val();
 
-  console.log("res", codigoReporte);
+ 
 
     var datos = new FormData();
     datos.append("idReporte", codigoReporte);
@@ -427,9 +443,11 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
-             console.log("res", respuesta);
+             
 
             $(".Categoria").val(respuesta["categoria"]);
+
+        
 
 
           }
@@ -441,7 +459,45 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           $(".Descripcion").val(respuesta["descripcion"]);
           $(".Fecha").val(respuesta["fecha"]);
 
+          listarReportes();
+
         }
 
       })
 })
+
+
+          function listarReportes(){
+
+            var listarReportes = [];
+
+
+           var id = $(".nuevoCodigoReporte");
+
+            var usuario = $(".usuario");
+
+            var categoria = $(".categoria");
+
+            var lugar = $(".ubicacion");
+
+            var descripcion = $(".descripcion");
+
+            var fecha = $(".fecha");
+
+
+
+                        listarReportes.push({ 
+                                              "usuario":$(usuario).val(),
+                                              "categoria":$(categoria).val(),
+                                              "lugar":$(lugar).val(),
+                                              "descripcion":$(descripcion).val(),
+                                              "fecha":$(fecha).val()
+
+                                              })  
+
+                      console.log(listarReportes);
+
+                          $("#listarReportes").val(JSON.stringify(listarReportes)); 
+
+            
+          }

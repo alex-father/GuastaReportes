@@ -126,61 +126,11 @@
 
                 <div class="form-group row nuevoReporte">
 
-                <!--<?php
-
-                $listaProducto = json_decode($venta["productos"], true);
-
-                foreach ($listaProducto as $key => $value) {
-
-                  $item = "id";
-                  $valor = $value["id"];
-                  $orden = "id";
-
-                  $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor, $orden);
-
-                  $stockAntiguo = $respuesta["stock"] + $value["cantidad"];
-                  
-                  echo '<div class="row" style="padding:5px 15px">
-            
-                        <div class="col-xs-6" style="padding-right:0px">
-            
-                          <div class="input-group">
-                
-                            <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto="'.$value["id"].'"><i class="fa fa-times"></i></button></span>
-
-                            <input type="text" class="form-control nuevaDescripcionProducto" idProducto="'.$value["id"].'" name="agregarProducto" value="'.$value["descripcion"].'" readonly required>
-
-                          </div>
-
-                        </div>
-
-                        <div class="col-xs-3">
-              
-                          <input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="'.$value["cantidad"].'" stock="'.$stockAntiguo.'" nuevoStock="'.$value["stock"].'" required>
-
-                        </div>
-
-                        <div class="col-xs-3 ingresoPrecio" style="padding-left:0px">
-
-                          <div class="input-group">
-
-                            <span class="input-group-addon"><i class="">Q</i></span>
-                   
-                            <input type="text" class="form-control nuevoPrecioProducto" precioReal="'.$respuesta["precio_venta"].'" name="nuevoPrecioProducto" value="'.$value["total"].'" readonly required>
-   
-                          </div>
-               
-                        </div>
-
-                      </div>';
-                }
-
-
-                ?>-->
-
                 </div>
 
-                <input type="hidden" id="listaProductos" name="listaProductos">
+
+
+                <input type="hidden" id="listaReportes" name="listaReportes">
 
 
                 <!--=====================================
@@ -202,6 +152,14 @@
           </div>
 
         </form>
+
+        <?php 
+
+            $crearReporte = new ControladorCrearReportes();
+            $crearReporte->ctrCrearReportesUsuarios();
+
+
+         ?>
 
         </div>
             
