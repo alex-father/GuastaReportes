@@ -97,8 +97,8 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 	var idReporte = $(this).attr("id");
   var categoria = $(this).attr("codigo");
 
-	$(this).removeClass("btn-success btnAgregarReporte");
-	$(this).addClass("btn-default");
+	
+	
 
 
 	var datos = new FormData();
@@ -204,10 +204,32 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 	})
 
 
+
+$(".tablaCrearReportes").on("draw.dt", function(){
+
+  if(localStorage.getItem("quitarReporte") != null){
+
+    var listaIdReportes = JSON.parse(localStorage.getItem("quitarReporte"));
+
+    for(var i = 0; i < listaIdReportes.length; i++){
+
+      $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").removeClass('btn-default');
+      $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").addClass('btn-sucess btnAgregarReporte');
+
+    }
+
+
+  }
+
+
+})
+
+
+
+
+
+
 $(".formularioReporte").on("click", "button.quitarReporte", function(){
-
-
-
 
 $(this).parent().parent().remove();
 
@@ -215,7 +237,211 @@ $(this).parent().parent().remove();
 
   console.log("boton", idReporte);
 
-  $("button.btnRecuperarBoton[idReporte='"+idReporte+"']").addClass('btn-success btnAgregarReporte');
+
+})
+
+/*====================================================
+=            Agregar reportes desde movil            =
+====================================================*/
 
 
+var numeroReporte = 0;
+
+$(".agregarReporte").click(function(){
+
+        numeroReporte ++;
+
+  var datos = new FormData();
+  datos.append("traerReportes", "ok");
+
+  $.ajax({
+
+    url:"ajax/reportes.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType:"json",
+        success:function(respuesta){
+           
+          
+
+        var ubicacion = respuesta["lugar"];
+        var fecha = respuesta["fecha"];
+        var usuario = respuesta["usuario"];
+        var descripcion = respuesta["descripcion"];
+        var categoria = respuesta["id_categoria"];
+
+    $(".nuevoReporte").append( 
+
+              '<div class="box-body">'+
+
+                     '<div class="box">'+
+
+                         '<div class="form-group">'+
+                          
+                            '<div class="input-group">'+
+                            
+                              '<span class="input-group-addon "><i class="fa fa-user"></i></span>'+
+                            
+                                '<input type="text" class="form-control xs Usuario" name="Usuario"  readonly>'+
+                          
+                           '</div>'+
+                        
+                        '</div>'+
+                        '<div class="form-group">'+
+                      
+                            '<div class="input-group">'+
+                      
+                              '<span class="input-group-addon"><i class="fa fa-map-marker"></i></span> '+
+
+                                '<input type="text" class="form-control Ubicacion " name=""  readonly>'+
+
+                            '</div>'+
+
+                        '</div>'+
+                        '<div class="form-group">'+ 
+                      
+                            '<div class="input-group">'+
+                      
+                             '<span class="input-group-addon"><i class="fa fa-th"></i></span>'+ 
+
+                                '<input type="text" class="form-control Categoria" name=""    readonly>'+
+
+                            '</div>'+
+
+                        '</div>'+
+                        '<div class="form-group">'+
+                      
+                            '<div class="input-group">'+
+                      
+                              '<span class="input-group-addon"><i class="fa fa-calendar"></i></span> '+
+
+                                '<input type="text" class="form-control Fecha" name=""   readonly>'+
+                                
+                            '</div>'+
+
+                        '</div>'+
+                        '<div class="form-group">'+
+                      
+                            '<div class="input-group">'+
+                      
+                              '<label for="comment">Descripción:</label>'+
+
+                                '<textarea class="form-control Descripcion" rows="6"   readonly></textarea>'+
+
+                            '</div>'+
+
+                        '</div>'+
+                        
+                      
+                            '<div class="input-group">'+
+                      
+                               '<button type="button" class="btn btn-danger btn-md quitarReporte" idReporte=""><i class="fa fa-times"></i></button>'+
+                        
+
+                            '</div>'+
+                  
+                        
+
+                       
+                    
+                           '<div class="input-group style="padding:5px 10px">'+
+                        
+                                   '<select class="form-control nuevoCodigoReporte" idReporte id="reporte" name="nuevoCodigoReporte" required>'+
+
+                                      '<option>Seleccione el Codigo</option>'+
+
+                            
+
+                        '</div>'+
+                        
+                    '</div>'+
+                      
+                 '</div>');
+
+
+     respuesta.forEach(funcionForEach);
+
+    
+
+           function funcionForEach(item, index){
+
+            
+
+              $(".nuevoCodigoReporte").append(
+
+            '<option idReporte="'+item.id+'" value="'+item.id+'">'+item.codigo_reporte+'</option>'
+              )
+
+             
+
+         }
+
+      }
+
+
+  })
+
+})
+
+
+/*=============================================
+          Seleccionar Reporte
+=============================================*/
+
+
+$(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
+
+  var codigoReporte = $(this).val();
+
+  console.log("res", codigoReporte);
+
+    var datos = new FormData();
+    datos.append("idReporte", codigoReporte);
+
+    $.ajax({
+
+      url:"ajax/reportes.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType:"json",
+        success:function(respuesta){
+
+         
+          var datosCategorias = new FormData();
+        datosCategorias.append("idCategoria",respuesta["id_categoria"]);
+
+        $.ajax({
+
+          url: "ajax/categorias.ajax.php",
+          method: "POST",
+          data: datosCategorias,
+          cache: false,
+          contentType: false,
+          processData: false,
+          dataType: "json",
+          success:function(respuesta){
+
+             console.log("res", respuesta);
+
+            $(".Categoria").val(respuesta["categoria"]);
+
+
+          }
+
+        })
+
+          $(".Usuario").val(respuesta["usuario"]);
+          $(".Ubicacion").val(respuesta["lugar"]);
+          $(".Descripcion").val(respuesta["descripcion"]);
+          $(".Fecha").val(respuesta["fecha"]);
+
+        }
+
+      })
 })

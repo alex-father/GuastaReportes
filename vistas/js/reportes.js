@@ -180,13 +180,13 @@ $("#nuevaImagen").change(function(){
 		      confirmButtonText: "¡Cerrar!"
 		    });
 
-  	}else if(imagen["size"] > 2000000){
+  	}else if(imagen["size"] > 5000000){
 
   		$(".nuevaImagen").val("");
 
   		 swal({
-		      title: "Error al subir la imagen",
-		      text: "¡La imagen no debe pesar más de 2MB!",
+		      title: "¡La imagen no debe pesar más de 5MB!",
+		      text: "¡",
 		      type: "error",
 		      confirmButtonText: "¡Cerrar!"
 		    });
@@ -232,13 +232,13 @@ $("#editarImagen").change(function(){
           confirmButtonText: "¡Cerrar!"
         });
 
-    }else if(imagen["size"] > 2000000){
+    }else if(imagen["size"] > 5000000){
 
       $(".editarImagen").val("");
 
        swal({
           title: "Error al subir la imagen",
-          text: "¡La imagen no debe pesar más de 2MB!",
+          text: "¡La imagen no debe pesar más de 5MB!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
         });

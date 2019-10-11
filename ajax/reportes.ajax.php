@@ -31,6 +31,9 @@ class AjaxReportes{
 
 
 
+/*=============================================
+=            Editar Reportes            =
+=============================================*/
 
 
 	public $idReporte;
@@ -45,6 +48,37 @@ class AjaxReportes{
 		echo json_encode($respuesta);
 
 	}
+/*=============================================
+=          Traer Reportes         =
+=============================================*/
+
+public $traerReporte;
+	
+	public function ajaxTraerReportes(){
+
+		if($this->traerReporte == "ok"){
+
+		$item = null;
+		$valor = null;
+
+		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
+
+		echo json_encode($respuesta);
+
+		}
+		  else{
+
+		$item = "id";
+		$valor = $this->traerReporte;
+
+		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
+}
+
 
 
 	public $idCategoria;
@@ -89,7 +123,7 @@ if(isset($_POST["activarReporte"])){
 }
 
 /*=============================================
- crear numero de codigo
+ Crear numero de codigo
 =============================================*/
 if(isset($_POST["idCategoria"])){
 
@@ -98,4 +132,18 @@ if(isset($_POST["idCategoria"])){
 	$editar -> ajaxCrearCodigo();
 
 }
+
+/*=============================================
+   Traer Reportes
+=============================================*/
+if(isset($_POST["traerReportes"])){
+
+	$traerReporte = new AjaxReportes();
+	$traerReporte -> traerReporte = $_POST["traerReportes"];
+	$traerReporte -> ajaxTraerReportes();
+
+}
+
+
+
 

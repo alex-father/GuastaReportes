@@ -75,8 +75,6 @@ $(".tablas tbody").on("click", "button.btnEditarReporte", function(){
       dataType:"json",
       success:function(respuesta){
 
-        console.log("respuesta", respuesta);
-
         var datosCategorias = new FormData();
         datosCategorias.append("idCategoria",respuesta["id_categoria"]);
 

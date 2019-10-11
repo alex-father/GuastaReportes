@@ -54,11 +54,21 @@
                 
                   <div class="input-group">
                     
-                    <span class="input-group-addon"><i class="fa fa-user-plu"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-user-plus"></i></span> 
 
-                    <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="<?php echo $_SESSION["nombre"]?>" readonly>
+                    
+                    <?php 
+                    $idEmpleado = $_SESSION["id"];
+                    $nombreEmpleado =  $_SESSION["nombre"];
 
-                    <input type="hidden" name="idEmpleado" value="<?php echo $_SESSION["id"]?>">
+                    echo ' <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="'.$nombreEmpleado.'" readonly>
+
+                            <input type="hidden" name="idEmpleado" value="'.$idEmpleado.'">';
+
+
+                     ?>
+
+                   
 
                   </div>
 
@@ -106,6 +116,9 @@
                   </div>
                 
                 </div>
+
+
+                  
 
                 <!--=====================================
                       Entrada para agregar el Reporte
@@ -174,7 +187,7 @@
                 BOTÓN PARA AGREGAR PRODUCTO
                 ======================================-->
 
-                <button type="button" class="btn btn-success hidden-lg">Agregar Reporte</button>
+                <button type="button" class="btn btn-success hidden-lg agregarReporte">Agregar Reporte</button>
                 
                 <br>
       
