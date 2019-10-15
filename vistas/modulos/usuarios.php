@@ -157,7 +157,7 @@
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Empleados</h4>
+          <h4 class="modal-title">Agregar Usuarios</h4>
 
         </div>
 
@@ -223,9 +223,9 @@
                   
                   <option value="">Selecionar perfil</option>
 
-                  <option value="Administrador">Administrador</option>
+                  <option value="Usuario">Usuario</option>
 
-                  <option value="Empleado">Empleado</option>
+                
 
                 </select>
 
@@ -259,7 +259,7 @@
 
           <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal" data-backdrop="false">Cerrar</button>
 
-          <button type="submit" class="btn btn-success">Crear Empleado</button>
+          <button type="submit" class="btn btn-success">Crear EUsuario</button>
 
         </div>
 

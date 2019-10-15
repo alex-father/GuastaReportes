@@ -226,7 +226,7 @@
               
                     <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevaFoto" name="nuevaFoto" required>
+                    <input type="file" class="nuevaFotoEmpleado" name="nuevaFotoEmpleado" required>
 
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 
@@ -369,11 +369,11 @@
               
                     <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevafoto" name="editarFoto">
+                    <input type="file" class="nuevaFoto" name="editarFoto" required>
 
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 
-                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
                       <input type="hidden" name="fotoActual" id="fotoActual">
 
                 </div>

@@ -7,7 +7,6 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
 
   var idLugar = $(this).attr("idLugar");
 
-  console.log(idLugar);
   
   var datos = new FormData();
   datos.append("idLugar", idLugar);
@@ -22,8 +21,6 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
     processData: false,
     dataType: "json",
     success: function(respuesta){
-
-      console.log("respuesta", respuesta);
       
       
       $("#editarMunicipio").val(respuesta["municipio"]);

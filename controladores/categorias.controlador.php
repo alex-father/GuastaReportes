@@ -13,7 +13,7 @@ class ControladorCategorias{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
 
-				$tabla = "categorias";
+				$tabla = "tbl_categorias";
 
 				$datos = $_POST["nuevaCategoria"];
 
@@ -72,7 +72,7 @@ class ControladorCategorias{
 
 	static public function ctrMostrarCategorias($item, $valor){
 
-		$tabla = "categorias";
+		$tabla = "tbl_categorias";
 
 		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
 
@@ -90,7 +90,7 @@ class ControladorCategorias{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"])){
 
-				$tabla = "categorias";
+				$tabla = "tbl_categorias";
 
 				$datos = array("categoria"=>$_POST["editarCategoria"],
 							   "id"=>$_POST["idCategoria"]);
@@ -152,7 +152,7 @@ class ControladorCategorias{
 
 		if(isset($_GET["idCategoria"])){
 
-			$tabla ="Categorias";
+			$tabla ="tbl_Categorias";
 			$datos = $_GET["idCategoria"];
 
 			$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);

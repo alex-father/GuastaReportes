@@ -19,7 +19,7 @@ class ControladorEmpleados{
 
 			   	/* Vamos a enviar a la tabla empleados la informacion que sigue  */
 			   	
-				$tabla = "empleados";
+				$tabla = "tbl_empleados";
 
 
 				/* Vamos a enviar una variable $item para que consulte la columna usuario en la tabla */
@@ -198,7 +198,7 @@ class ControladorEmpleados{
 				}
 
 
-					$tabla = "empleados";
+					$tabla = "tbl_empleados";
 
 					/*----------  encripatamos la contraseña con una funcion de PHP ----------*/
 					
@@ -279,7 +279,7 @@ class ControladorEmpleados{
 
 		static public function ctrMostrarEmpleados($item, $valor){
 
-			$tabla = "empleados";
+			$tabla = "tbl_empleados";
 
 			$respuesta = ModeloEmpleados::MdlMostrarEmpleados($tabla, $item, $valor);
 
@@ -370,7 +370,7 @@ class ControladorEmpleados{
 						}
 
 
-								$tabla = "empleados";
+								$tabla = "tbl_empleados";
 
 							if($_POST["editarPassword"] != ""){
 
@@ -471,7 +471,7 @@ class ControladorEmpleados{
 
 		if(isset($_GET["idEmpleado"])){
 
-			$tabla ="empleados";
+			$tabla ="tbl_empleados";
 			$datos = $_GET["idEmpleado"];
 
 			if($_GET["fotoEmpleado"] != ""){

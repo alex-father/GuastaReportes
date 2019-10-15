@@ -10,7 +10,7 @@ class ControladorReportes{
 		
 
 
-		$tabla = "reportes";
+		$tabla = "tbl_reportes";
 
 		$respuesta = ModeloReportes::mdlMostrarReportes($tabla, $item, $valor);
 
@@ -27,7 +27,7 @@ class ControladorReportes{
 		
 
 
-		$tabla = "reportes";
+		$tabla = "btl_reportes";
 
 		$respuesta = ModeloReportes::mdlMostrarReportesUsuario($tabla, $item, $valor);
 
@@ -119,7 +119,7 @@ class ControladorReportes{
 
 		
 
-		$tabla = "reportes";
+		$tabla = "tbl_reportes";
 		
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
@@ -273,7 +273,7 @@ class ControladorReportes{
 
 				}
 
-				$tabla = "reportes";
+				$tabla = "tbl_reportes";
 
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
 							   "codigo_reporte" => $_POST["editarCodigo"],
@@ -337,7 +337,7 @@ class ControladorReportes{
 
 		if(isset($_GET["idReporte"])){
 
-			$tabla ="reportes";
+			$tabla ="tbl_reportes";
 			$datos = $_GET["idReporte"];
 
 			if($_GET["imagen"] != "" && $_GET["imagen"] != "vistas/img/productos/default/anonymous.png"){

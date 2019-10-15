@@ -11,7 +11,7 @@ class ControladorReportesUsuarios{
 		
 
 
-		$tabla = "reportes";
+		$tabla = "tbl_reportes";
 
 		$respuesta = ModeloReportesUsuarios::mdlMostrarReportesUsuarios($tabla, $item, $valor);
 
@@ -103,7 +103,7 @@ class ControladorReportesUsuarios{
 
 		
 
-		$tabla = "reportes";
+		$tabla = "tbl_reportes";
 		
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
@@ -257,7 +257,7 @@ class ControladorReportesUsuarios{
 
 				}
 
-				$tabla = "reportes";
+				$tabla = "tbl_reportes";
 
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
 							   "codigo_reporte" => $_POST["editarCodigo"],

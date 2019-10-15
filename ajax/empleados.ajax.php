@@ -33,7 +33,7 @@ class AjaxEmpleados{
 
 	public function ajaxActivarEmpleado(){
 
-		$tabla = "empleados";
+		$tabla = "tbl_empleados";
 
 		$item1 = "estado";
 		$valor1 = $this->activarEmpleado;

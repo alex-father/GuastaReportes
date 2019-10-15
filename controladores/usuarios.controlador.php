@@ -19,7 +19,7 @@ class ControladorUsuarios{
 
 			   	/* Vamos a enviar a la tabla usuarios la informacion que sigue  */
 			   	
-				$tabla = "usuarios";
+				$tabla = "tbl_usuarios";
 
 
 				/* Vamos a enviar una variable $item para que consulte la columna usuario en la tabla */
@@ -108,6 +108,8 @@ class ControladorUsuarios{
 		=============================================*/
 
 	static public function ctrCrearUsuario(){
+
+		var_dump($_POST);
 
 
 		if(isset($_POST["nuevoUsuario"])){
@@ -204,7 +206,7 @@ class ControladorUsuarios{
 				}
 
 
-					$tabla = "usuarios";
+					$tabla = "tbl_usuarios";
 
 					/*----------  encripatamos la contraseña con una funcion de PHP ----------*/
 					
@@ -287,7 +289,7 @@ class ControladorUsuarios{
 
 		static public function ctrMostrarUsuarios($item, $valor){
 
-			$tabla = "usuarios";
+			$tabla = "tbl_usuarios";
 
 			$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
@@ -303,7 +305,8 @@ class ControladorUsuarios{
 
 		static public function ctrCrearUsuarioLogin(){
 
-
+				var_dump($_POST);
+				
     if(isset($_POST["nuevoUsuario"])){
 
       if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
@@ -401,7 +404,7 @@ class ControladorUsuarios{
         }
 
 
-          $tabla = "usuarios";
+          $tabla = "tbl_usuarios";
           $estado = 1;
 
           /*----------  encripatamos la contraseña con una funcion de PHP ----------*/
@@ -442,7 +445,7 @@ class ControladorUsuarios{
 
             if(result.value){
             
-              window.location = "inicio";
+              window.location = "usuarios";
 
             }
 
@@ -470,7 +473,7 @@ class ControladorUsuarios{
 
             if(result.value){
             
-              window.location = "inicio";
+              window.location = "usuarios";
 
             }
 
@@ -571,7 +574,7 @@ class ControladorUsuarios{
 						}
 
 
-								$tabla = "usuarios";
+								$tabla = "tbl_usuarios";
 
 							if($_POST["editarPassword"] != ""){
 
@@ -676,7 +679,7 @@ class ControladorUsuarios{
 
 		if(isset($_GET["idUsuario"])){
 
-			$tabla ="usuarios";
+			$tabla ="tbl_usuarios";
 			$datos = $_GET["idUsuario"];
 
 			if($_GET["fotoUsuario"] != ""){

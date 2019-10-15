@@ -11,7 +11,7 @@ class ControladorCrearReportes{
 		
 
 
-		$tabla = "crear_reporte";
+		$tabla = "tbl_crear_reporte";
 
 
 		$respuesta = ModeloCrearReportes::mdlMostrarCrearReportes($tabla, $item, $valor);
@@ -26,7 +26,7 @@ class ControladorCrearReportes{
 	CREAR Reportes
 	=============================================*/
 
-	static public function ctrCrearReportesUsuarios(){
+	static public function ctrCrearReportes(){
 
 	
 
@@ -35,7 +35,7 @@ class ControladorCrearReportes{
 
 			$item = "usuario";
 			$valor = $_POST["usuario"];
-			$tabla = "usuarios";
+			$tabla = "tbl_usuarios";
 
 		
 
@@ -50,7 +50,7 @@ class ControladorCrearReportes{
 			GUARDAR LA COMPRA
 			=============================================*/	
 
-			$tabla = "crear_reporte";
+			$tabla = "tbl_crear_reporte";
 
 			$datos = array("codigo"=>$_POST["nuevoReporteCreado"],
 							"id_usuario"=>$id_usuario,
@@ -117,7 +117,7 @@ class ControladorCrearReportes{
 	EDITAR PRODUCTO
 	=============================================*/
 
-	static public function ctrEditarReportesUsuarios(){
+	static public function ctrEditarCrearReportesUsuarios(){
 
 		if(isset($_POST["editarDescripcion"])){
 
@@ -202,7 +202,7 @@ class ControladorCrearReportes{
 
 				}
 
-				$tabla = "reportes";
+				$tabla = "tbl_reportes";
 
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
 							   "codigo_reporte" => $_POST["editarCodigo"],

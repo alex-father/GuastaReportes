@@ -161,7 +161,7 @@
         <?php 
 
             $crearReporte = new ControladorCrearReportes();
-            $crearReporte->ctrCrearReportesUsuarios();
+            $crearReporte->ctrCrearReportes();
 
 
          ?>

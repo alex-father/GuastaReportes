@@ -15,10 +15,11 @@ class AjaxUsuarios{
 	
 	public function ajaxEditarUsuario(){
 
-		$item = "id_categoria";
+		$item = "id";
 		$valor = $this->idUsuario;
 
-		$respuesta = ControladorReportes::ctrMostrarReportes($item, $valor);
+		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+	
 
 		echo json_encode($respuesta);
 
@@ -34,7 +35,7 @@ class AjaxUsuarios{
 
 	public function ajaxActivarUsuario(){
 
-		$tabla = "usuarios";
+		$tabla = "tbl_usuarios";
 
 		$item1 = "estado";
 		$valor1 = $this->activarUsuario;
@@ -56,7 +57,7 @@ class AjaxUsuarios{
 
 	public function ajaxValidarUsuario(){
 
-		$item = "usuario";
+		$item = "tbl_usuario";
 		$valor = $this->validarUsuario;
 
 		$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);

@@ -5,7 +5,7 @@
     
     <h1>
       
-      Administrar Reportes
+      Gestión de Reportes
     
     </h1>
 

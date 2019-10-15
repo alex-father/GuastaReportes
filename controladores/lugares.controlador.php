@@ -5,17 +5,22 @@ class ControladorLugares{
 
 	static public function ctrCrearLugar(){
 
+
+
 				if(isset($_POST["nuevoCodigo"])){
 
 					if(preg_match('/^[0-9]+$/', $_POST["nuevoCodigo"]) &&
 						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoMunicipio"]) &&
 						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["nuevaUbicacion"])){
 
-						$tabla = "aldeas";
+						$tabla = "tbl_aldeas";
 
 						$datos = array("codigo" => $_POST["nuevoCodigo"],
 										"municipio" => $_POST["nuevoMunicipio"],
 										"aldea" => $_POST["nuevaUbicacion"]);
+
+						
+
 
 						$respuesta = ModeloLugares::mdlIngresarLugar($tabla, $datos);
 
@@ -70,7 +75,7 @@ class ControladorLugares{
 
 			static public function ctrMostrarLugares($item, $valor){
 
-				$tabla = "aldeas";
+				$tabla = "tbl_aldeas";
 
 				$respuesta = ModeloLugares::mdlMostrarLugares($tabla, $item, $valor);
 				
@@ -94,7 +99,7 @@ class ControladorLugares{
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarMunicipio"]) &&
 				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["editarUbicacion"])){
 
-				$tabla = "aldeas";
+				$tabla = "tbl_aldeas";
 
 				$datos = array("codigo"=>$_POST["editarCodigo"],
 								"municipio"=>$_POST["editarMunicipio"],
@@ -160,7 +165,7 @@ class ControladorLugares{
 
 		if(isset($_GET["idLugar"])){
 
-			$tabla ="aldeas";
+			$tabla ="tbl_aldeas";
 			$datos = $_GET["idLugar"];
 
 			$respuesta = ModeloLugares::mdlBorrarLugar($tabla, $datos);

@@ -52,7 +52,6 @@ $(".nuevaFotoEmpleado").change(function(){
 
 
 
-
 $(document).on("click", ".btnEditarEmpleado", function(){
 
   var idEmpleado = $(this).attr("idEmpleado");
@@ -84,7 +83,7 @@ $(document).on("click", ".btnEditarEmpleado", function(){
 
       if(respuesta["foto"] != ""){
 
-        $(".previsualizar").attr("src", respuesta["foto"]);
+        $(".visualizar").attr("src", respuesta["foto"]);
         
 
       }

@@ -105,6 +105,7 @@ $(".nuevaFotoLogin").change(function(){
 
           /*=============================================
             Editar Usuarios cuando se accione el boton editar
+            este es de usuarios.php
           =============================================*/
 
 
@@ -112,7 +113,6 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");
 
-  console.log(idUsuario);
   
   var datos = new FormData();
   datos.append("idUsuario", idUsuario);
@@ -127,6 +127,8 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
     processData: false,
     dataType: "json",
     success: function(respuesta){
+
+       console.log("res",respuesta);
       
       $("#editarNombre").val(respuesta["nombre"]);
       $("#editarUsuario").val(respuesta["usuario"]);
