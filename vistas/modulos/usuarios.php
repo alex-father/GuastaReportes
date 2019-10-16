@@ -239,7 +239,7 @@
               
               <div class="panel">SUBIR FOTO</div>
 
-              <input type="file" class="nuevaFoto" name="nuevaFoto">
+              <input type="file" class="nuevaFotoUsuario" name="nuevaFotoUsuario">
 
               <p class="help-block">Peso máximo de la foto 2MB</p>
 
@@ -279,10 +279,8 @@
 </div>
 
 
- 
-
     <!--=============================================
-  =           Modal Editar Usiario         =
+  =           Modal Editar Empleado         =
   =============================================-->
 <div id="modalEditarUsuario" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -331,7 +329,7 @@
 
               <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-              <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" required>
+              <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
               
             </div>
 
@@ -362,13 +360,11 @@
 
                 <select class="form-control input-lg" name="editarPerfil">
 
-                  <option value="" id="editarPerfil"></option>
-
-                  <option value="Administrador">Administrador</option>
-
-                  <option value="Empleado">Empleado</option>
+                  <option id="editarPerfil" value=""></option>
 
                   <option value="Usuario">Usuario</option>
+
+                  
                   
 
                 </select>
@@ -381,11 +377,11 @@
               
                     <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevafoto" name="editarFoto">
+                    <input type="file" class="nuevaFotoUsuario" name="editarFoto" required>
 
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 
-                      <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
                       <input type="hidden" name="fotoActual" id="fotoActual">
 
                 </div>
@@ -406,12 +402,20 @@
 
                 </div>
 
+               
+                
+
                 <?php
 
                 $editarUsuario = new ControladorUsuarios();
-                $editarUsuario -> ctrEditarUsuario();
+                $editarUsuario->ctrEditarUsuario();
+
+
 
                 ?>
+
+               
+
 
             </form>
 
@@ -420,6 +424,9 @@
       </div>
 
     </div>
+
+ 
+
 
     <?php
 

@@ -350,7 +350,7 @@
 
                 <select class="form-control input-lg" name="editarPerfil">
 
-                  <option value="" id="editarPerfil"></option>
+                  <option id="editarPerfil" value=""></option>
 
                   <option value="Administrador">Administrador</option>
 
@@ -369,7 +369,7 @@
               
                     <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevaFoto" name="editarFoto" required>
+                    <input type="file" class="nuevaFotoEmpleado" name="editarFoto" required>
 
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 

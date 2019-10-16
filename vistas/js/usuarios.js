@@ -1,9 +1,11 @@
 /*=============================================
 SUBIENDO LA FOTO DEL USUARIO
 =============================================*/
-$(".nuevaFoto").change(function(){
+$(".nuevaFotoUsuario").change(function(){
 
   var imagen = this.files[0];
+
+ 
   
   /*=============================================
     VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
@@ -128,7 +130,7 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
     dataType: "json",
     success: function(respuesta){
 
-       console.log("res",respuesta);
+       
       
       $("#editarNombre").val(respuesta["nombre"]);
       $("#editarUsuario").val(respuesta["usuario"]);
@@ -140,7 +142,7 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
 
       if(respuesta["foto"] != ""){
 
-        $(".previsualizar").attr("src", respuesta["foto"]);
+        $(".visualizar").attr("src", respuesta["foto"]);
         
 
       }

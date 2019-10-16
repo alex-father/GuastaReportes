@@ -109,7 +109,7 @@ class ControladorUsuarios{
 
 	static public function ctrCrearUsuario(){
 
-		var_dump($_POST);
+		
 
 
 		if(isset($_POST["nuevoUsuario"])){
@@ -219,7 +219,7 @@ class ControladorUsuarios{
 									"perfil" => $_POST["nuevoPerfil"],
 									"ruta"=> $ruta,
 									"telefono" => $_POST["nuevoNumero"]);
-					var_dump($datos);
+					
 
 					$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
@@ -305,7 +305,7 @@ class ControladorUsuarios{
 
 		static public function ctrCrearUsuarioLogin(){
 
-				var_dump($_POST);
+				
 				
     if(isset($_POST["nuevoUsuario"])){
 
