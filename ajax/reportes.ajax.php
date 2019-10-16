@@ -16,7 +16,7 @@ class AjaxReportes{
 
 	public function ajaxActivarReportes(){
 
-		$tabla = "reportes";
+		$tabla = "tbl_reportes";
 
 		$item1 = "estado";
 		$valor1 = $this->activarReporte;

@@ -28,23 +28,37 @@ class ControladorCrearReportes{
 
 	static public function ctrCrearReportes(){
 
-	
 
 		
 		if(isset($_POST["nuevoReporteCreado"])){
 
-			$item = "usuario";
-			$valor = $_POST["usuario"];
-			$tabla = "tbl_usuarios";
+			
+
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["nuevoEmpleado"]) &&
+				preg_match('/^[0-9 ]+$/', $_POST["idEmpleado"]) &&
+				preg_match('/^[0-9 ]+$/', $_POST["nuevoReporteCreado"]) &&
+				preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["usuario"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["Ubicacion"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["Categoria"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ: ]+$/', $_POST["Fecha"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["Descripcion"])){
+
+
+				$item = "usuario";
+				$valor = $_POST["usuario"];
+				$tabla = "tbl_usuarios";
 
 		
-
+				
 
 			$usuario = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
+
+
 			$id_usuario = $usuario["id"];
 
-			
+	
+					
 
 			/*=============================================
 			GUARDAR LA COMPRA
@@ -82,6 +96,7 @@ class ControladorCrearReportes{
 							});
 
 							</script>';
+						}
 
 			}else{
 

@@ -196,7 +196,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               '</div>')
 
 
-        listarReportes();
+   
 
 			}
 
@@ -219,7 +219,7 @@ $(".tablaCrearReportes").on("draw.dt", function(){
       $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").addClass('btn-sucess btnAgregarReporte');
 
 
-      listarReportes();
+      
 
     }
 
