@@ -8,6 +8,8 @@ class ControladorEmpleados{
 
 	 static public function ctrIngresoEmpleado(){
 
+
+
 		if(isset($_POST["ingUsuario"])){
 
 			/* usamos preg_match para validar solo caracteres especificos evitando asi catos especiales o sql injecion */
@@ -105,10 +107,12 @@ class ControladorEmpleados{
 	static public function ctrCrearEmpleado(){
 
 
+
 		if(isset($_POST["nuevoEmpleado"])){
 
 			if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
-				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoEmpleado"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoEmpleado"]) &&
+				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPerfil"]) &&
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 				
@@ -119,13 +123,13 @@ class ControladorEmpleados{
 					=            Validamos Foto           =
 					=============================================*/
 
-				if(isset($_FILES["nuevaFoto"]["tmp_name"])){
+				if(isset($_FILES["nuevaFotoEmpleado"]["tmp_name"])){
 
 
 					/*=====  nos permite un nuevo array con los indices que le asignamos  ======*/
 					
 
-					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize($_FILES["nuevaFotoEmpleado"]["tmp_name"]);
 
 
 					/*=====  redimensionamos la foto  ======*/
@@ -148,7 +152,7 @@ class ControladorEmpleados{
 					=          deacuerdo al tipo de imagen aplicamos funciones    =
 						=============================================*/
 
-					if ($_FILES["nuevaFoto"]["type"] == "image/jpeg"){
+					if ($_FILES["nuevaFotoEmpleado"]["type"] == "image/jpeg"){
 
 						$aleaorio = mt_rand(100,999);
 
@@ -156,7 +160,7 @@ class ControladorEmpleados{
 
 						/*=====  creamos la imagen en un nuevo archivo  ======*/
 
-						$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);
+						$origen = imagecreatefromjpeg($_FILES["nuevaFotoEmpleado"]["tmp_name"]);
 
 						/*=====  destino de donde se guradará la imagen nuevo con las nuevas
 									propiedades				  ======*/
@@ -179,12 +183,12 @@ class ControladorEmpleados{
 				=          deacuerdo al tipo de imagen aplicamos funciones    =
 					=============================================*/
 
-					if ($_FILES["nuevaFoto"]["type"] == "image/png"){
+					if ($_FILES["nuevaFotoEmpleado"]["type"] == "image/png"){
 
 						$aleaorio = mt_rand(100,999);
 						$ruta = "vistas/img/empleados/".$_POST["nuevaEmpleado"]."/".$aleaorio.".png";
 
-						$origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);
+						$origen = imagecreatefrompng($_FILES["nuevaFotoEmpleado"]["tmp_name"]);
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -288,6 +292,8 @@ class ControladorEmpleados{
 
 
 		static public function ctrEditarEmpleado(){
+
+
 
 				if (isset($_POST["editarEmpleado"])){
 
