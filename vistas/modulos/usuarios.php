@@ -26,7 +26,7 @@
 
         <div class="box-header with-border">
   
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalCrearUsuario">
           
           Agregar usuario
 
@@ -137,146 +137,189 @@
   
    </div>
 
-   <!--=====================================
-      Modal Agregar Usuario
-======================================-->
-
-<div id="modalAgregarUsuario" class="modal fade" role="dialog">
-  
+  !--=============================================
+  =           Modal           =
+  =============================================-->
+<div id="modalCrearUsuario" class="modal fade" role="dialog">
   <div class="modal-dialog">
+  
 
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-        <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
+      <!--=============================================
+        =           Cabecera del Modal           =
+        =============================================-->
 
-        <div class="modal-header" style="background:#00a65a; color:white">
+          <div class="modal-header" style="background:#00a65a; color: white; ">
 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Agregar Usuarios</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!-- ENTRADA PARA EL NOMBRE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL USUARIO -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA CONTRASEÑA -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
-
-                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
-
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
-
-                <select class="form-control input-lg" name="nuevoPerfil">
-                  
-                  <option value="">Selecionar perfil</option>
-
-                  <option value="Usuario">Usuario</option>
-
-                
-
-                </select>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
-             <div class="form-group">
-              
-              <div class="panel">SUBIR FOTO</div>
-
-              <input type="file" class="nuevaFotoUsuario" name="nuevaFotoUsuario">
-
-              <p class="help-block">Peso máximo de la foto 2MB</p>
-
-              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
-
-            </div>
-
+            <button type="button " class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title ">Registrarse</h4>
           </div>
 
+        <!--=============================================
+          =           Cuerpo del Modal           =
+          =============================================-->
+
+              <div class="modal-body">
+
+                <div class="box-body">
+
+                  <!-- entrada del empleado -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+
+                    </div>
+                    
+                  </div>
+
+                  <!-- entrada del usuario -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-user-secret"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoUsuario"
+                       id="nuevoUsuario" placeholder="Ingresar usuario" required>
+                      
+                    </div>
+                    
+                  </div>
+
+                  <!-- entrada del la contraseña -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+
+                      <input type="password" class="form-control input-lg" name="nuevoPassword"
+                       placeholder="Ingresar contraseña" required>
+                      
+                    </div>
+                    
+                  </div>
+
+                  <!-- entrada del usuario -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoNumero" id="nuevoNumero" 
+                      placeholder="Ingresar su número" >
+                      
+                    </div>
+                    
+                  </div>
+                  <!-- entrada del email -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoEmail" id="nuevoEmail" 
+                      placeholder="Ingresar su email" >
+                      
+                    </div>
+                    
+                  </div>
+
+                  <!-- entrada del dpi -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-code"></i></span>
+
+                      <input type="text" class="form-control input-lg" name="nuevoDpi" id="nuevoDpi" 
+                      placeholder="Ingresa tu DPI por seguridad" >
+                      
+                    </div>
+                    
+                  </div>
+
+                  
+
+                  <!-- entrada para seleccionar el perfil -->
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-users"></i></span>
+
+                        <select class="form-control input-lg" name="nuevoPerfil">
+
+                          <option value="Usuario">Usuario</option>
+
+                        </select>
+                      
+                    </div>
+                    
+                  </div>
+
+                        <div class="form-group">
+                      
+                            <div class="panel">Subir Foto</div>
+
+                            <input type="file" class="nuevaFotoLogin" name="nuevaFotoLogin" required>
+
+                              <p class="help-block">Peso maximo de la foto 200MB</p>
+
+
+                              <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
+
+
+
+                        </div>
+                  
+                    </div>
+
+                </div>
+
+          <!--=============================================
+          =           Pie del Modal           =
+          =============================================-->
+
+                <div class="modal-footer">
+
+                  <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
+
+                  <button type="submit" class="btn btn-success pull-right">Registrarser</button>
+
+                </div>
+
+            </form>
+
         </div>
+        
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal" data-backdrop="false">Cerrar</button>
-
-          <button type="submit" class="btn btn-success">Crear EUsuario</button>
-
-        </div>
-
-        <?php
-
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
-
-        ?>
-
-      </form>
-
-    </div>
+      </div>
 
   </div>
+              <?php 
 
-</div>
+
+              $crearUsuario = new ControladorUsuarios();
+              $crearUsuario-> ctrCrearUsuario();
+               ?>
+
 
 
     <!--=============================================
