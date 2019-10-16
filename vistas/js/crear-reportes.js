@@ -196,7 +196,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               '</div>')
 
 
-   
+        listarReportes();
 
 			}
 
@@ -219,7 +219,7 @@ $(".tablaCrearReportes").on("draw.dt", function(){
       $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").addClass('btn-sucess btnAgregarReporte');
 
 
-      
+      listarReportes();
 
     }
 
@@ -485,7 +485,7 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
 
                         listarReportes.push({ 
-                                              "usuario":$(usuario).val(),
+                                              "usuario":$(usuario).attr(),
                                               "categoria":$(categoria).val(),
                                               "lugar":$(lugar).val(),
                                               "descripcion":$(descripcion).val(),

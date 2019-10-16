@@ -29,31 +29,30 @@ class ControladorCrearReportes{
 	static public function ctrCrearReportes(){
 
 
-		
-		if(isset($_POST["nuevoReporteCreado"])){
 
-			
+		
+		if(isset($_POST["usuario"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["nuevoEmpleado"]) &&
 				preg_match('/^[0-9 ]+$/', $_POST["idEmpleado"]) &&
 				preg_match('/^[0-9 ]+$/', $_POST["nuevoReporteCreado"]) &&
-				preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["usuario"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["Ubicacion"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["Categoria"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ: ]+$/', $_POST["Fecha"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["Descripcion"])){
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["usuario"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Ubicacion"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Categoria"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Fecha"]) &&
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Descripcion"])){
 
 
-				$item = "usuario";
-				$valor = $_POST["usuario"];
-				$tabla = "tbl_usuarios";
+				var_dump($_POST["ubicacion"]);
+
+			$item = "usuario";
+			$valor = $_POST["usuario"];
+			$tabla = "tbl_usuarios";
 
 		
 				
 
 			$usuario = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
-
-
 
 			$id_usuario = $usuario["id"];
 

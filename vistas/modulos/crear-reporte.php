@@ -135,7 +135,8 @@
 
 
 
-                <input type="hidden" id="listaReportes" name="listaReportes">
+                <input type="hidden" id="listarReportes" name="listarReportes">
+
 
 
                 <!--=====================================
