@@ -181,7 +181,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
               
                       '<label for="comment">Descripción:</label>'+
 
-                        '<textarea class="form-control descripcion" rows="6"  name="Descripcion" value="'+descripcion+'" readonly>"'+descripcion+'"</textarea>'+
+                        '<textarea class="form-control descripcion" rows="6"  name="Descripcion" value="'+descripcion+'" readonly>'+descripcion+'</textarea>'+
 
                     '</div>'+
 

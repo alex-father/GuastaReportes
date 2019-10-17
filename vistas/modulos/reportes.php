@@ -111,7 +111,11 @@
 
               <div class="btn-group">
                   
-                <button class="btn btn-info"><i class="fa fa-print"></i></button>
+                <button class="btn btn-info btnImprimirReporte" codigoReporte="'.$value["codigo"].'">
+
+                <i class="fa fa-print"></i>
+
+                </button>
 
                 <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 

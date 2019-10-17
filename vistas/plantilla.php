@@ -156,6 +156,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/reportes.js"></script>
 <script src="vistas/js/reporte-usuario.js"></script>
+<script src="vistas/js/reporte-admin.js"></script>
 <script src="vistas/js/crear-reportes.js"></script>
 <script src="vistas/js/usuarios.js"></script>
 </body>

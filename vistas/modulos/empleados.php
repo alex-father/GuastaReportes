@@ -369,7 +369,7 @@
               
                     <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevaFotoEmpleado" name="editarFoto" required>
+                    <input type="file" class="nuevaFotoEmpleado" name="editarFoto">
 
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 

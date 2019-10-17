@@ -75,7 +75,7 @@ class ControladorUsuarios{
 							
 							echo '<script>
 
-								window.location = "reporte-usuario";
+								window.location = "inicio";
 
 								</script>';
 
@@ -109,7 +109,9 @@ class ControladorUsuarios{
 
 			$tabla = "tbl_usuarios";
 
-			$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+      
+
+			$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
 			
 

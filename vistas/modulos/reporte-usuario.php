@@ -69,10 +69,12 @@
 
             foreach ($reportes as $key => $value) {
 
+              $imagen = "<a href='".$reportes["imagen"]."' download><img src='".$reportes["imagen"]."' width='100' height='120'></a>";
+
 
               echo '
                         <td>'.($key+1).'</td>
-                        <td><img src="'.$value["imagen"].'" class="img-thumbnail" width="40px"></td>';
+                        <td>'.$imagen.'</td>';
 
                         $item = "id";
                         $valor = $value["id_categoria"];
@@ -137,7 +139,7 @@ MODAL AGREGAR Reporte
 
     <div class="modal-content">
 
-      <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="POST" enctype="multipart/form-data">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -327,7 +329,7 @@ MODAL AGREGAR Reporte
 
     <div class="modal-content">
 
-      <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="POST" enctype="multipart/form-data">
 
         <!--=====================================
              CABEZA DEL MODAL

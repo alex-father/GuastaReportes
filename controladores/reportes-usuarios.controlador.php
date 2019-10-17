@@ -25,7 +25,7 @@ class ControladorReportesUsuarios{
 
 	static public function ctrCrearReportesUsuarios(){
 
-		
+		var_dump($_POST);
 
 		if (isset($_POST["nuevoCodigo"])){
 

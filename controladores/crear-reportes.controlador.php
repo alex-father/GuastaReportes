@@ -11,7 +11,7 @@ class ControladorCrearReportes{
 		
 
 
-		$tabla = "tbl_crear_reporte";
+		$tabla = "tbl_reportefinal";
 
 
 		$respuesta = ModeloCrearReportes::mdlMostrarCrearReportes($tabla, $item, $valor);
@@ -29,104 +29,169 @@ class ControladorCrearReportes{
 	static public function ctrCrearReportes(){
 
 
-
-		
-		if(isset($_POST["usuario"])){
-
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["nuevoEmpleado"]) &&
-				preg_match('/^[0-9 ]+$/', $_POST["idEmpleado"]) &&
-				preg_match('/^[0-9 ]+$/', $_POST["nuevoReporteCreado"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["usuario"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Ubicacion"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Categoria"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Fecha"]) &&
-				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["Descripcion"])){
-
-
-				var_dump($_POST["ubicacion"]);
-
-			$item = "usuario";
-			$valor = $_POST["usuario"];
-			$tabla = "tbl_usuarios";
-
-		
-				
-
-			$usuario = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
-
-			$id_usuario = $usuario["id"];
-
 	
+		
+		if(isset($_POST["nuevoReporteCreado"]) &&
+					($_POST["usuario"]) && 
+					($_POST["Ubicacion"]) &&
+					($_POST["Categoria"]) &&
+					($_POST["Descripcion"]) &&
+					($_POST["Fecha"])){
+
+					$item = "usuario";
+				    $valor = $_POST["usuario"];
+
+				    $ubicacion = $_POST["Ubicacion"];
+					$categoria = $_POST["Categoria"];
+					$descripcion = $_POST["Descripcion"];
+					$fecha = $_POST["Fecha"];
+
+
+			   		 $respuestaid = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
+
+			    
+
+			    if ($respuestaid != null){
+
+			    	$id_usuario = $respuestaid["id"];
+			    	$tabla = "tbl_reportefinal";
+
+					$datos = array("codigo"=>$_POST["nuevoReporteCreado"],
+									"id_usuario"=>$id_usuario,
+								   "id_empleado"=>$_POST["idEmpleado"],
+								   "categoria"=>$categoria,
+								   "lugar"=>$ubicacion,
+								   "descripcion"=>$descripcion,
+								   "fecha_inicio"=>$fecha);
+
+
 					
+					
+					$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
 
-			/*=============================================
-			GUARDAR LA COMPRA
-			=============================================*/	
+					var_dump($respuesta);
 
-			$tabla = "tbl_crear_reporte";
+					if($respuesta == "ok"){
 
-			$datos = array("codigo"=>$_POST["nuevoReporteCreado"],
-							"id_usuario"=>$id_usuario,
-						   "id_empleado"=>$_POST["idEmpleado"],
-						   "categoria"=>$_POST["Categoria"],
-						   "lugar"=>$_POST["Ubicacion"],
-						   "descripcion"=>$_POST["Descripcion"],
-						   "fecha_inicio"=>$_POST["Fecha"]);
-			
-			$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
+							echo'<script>
 
-			
+							swal({
+								  type: "success",
+								  title: "El reporte ha sido creado correctamente",
+								  showConfirmButton: true,
+								  confirmButtonText: "Cerrar"
+								  }).then((result) => {
+											if (result.value) {
 
-			if($respuesta == "ok"){
+											window.location = "reportes";
 
-				echo'<script>
+											}
+										});
 
-				swal({
-					  type: "success",
-					  title: "El reporte ha sido creado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then((result) => {
-								if (result.value) {
+										</script>';
 
-								window.location = "reportes";
+						}else{
 
-								}
-							});
+							echo'<script>
 
-							</script>';
+							swal({
+								  type: "success",
+								  title: "El reporte no se guardo",
+								  showConfirmButton: true,
+								  confirmButtonText: "Cerrar"
+								  }).then((result) => {
+											if (result.value) {
+
+											window.location = "crear-reporte";
+
+											}
+										}); 
+
+								</script>';
+
+
+
+
 						}
 
-			}else{
+			    	
 
-				echo'<script>
-
-				swal({
-					  type: "success",
-					  title: "El reporte no se guardo",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then((result) => {
-								if (result.value) {
-
-								window.location = "crear-reporte";
-
-								}
-							}); 
-
-					</script>';
+					}else{
 
 
 
+					$respuestaid = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+			
+					$id_usuario = $respuestaid["id"];
+					$tabla = "tbl_reportefinal";
+
+							$datos = array("codigo"=>$_POST["nuevoReporteCreado"],
+											"id_usuario"=>$id_usuario,
+										   "id_empleado"=>$_POST["idEmpleado"],
+										   "categoria"=>$categoria,
+										   "lugar"=>$ubicacion,
+										   "descripcion"=>$descripcion,
+										   "fecha_inicio"=>$fecha);
+
+
+							
+					
+					$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
+
+					var_dump($respuesta);
+
+					if($respuesta == "ok"){
+
+							echo'<script>
+
+							swal({
+								  type: "success",
+								  title: "El reporte ha sido creado correctamente",
+								  showConfirmButton: true,
+								  confirmButtonText: "Cerrar"
+								  }).then((result) => {
+											if (result.value) {
+
+											window.location = "reportes";
+
+											}
+										});
+
+										</script>';
+
+						}else{
+
+							echo'<script>
+
+							swal({
+								  type: "success",
+								  title: "El reporte no se guardo",
+								  showConfirmButton: true,
+								  confirmButtonText: "Cerrar"
+								  }).then((result) => {
+											if (result.value) {
+
+											window.location = "crear-reporte";
+
+											}
+										}); 
+
+								</script>';
+
+
+
+
+						}
+
+			
 
 			}
 
 		}
 
-	
-
 	}
 
+	
 	/*=============================================
 	EDITAR PRODUCTO
 	=============================================*/
@@ -216,7 +281,7 @@ class ControladorCrearReportes{
 
 				}
 
-				$tabla = "tbl_reportes";
+				$tabla = "tbl_reportefinal";
 
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
 							   "codigo_reporte" => $_POST["editarCodigo"],
