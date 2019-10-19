@@ -255,12 +255,14 @@ $(this).parent().parent().remove();
 
 var numeroReporte = 0;
 
-$(".agregarReporte").click(function(){
+$(".btnAgregarReporte").click(function(){
 
-        numeroReporte ++;
+        
 
   var datos = new FormData();
   datos.append("traerReportes", "ok");
+
+
 
   $.ajax({
 
@@ -272,7 +274,8 @@ $(".agregarReporte").click(function(){
         processData: false,
         dataType:"json",
         success:function(respuesta){
-          
+
+            console.log("res", respuesta);
 
         var ubicacion = respuesta["lugar"];
         var fecha = respuesta["fecha"];
@@ -356,7 +359,7 @@ $(".agregarReporte").click(function(){
                     
                            '<div class="input-group style="padding:5px 10px">'+
                         
-                                   '<select class="form-control nuevoCodigoReporte usuario="'+usuario+'" id="reporte" name="nuevoCodigoReporte" required>'+
+                                   '<select class="form-control nuevoCodigoReporte" usuario="'+usuario+'" id="reporte" name="nuevoCodigoReporte" required>'+
 
                                       '<option>Seleccione el Codigo</option>'+
 
@@ -366,8 +369,8 @@ $(".agregarReporte").click(function(){
                         
                     '</div>'+
                       
-                 '</div>');
-    listarReportes();
+                 '</div>')
+   
 
 
      respuesta.forEach(funcionForEach);
@@ -439,13 +442,7 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
-            console.log("ubicacion", respuesta["lugar"]);
-
-             
-
             $(".Categoria").val(respuesta["categoria"]);
-
-        
 
 
           }
@@ -457,7 +454,7 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           $(".Descripcion").val(respuesta["descripcion"]);
           $(".Fecha").val(respuesta["fecha"]);
 
-          listarReportes();
+          
 
         }
 

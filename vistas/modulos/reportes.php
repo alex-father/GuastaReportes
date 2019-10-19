@@ -76,12 +76,27 @@
 
           <?php 
 
+
+          if(isset($_GET["fechaInicial"])){
+
+            $fechaInicial = $_GET["fechaInicial"];
+            $fechaFinal = $_GET["fechaFinal"];
+
+
+
+          }else{
+
+               $fechaInicial = null;
+               $fechaFinal = null;
+
+          }
+
           $item = null;
 
           $valor = null;
 
 
-          $respuesta = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
+          $respuesta = ControladorCrearReportes::ctrMostrarRangoFechasReportes($fechaInicial, $fechaFinal);
 
 
           foreach ($respuesta as $key => $value) {
@@ -111,13 +126,13 @@
 
               <div class="btn-group">
                   
-                <button class="btn btn-info btnImprimirReporte" codigoReporte="'.$value["codigo"].'">
+                <button class="btn btn-primary btnImprimirReporte" codigoReporte="'.$value["codigo"].'">
 
                 <i class="fa fa-print"></i>
 
                 </button>
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                <button class="btn btn-danger btnEliminarReporteFinal" codigoReporte="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
               </div>  
 
@@ -142,5 +157,10 @@
 
 </div>
 
+<?php  
 
-        
+$eliminarReporte = new ControladorCrearReportes();
+$eliminarReporte -> ctrEliminarReporteFinal();
+
+
+   ?>     

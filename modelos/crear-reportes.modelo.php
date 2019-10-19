@@ -97,11 +97,11 @@ class ModeloCrearReportes{
 
 	}
 
-	/*=============================================
-	BORRAR CATEGORIA
-	=============================================*/
+			/*=============================================
+			ELIMINAR VENTA
+			=============================================*/
 
-	static public function mdlBorrarCategoria($tabla, $datos){
+	static public function mdlEliminarReporte($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 

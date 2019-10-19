@@ -29,8 +29,6 @@ class ControladorCrearReportes{
 	static public function ctrCrearReportes(){
 
 
-	
-		
 		if(isset($_POST["nuevoReporteCreado"]) &&
 					($_POST["usuario"]) && 
 					($_POST["Ubicacion"]) &&
@@ -69,7 +67,7 @@ class ControladorCrearReportes{
 					
 					$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
 
-					var_dump($respuesta);
+				
 
 					if($respuesta == "ok"){
 
@@ -138,7 +136,7 @@ class ControladorCrearReportes{
 					
 					$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
 
-					var_dump($respuesta);
+					
 
 					if($respuesta == "ok"){
 
@@ -193,7 +191,7 @@ class ControladorCrearReportes{
 
 	
 	/*=============================================
-	EDITAR PRODUCTO
+
 	=============================================*/
 
 	static public function ctrEditarCrearReportesUsuarios(){
@@ -336,5 +334,65 @@ class ControladorCrearReportes{
 		}
 
 	}
+
+
+
+	/*=============================================
+	ELIMINAR VENTA
+	=============================================*/
+
+	static public function ctrEliminarReporteFinal(){
+
+		var_dump($_GET);
+
+		if(isset($_GET["codigoReporte"])){
+
+			$tabla = "tbl_reportefinal";
+
+			$datos = $_GET["codigoReporte"];
+
+			
+			$respuesta = ModeloCrearReportes::mdlEliminarReporte($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El Reporte final ha sido borrado",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "reportes";
+
+								}
+							})
+
+				</script>';
+
+			}		
+		}
+
+	}
+
+
+
+	/*=============================================
+	RANGO FECHAS
+	=============================================*/	
+
+	static public function ctrMostrarRangoFechasReportes($fechaInicial, $fechaFinal){
+
+		$tabla = "tbl_reportefinal";
+
+		$respuesta = ModeloReportes::mdlRangoFechasReportes($tabla, $fechaInicial, $fechaFinal);
+
+		return $respuesta;
+		
+	}
+
 
 }

@@ -93,7 +93,7 @@ class ControladorUsuarios{
 				}else{
 
 					echo '<br>
-						s<div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
+						<div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
 
 				}
 

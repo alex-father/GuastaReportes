@@ -22,13 +22,13 @@ $(".nuevaFotoUsuario").change(function(){
           confirmButtonText: "¡Cerrar!"
         });
 
-    }else if(imagen["size"] > 5000000){
+    }else if(imagen["size"] > 8000000){
 
       $(".nuevaFoto").val("");
 
        swal({
           title: "Error al subir la imagen",
-          text: "¡La imagen no debe pesar más de 5MB!",
+          text: "¡La imagen no debe pesar más de 8MB!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
         });
@@ -77,13 +77,13 @@ $(".nuevaFotoLogin").change(function(){
           confirmButtonText: "¡Cerrar!"
         });
 
-    }else if(imagen["size"] > 5000000){
+    }else if(imagen["size"] > 8000000){
 
       $(".nuevaFotoLogin").val("");
 
        swal({
           title: "Error al subir la imagen",
-          text: "¡La imagen no debe pesar más de 5MB!",
+          text: "¡La imagen no debe pesar más de 8MB!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
         });

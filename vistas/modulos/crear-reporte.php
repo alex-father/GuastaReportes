@@ -143,7 +143,7 @@
                 BOTÓN PARA AGREGAR PRODUCTO
                 ======================================-->
 
-                <button type="button" class="btn btn-success hidden-lg agregarReporte">Agregar Reporte</button>
+                <button type="button" class="btn btn-success hidden-lg btnAgregarReporte">Agregar Reporte</button>
                 
                 <br>
       

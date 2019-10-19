@@ -186,17 +186,17 @@
     background-color: #f5f5f5;
     border: 1px solid #f5f5f5;
     border-radius: 4px;
-    color: #08c;
+    color: #32CD32;
     padding: 3px 12px;
     margin-bottom: 8px;
     cursor: pointer; }
     .ranges li:hover {
-      background-color: #08c;
-      border: 1px solid #08c;
+      background-color: #32CD32;
+      border: 1px solid #32CD32;
       color: #fff; }
     .ranges li.active {
-      background-color: #08c;
-      border: 1px solid #08c;
+      background-color: #32CD32;
+      border: 1px solid #32CD32;
       color: #fff; }
 
 /*  Larger Screen Styling */
