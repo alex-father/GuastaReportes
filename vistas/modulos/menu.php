@@ -128,6 +128,16 @@
 				}
 
 				?>
+				<li>
+
+					<a href="developer">
+
+						<i class="fa  fa-user-secret"></i>
+						<span>Desarrollador</span>
+
+					</a>
+
+				</li>
 
 				</ul>
 

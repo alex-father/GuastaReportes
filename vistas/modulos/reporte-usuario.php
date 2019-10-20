@@ -69,7 +69,10 @@
 
             foreach ($reportes as $key => $value) {
 
-              $imagen = "<a href='".$reportes["imagen"]."' download><img src='".$reportes["imagen"]."' width='100' height='120'></a>";
+              
+              $imagen = "<a href='".$reportes[$key]["imagen"]."' download><img src='".$reportes[$key]["imagen"]."' width='100' height='120'></a>";
+
+          
 
 
               echo '

@@ -3128,17 +3128,18 @@ table.text-center th {
   background-image: none;
 }
 .carousel-control > .fa {
-  font-size: 30px;
-  position: relative;
+  font-size: 40px;
+  position: absolute;
   top: 50%;
   z-index: 5;
   display: inline-block;
-  margin-top: -40px;
+  margin-top: -20px;
 }
 
-
-.carousel-inner { text-align: center; }
-.carousel .item > img { display: inline-block; 
+.carousel-inner { text-align: center; 
+}
+.carousel .item > img { display: inline-block;
+ }
 /*
  * Component: modal
  * ----------------
