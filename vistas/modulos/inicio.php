@@ -37,7 +37,7 @@
                     <img src="vistas/img/inicio/iglesia.jpg" alt="Iglesia">
 
                     <div class="carousel-caption">
-                      Iglesia
+                      Iglesia Central
                     </div>
 
                   </div>
@@ -57,7 +57,7 @@
                     <img src="vistas/img/inicio/parque.jpg" alt="Parque">
 
                     <div class="carousel-caption">
-                      Parque
+                      Parque Central
                     </div>
 
                   </div>

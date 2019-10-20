@@ -110,13 +110,9 @@ class ControladorUsuarios{
 			$tabla = "tbl_usuarios";
 
       
-
 			$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
 			
-
-
-
 			return $respuesta;
 		}
 
@@ -251,34 +247,34 @@ class ControladorUsuarios{
             /*----------  si se guarda correctamente  ----------*/
             
 
+            echo '<script>
 
-          echo '<script>
+            swal({
 
-          swal({
+              type: "success",
+              title: "¡El usuario ha sido guardado correctamente!",
+              showConfirmButton: true,
+              confirmButtonText: "Cerrar"
 
-            type: "success",
-            title: "¡El usuario ha sido guardado correctamente!",
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar"
+            }).then(function(result){
 
-          }).then(function(result){
+              if(result.value){
+              
+                window.location = "usuarios";
 
-            if(result.value){
-            
-              window.location = "usuarios";
+              }
+
+            });
+          
+
+            </script>';
+
+
 
             }
 
-          });
-        
-
-          </script>';
-
-
-
-          }
-
-        }else{
+        }
+        else{
 
           echo '<script>
 
@@ -400,17 +396,17 @@ class ControladorUsuarios{
 
           if ($_FILES["nuevaFotoLogin"]["type"] == "image/png"){
 
-            $aleaorio = mt_rand(100,999);
-            $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleaorio.".png";
+              $aleaorio = mt_rand(100,999);
+              $ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleaorio.".png";
 
-            $origen = imagecreatefrompng($_FILES["nuevaFotoLogin"]["tmp_name"]);
+              $origen = imagecreatefrompng($_FILES["nuevaFotoLogin"]["tmp_name"]);
 
-            $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+              $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-            imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+              imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-            imagepng($destino, $ruta);
-          }
+              imagepng($destino, $ruta);
+            }
 
 
 
@@ -443,62 +439,60 @@ class ControladorUsuarios{
 
             /*----------  si se guarda correctamente  ----------*/
             
+            echo '<script>
 
+            swal({
 
-          echo '<script>
+              type: "success",
+              title: "¡El usuario ha sido guardado correctamente!",
+              showConfirmButton: true,
+              confirmButtonText: "Cerrar"
 
-          swal({
+            }).then(function(result){
 
-            type: "success",
-            title: "¡El usuario ha sido guardado correctamente!",
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar"
+              if(result.value){
+              
+                window.location = "usuarios";
 
-          }).then(function(result){
+              }
 
-            if(result.value){
-            
-              window.location = "usuarios";
+            });
+          
 
-            }
-
-          });
-        
-
-          </script>';
+            </script>';
 
 
 
           }
 
-        }else{
+        }
+          else{
 
-          echo '<script>
+              echo '<script>
 
-          swal({
+              swal({
 
-            type: "error",
-            title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-            showConfirmButton: true,
-            confirmButtonText: "Cerrar"
+                type: "error",
+                title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
 
-          }).then(function(result){
+              }).then(function(result){
 
-            if(result.value){
+                if(result.value){
+                
+                  window.location = "usuarios";
+
+                }
+
+              });
             
-              window.location = "usuarios";
 
-            }
-
-          });
-        
-
-        </script>';
+            </script>';
 
         }
 
-
-      }
+       }
 
     }
 
@@ -535,7 +529,8 @@ class ControladorUsuarios{
 
 										unlink($_POST["fotoActual"]);
 
-									}else{
+									}
+                  else{
 
 										mkdir($directorio, 0755);
 
@@ -547,56 +542,57 @@ class ControladorUsuarios{
 
 									if($_FILES["editarFoto"]["type"] == "image/jpeg"){
 
-									/*=============================================
-									GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-									=============================================*/
+  									/*=============================================
+  									GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+  									=============================================*/
 
-									$aleatorio = mt_rand(100,999);
+  									$aleatorio = mt_rand(100,999);
 
-									$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
+  									$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".jpg";
 
-									$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);						
+  									$origen = imagecreatefromjpeg($_FILES["editarFoto"]["tmp_name"]);						
 
-									$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+  									$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-									imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+  									imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-									imagejpeg($destino, $ruta);
+  									imagejpeg($destino, $ruta);
 
-								}
+  								}
 
 							if($_FILES["editarFoto"]["type"] == "image/png"){
 
-								/*=============================================
-								GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-								=============================================*/
+  								/*=============================================
+  								GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+  								=============================================*/
 
-								$aleatorio = mt_rand(100,999);
+  								$aleatorio = mt_rand(100,999);
 
-								$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".png";
+  								$ruta = "vistas/img/usuarios/".$_POST["editarUsuario"]."/".$aleatorio.".png";
 
-								$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);						
+  								$origen = imagecreatefrompng($_FILES["editarFoto"]["tmp_name"]);						
 
-								$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+  								$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-								imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+  								imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-								imagepng($destino, $ruta);
+  								imagepng($destino, $ruta);
 
-							}
+  							}
 
 						}
 
 
 								$tabla = "tbl_usuarios";
 
-							if($_POST["editarPassword"] != ""){
+  							if($_POST["editarPassword"] != ""){
 
-								if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
+  								if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
 
-									$encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+  									$encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
-								}else{
+  								}
+                else{
 
 									echo'<script>
 
@@ -691,44 +687,68 @@ class ControladorUsuarios{
 
 	static public function ctrBorrarUsuario(){
 
-		if(isset($_GET["idUsuario"])){
+  		if(isset($_GET["idUsuario"])){
 
-			$tabla ="tbl_usuarios";
-			$datos = $_GET["idUsuario"];
+  			$tabla ="tbl_usuarios";
+  			$datos = $_GET["idUsuario"];
 
-			if($_GET["fotoUsuario"] != ""){
+  			if($_GET["fotoUsuario"] != ""){
 
-				unlink($_GET["fotoUsuario"]);
-				rmdir('vistas/img/usuarios/'.$_GET["usuario"]);
+  				unlink($_GET["fotoUsuario"]);
+  				rmdir('vistas/img/usuarios/'.$_GET["usuario"]);
 
-			}
+  			}
 
 			$respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
 
-			if($respuesta == "ok"){
+  			if($respuesta == "ok"){
 
-				echo'<script>
+  				echo'<script>
 
-				swal({
-					  type: "success",
-					  title: "El usuario ha sido borrado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-								if (result.value) {
+  				swal({
+  					  type: "success",
+  					  title: "El usuario ha sido borrado correctamente",
+  					  showConfirmButton: true,
+  					  confirmButtonText: "Cerrar"
+  					  }).then(function(result){
+  								if (result.value) {
 
-								window.location = "usuarios";
+  								window.location = "usuarios";
 
-								}
-							})
+  								}
+  							})
 
-				</script>';
+  				</script>';
 
-			}		
+  			}		
 
 		}
 
 	}
+
+
+      /*===============================================
+      =            Obtener fecha en letras            =
+      ===============================================*/
+
+
+   static public function ctrfechaCastellano ($fecha) {
+
+          $fecha = substr($fecha, 0, 10);
+          $numeroDia = date('d', strtotime($fecha));
+          $dia = date('l', strtotime($fecha));
+          $mes = date('F', strtotime($fecha));
+          $anio = date('Y', strtotime($fecha));
+          $dias_ES = array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo");
+          $dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+          $nombredia = str_replace($dias_EN, $dias_ES, $dia);
+          $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+          $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+          $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
+          return $numeroDia." de ".$nombreMes." de ".$anio;
+        }
+  
+  
 
 }
 

@@ -1,100 +1,152 @@
  <header class="main-header">
  	
-	<!--=====================================
-	LOGOTIPO
-	======================================-->
+			<!--=====================================
+			LOGOTIPO
+			======================================-->
 
-	<a href="inicio" class="logo">
-		
-		<!-- logo mini -->
-		<span class="logo-mini">
-			
-			<img src="vistas/img/plantilla/logo-muni1.png" class="img-responsive" style="padding:10px">
+			<a href="inicio" class="logo">
+				
+				<!-- logo mini -->
+				<span class="logo-mini">
+					
+					<img src="vistas/img/plantilla/logo-muni1.png" class="img-responsive" style="padding:10px">
 
-		</span>
+				</span>
 
-		<!-- logo normal -->
+				<!-- logo normal -->
 
-		<span class="logo-lg">
-			
-			<img src="vistas/img/plantilla/logo-cabezote.png" class="img-responsive" style="padding: 10px 0px">
+				<span class="logo-lg">
+					
+					<img src="vistas/img/plantilla/logo-cabezote.png" class="img-responsive" style="padding: 10px 0px">
 
-		</span>
+				</span>
 
-	</a>
+			</a>
 	
 
-	<!--=====================================
-	BARRA DE NAVEGACIÓN
-	======================================-->
-	<nav class="navbar navbar-static-top" role="navigation">
+			<!--=====================================
+			BARRA DE NAVEGACIÓN
+			======================================-->
+			<nav class="navbar navbar-static-top" role="navigation">
 		
-		<!-- Botón de navegación -->
+			<!-- Botón de navegación -->
 
-	 	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        	
-        	<span class="sr-only">Toggle navigation</span>
-      	
-      	</a>
+			 	<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+		        	
+		        	<span class="sr-only">Toggle navigation</span>
+		      	
+		      	</a>
 
-		<!-- perfil de usuario -->
+				<!-- perfil de usuario -->
 
-		<div class="navbar-custom-menu">
-				
-			<ul class="nav navbar-nav">
-				
-				<li class="dropdown user user-menu">
-					
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-					<?php 
-
-						if($_SESSION["foto"] != ""){
-
-							echo '<img src="'.$_SESSION["foto"].'" class="user-image">';
-
-					} else {
-
-
-						echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
-					}
-
-						?>
-
-
-						<span class="hidden-md">
-
-							<?php  echo $_SESSION["nombre"];
-
-
-							?> 
-
-						</span>
-
-					</a>
-
-					<!-- Dropdown-toggle -->
-
-					<ul class="dropdown-menu">
-						
-						<li class="user-body">
+					<div class="navbar-custom-menu">
 							
-						
+						<ul class="nav navbar-nav">
+
+							
+							<li class="dropdown user user-menu">
 								
-								<a href="salir" class="btn btn-success btn-xs fa fa-power-off"> Salir</a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-							
+								<?php 
 
-						</li>
+									if($_SESSION["foto"] != ""){
 
-					</ul>
+										echo '<img src="'.$_SESSION["foto"].'" class="user-image">';
 
-				</li>
+								} else {
 
-			</ul>
 
-		</div>
+									echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
+								}
 
-	</nav>
+									?>
+
+
+									<span class="hidden-md">
+
+										<?php  echo $_SESSION["nombre"];
+
+
+										?> 
+
+									</span>
+
+								</a>
+
+								<!-- Dropdown-toggle -->
+
+								<ul class="dropdown-menu">
+			              <!-- User image -->
+			              <li class="user-header">
+
+			              	<?php 
+
+									if($_SESSION["foto"] != ""){
+
+										$item = "id";
+										$valor = $_SESSION["id"];
+
+										$respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+										if($respuesta == false){
+
+											$respuesta = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
+										}
+
+										$fecha = substr($respuesta["fecha"],0,10);
+
+
+										$fechaLetras = ControladorUsuarios::ctrfechaCastellano ($fecha);
+
+
+										echo '<img src="'.$_SESSION["foto"].'" class="img-circle" alt="User Image">
+												<p>
+			                 					'.$_SESSION["nombre"].' - '.$_SESSION["perfil"].'
+			                 					 <small>Miembro desde '.$fechaLetras.'</small>
+			                					</p>';
+
+								} else {
+
+
+									echo '<img src="vistas/img/usuarios/default/anonymous.png" class="user-image">';
+								}
+
+									?>
+
+			                
+			              </li>
+			              <!-- Menu Body -->
+			              <li class="user-body">
+			                <div class="row">
+			                 
+			                  <div class="col-lg-12 text-center">
+			                    <a href="#">Seguimos Trabajando</a>
+			                  </div>
+			                </div>
+			                <!-- /.row -->
+			              </li>
+			              <!-- Menu Footer-->
+			              <li class="user-footer">
+
+			              	<center>
+
+			                <div class="">
+			                  <a href="#" class="btn btn-default ">Salir</a>
+			                </div>
+
+			                </center>
+
+			              </li>
+
+			            </ul>
+
+					</li>
+
+				</ul>
+
+			</div>
+
+		</nav>
 
  </header>
