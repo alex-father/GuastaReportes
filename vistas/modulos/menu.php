@@ -123,16 +123,6 @@
 
 						</a>
 
-					</li>
-					<li>
-
-						<a href="informes">
-							
-							<i class="fa fa-area-chart"></i>
-							<span>Informes</span>
-
-						</a>
-
 					</li>';
 
 				}

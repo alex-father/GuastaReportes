@@ -147,16 +147,16 @@
                     
                   </div>
 
-                  <!-- entrada del usuario -->
+                  <!-- entrada del telefono -->
 
                   <div class="form-group">
 
                     <div class="input-group">
 
-                      <span class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></span>
+                      <span class="input-group-addon"><i class="fa fa-mobile fa-lg" style="width: 10px"></i></span>
 
-                      <input type="text" class="form-control input-lg" name="nuevoNumero" id="nuevoNumero" 
-                      placeholder="Ingresar su número" >
+                      <input type="text" class="form-control input-lg" name="nuevoNumero"  maxlength="9" pattern="[0-9 ]{9}"
+                      title="8 caracteres" data-inputmask="'mask':'9999 9999'" data-mask required >
                       
                     </div>
                     
@@ -191,29 +191,18 @@
                     
                   </div>
 
-                  
-
                   <!-- entrada para seleccionar el perfil -->
 
+                  
+
+                        <input type="hidden"  name="nuevoPerfil" id="nuevoPerfil" 
+                      value="Usuario" readonly >
+                      
+                   
+
                   <div class="form-group">
-
-                    <div class="input-group">
-
-                      <span class="input-group-addon"><i class="fa fa-users"></i></span>
-
-                        <select class="form-control input-lg" name="nuevoPerfil">
-
-                          <option value="Usuario">Usuario</option>
-
-                        </select>
                       
-                    </div>
-                    
-                  </div>
-
-                        <div class="form-group">
-                      
-                            <div class="panel">Subir Foto</div>
+                       <div class="panel">Subir Foto</div>
 
                             <input type="file" class="nuevaFotoLogin" name="nuevaFotoLogin" required>
 

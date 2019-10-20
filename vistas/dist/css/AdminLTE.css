@@ -3128,13 +3128,17 @@ table.text-center th {
   background-image: none;
 }
 .carousel-control > .fa {
-  font-size: 40px;
-  position: absolute;
+  font-size: 30px;
+  position: relative;
   top: 50%;
   z-index: 5;
   display: inline-block;
-  margin-top: -20px;
+  margin-top: -40px;
 }
+
+
+.carousel-inner { text-align: center; }
+.carousel .item > img { display: inline-block; 
 /*
  * Component: modal
  * ----------------
@@ -3440,7 +3444,7 @@ table.text-center th {
 
 .login-box,
 .register-box {
-  width: 280px;
+  width: 250px;
   margin: 8% auto;
 }
 @media (max-width: 768px) {

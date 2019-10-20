@@ -123,5 +123,42 @@ class ModeloCrearReportes{
 
 	}
 
+
+
+
+
+
+	/*=============================================
+	contar los reportes
+	=============================================*/
+
+	static public function mdlContarReportes($tabla, $item, $valor){
+
+		
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT COUNT * FROM $tabla WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+
+
+		$stmt -> close();
+
+		$stmt = null;
+
+
+
+
+	}
+
+
 }
 

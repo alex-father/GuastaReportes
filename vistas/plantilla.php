@@ -56,20 +56,21 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/morris.js/morris.css">
 
   <!--=====================================
-  PLUGINS DE JAVASCRIPT
+                  JavaScript
   ======================================-->
-
+  
   <!-- jQuery 3 -->
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
   <!-- Bootstrap 3.3.7 -->
-  <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
   <!-- FastClick -->
   <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
   
   <!-- AdminLTE App -->
-  <script src="vistas/dist/js/adminlte.min.js"></script>
+  <script src="vistas/dist/js/adminlte.js"></script>
 
   <!-- DataTables -->
   <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -79,11 +80,11 @@ session_start();
 
   <!-- SweetAlert 2 -->
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
-  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>  
-    <!-- final de la cabecera -->
 
-    <!-- iCheck 1.0.1 -->
+  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
+  <!-- iCheck 1.0.1 -->
   <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 
   <!-- InputMask -->
@@ -94,16 +95,17 @@ session_start();
   <!-- jQuery Number -->
   <script src="vistas/plugins/jqueryNumber/jquerynumber.min.js"></script>
 
-  <!-- daterangepicker http://www.daterangepicker.com/-->
+  <!-- daterangepicker -->
   <script src="vistas/bower_components/moment/min/moment.min.js"></script>
   <script src="vistas/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-  <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
+  <!-- Morris.js charts -->
   <script src="vistas/bower_components/raphael/raphael.min.js"></script>
   <script src="vistas/bower_components/morris.js/morris.min.js"></script>
 
-  <!-- ChartJS http://www.chartjs.org/-->
-  <script src="vistas/bower_components/Chart.js/Chart.js"></script>
+  <!-- ChartJS -->
+  <script src="vistas/bower_components/chart.js/Chart.js"></script> 
+
 
 
 
@@ -148,7 +150,6 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "reporte-usuario" ||
          $_GET["ruta"] == "reportes" ||
          $_GET["ruta"] == "crear-reporte" ||
-         $_GET["ruta"] == "informes" ||
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
