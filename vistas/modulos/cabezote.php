@@ -118,26 +118,24 @@
 			              </li>
 			              <!-- Menu Body -->
 			              <li class="user-body">
+
 			                <div class="row">
 			                 
-			                  <div class="col-lg-12 text-center">
-			                    <a href="#">Seguimos Trabajando</a>
-			                  </div>
-			                </div>
-			                <!-- /.row -->
-			              </li>
-			              <!-- Menu Footer-->
-			              <li class="user-footer">
+			                  	<div class="col-lg-8 text-left">
+			                   		 <a href="#">Seguimos Trabajando</a>
+			                    
+			                  	</div>
 
-			              	<center>
+			                  	<div class="col-lg-4 text-right">
 
-			                <div class="">
-			                  <a href="salir" class="btn btn-default ">Salir</a>
+			                 		<a href="salir" class="btn btn-default ">Salir</a>
+
+			               	 	</div>
+
 			                </div>
 
-			                </center>
-
 			              </li>
+			             
 
 			            </ul>
 
