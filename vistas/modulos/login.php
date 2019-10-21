@@ -184,8 +184,8 @@
 
                       <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
-                      <input type="text" class="form-control input-lg" name="nuevoDpi" id="nuevoDpi" 
-                      placeholder="Ingresa tu DPI por seguridad" >
+                      <input type="text" class="form-control input-lg" name="nuevoDpi" id="cui" placeholder="Ingrese tu DPI" />
+                       <span class="glyphicon form-control-feedback"></span>
                       
                     </div>
                     

@@ -1,54 +1,31 @@
 <div class="content-wrapper">
 
+
   
 
-    <div class="row justify-content-center justify-content-md-start">
-
-          <div class="col-lg-8">
-          <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
-              <h3 class="widget-user-username">Elizabeth Pierce</h3>
-              <h5 class="widget-user-desc">Web Designer</h5>
-            </div>
-            <div class="widget-user-image">
-              <img class="img-circle" src="../dist/img/user3-128x128.jpg" alt="User Avatar">
-            </div>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">3,200</h5>
-                    <span class="description-text">SALES</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">13,000</h5>
-                    <span class="description-text">FOLLOWERS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-4">
-                  <div class="description-block">
-                    <h5 class="description-header">35</h5>
-                    <span class="description-text">PRODUCTS</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.widget-user -->
-        </div>
-        <!-- /.col -->
-      </div>
-
+  
+<!-- Navbar -->
+<nav class="nav-bar1">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">Ingeniero en Sistemas</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>alorellana@gmail.com</a></li>
+        <li><a>Universidad Mariano Gálvez</a></li>
+      </ul>
+    </div>
   </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Quien soy?</h3>
+  <img src="vistas/img/developer/developer.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+  <h3>Alex Orellana - Desarrollador</h3>
+</div>
+  </div>
+
+
   

@@ -41,8 +41,6 @@ class ControladorReportes{
 
 	static public function ctrCrearReportes(){
 
-		
-
 		if (isset($_POST["nuevoCodigo"])){
 
 
@@ -170,7 +168,7 @@ class ControladorReportes{
 						  }).then((result) => {
 							if (result.value) {
 
-							window.location = "reporte-usuario";
+							window.location = "reporte-admin";
 
 							}
 						})

@@ -23,15 +23,15 @@ class ControladorReportesUsuarios{
 	CREAR Reportes
 	=============================================*/
 
-	static public function ctrCrearReportesUsuarios(){
+	static public function ctrCrearReportes(){
 
-		var_dump($_POST);
+		
 
 		if (isset($_POST["nuevoCodigo"])){
 
 
-					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,.]+$/', $_POST["nuevaDescripcion"]) &&
-						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
+					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,. ]+$/', $_POST["nuevaDescripcion"]) &&
+						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoriaUsuario"])){
 
 
 						/*=============================================
@@ -106,7 +106,7 @@ class ControladorReportesUsuarios{
 		$tabla = "tbl_reportes";
 		
 
-				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+				$datos = array("id_categoria" => $_POST["nuevaCategoriaUsuario"],
 							   "codigo_reporte" => $_POST["nuevoCodigo"],
 							   "usuario" => $_POST["usuario"],
 							   "lugar" => $_POST["nuevoLugar"],

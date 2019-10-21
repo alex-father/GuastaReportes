@@ -56,6 +56,38 @@ body {
 .layout-boxed {
   background: url('../img/boxed-bg.jpg') repeat fixed;
 }
+
+
+nav-bar1 {
+    font: 50px Montserrat, sans-serif;
+    line-height: 0;
+    color: #f5f6f7;
+  }
+  p {font-size: 20px;
+  }
+
+  .margin {margin-bottom: 10px;}
+  .bg-1 { 
+    margin-top: 0px;
+    background-color: #474e5d; 
+    color: #ffffff;
+  }
+
+  .container{
+  padding-top: -20px;
+  padding-bottom: 0px;
+  color: #474e5d;
+
+  }
+  
+  .container-fluid {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  #mynavbar  li a:hover {
+    color: #474e5d !important;
+  }
+
 /*
  * Content Wrapper - contains the main content
  */
@@ -2372,7 +2404,7 @@ a:focus {
   display: block;
 }
 .btn-default {
-  background-color: #1FBA48;
+  background-color: none;
   color: #444;
   border-color: #ddd;
 }

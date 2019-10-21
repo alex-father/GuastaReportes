@@ -142,7 +142,7 @@ MODAL AGREGAR Reporte
 
     <div class="modal-content">
 
-      <form role="form" method="POST" enctype="multipart/form-data">
+      <form role="form" method="post" enctype="multipart/form-data">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -172,7 +172,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" required>
+                <select class="form-control input-lg" name="nuevaCategoriaUsuario" id="nuevaCategoriaUsuario" required>
                   
                   <option value="">Selecionar categoría</option>
 
@@ -182,6 +182,7 @@ MODAL AGREGAR Reporte
                       $valor = null;
 
                       $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
 
                       foreach ($categorias as $key => $value) {
                       
@@ -311,8 +312,10 @@ MODAL AGREGAR Reporte
          <?php 
 
           $crearReporte = new ControladorReportesUsuarios();
-          $crearReporte->ctrCrearReportesUsuarios();
+          $crearReporte ->ctrCrearReportes();
+
          ?>
+
 
       </form>
 

@@ -229,15 +229,15 @@ class ControladorUsuarios{
           $encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
           $datos = array( "nombre" => $_POST["nuevoNombre"],
-                  "usuario" => $_POST["nuevoUsuario"],
-                  "password" => $encriptar,
-                  "perfil" => $_POST["nuevoPerfil"],
-                  "email" => $_POST["nuevoEmail"],
-                  "dpi_user" => $_POST["nuevoDpi"],
-                  "estado" => $estado,
-                  "ruta"=> $ruta,
-                  "telefono" => $_POST["nuevoNumero"]);
-          
+                          "usuario" => $_POST["nuevoUsuario"],
+                          "password" => $encriptar,
+                          "perfil" => $_POST["nuevoPerfil"],
+                          "email" => $_POST["nuevoEmail"],
+                          "dpi_user" => $_POST["nuevoDpi"],
+                          "estado" => $estado,
+                          "ruta"=> $ruta,
+                          "telefono" => $_POST["nuevoNumero"]);
+                  
 
           $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
@@ -252,7 +252,7 @@ class ControladorUsuarios{
             swal({
 
               type: "success",
-              title: "¡El usuario ha sido guardado correctamente!",
+              title: "¡Bienvenido! Ya puedes ingresar!",
               showConfirmButton: true,
               confirmButtonText: "Cerrar"
 
@@ -281,7 +281,7 @@ class ControladorUsuarios{
           swal({
 
             type: "error",
-            title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+            title: "¡El registro no puede ir vacío o llevar caracteres especiales!",
             showConfirmButton: true,
             confirmButtonText: "Cerrar"
 

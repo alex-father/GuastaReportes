@@ -132,7 +132,7 @@
 			              	<center>
 
 			                <div class="">
-			                  <a href="#" class="btn btn-default ">Salir</a>
+			                  <a href="salir" class="btn btn-default ">Salir</a>
 			                </div>
 
 			                </center>

@@ -7,10 +7,11 @@
 
 
 
-$("#nuevaCategoria").change(function(){
+$("#nuevaCategoriaUsuario").change(function(){
+
 
   var idCategoria = $(this).val();
-
+  
   var datos = new FormData();
     datos.append("idCategoria", idCategoria);
 
@@ -24,14 +25,11 @@ $("#nuevaCategoria").change(function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
-        
-        
 
         if(!respuesta){
 
           var nuevoCodigo = idCategoria +"01";
           $("#nuevoCodigo").val(nuevoCodigo);
-          console.log("respuesta",nuevoCodigo);
 
 
         }else{
