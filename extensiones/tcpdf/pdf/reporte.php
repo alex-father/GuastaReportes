@@ -36,10 +36,10 @@ $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $idusu
 
 if($respuestaUsuario == false){
 
-	$nombreUsuario = $respuestaEmpleado["nombre"];
+	$nombreUsuario = $respuestaEmpleado["usuario"];
 }else{
 
-	$nombreUsuario = $respuestaUsuario["nombre"];
+	$nombreUsuario = $respuestaUsuario["usuario"];
 
 }
 

@@ -86,17 +86,18 @@
 
 
 
-                   if($value["estado"] != 0){
+                  
+                  if($value["estado"] == 1){
 
-                        echo '<td><button class="btn btn-warning btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="0">Verificando</button></td>';
+                        echo '<td><button class="btn btn-warning btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="2">En Proceso</button></td>';
+
+                  }else if ($value["estado"] == 2){
 
 
-                      }
+                        echo '<td><button class="btn btn-success btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="0">Finalizado</button></td>';
 
 
-                  }else{
-
-                        echo '<td><button class="btn btn-danger btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="1">En proceso</button></td>';
+                   }else{ echo '<td><button class="btn btn-danger btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="1">Verificando</button></td>';
 
                   }
                        
@@ -325,9 +326,9 @@
 
 </div>
 
-<!--=====================================
-=            Editar Reporte          =
-======================================-->
+      <!--=====================================
+      =            Visualizar Reporte Creado         =
+      ======================================-->
 
 <div id="modalEditarReporte" class="modal fade" role="dialog">
   
@@ -357,7 +358,7 @@
 
           <div class="box-body">  
 
-            <!-- Entrada para Categoria -->
+            <!-- Ver Categoria -->
 
             <div class="form-group">
               
@@ -373,7 +374,7 @@
 
             </div>
 
-            <!-- Entrada para editar codigo -->
+            <!-- Ver codigo -->
             
             <div class="form-group">
               
@@ -387,7 +388,7 @@
 
             </div>
 
-            <!--Entrada para editar Usuario -->
+            <!--Ver Usuario -->
             
             <div class="form-group">
               
@@ -403,7 +404,7 @@
 
             </div>
 
-            <!-- entrada para editar Ubicacion -->
+            <!-- Ver Ubicacion -->
 
             <div class="form-group">
               
@@ -421,7 +422,7 @@
 
             </div>
 
-            <!-- -->
+            <!--Ver Descripción -->
 
             <div class="form-group">
 
@@ -432,7 +433,7 @@
 
             </div>
 
-            <!-- Entrada para editar foto -->
+            <!-- Ver foto -->
 
              <div class="form-group " readonly>
               

@@ -207,11 +207,14 @@ class ModeloReportes{
 			$fechaActual = new DateTime();
 			$fechaActual ->add(new DateInterval("P1D"));
 			$fechaActualMasUno = $fechaActual->format("Y-m-d");
+			var_dump($fechaActualMasUno);
+
 
 			$fechaFinal2 = new DateTime($fechaFinal);
-			$fechaFinal2 ->add(new DateInterval("P1D"));
+			$fechaFinal2 ->add(new DateInterval("P2D"));
 			$fechaFinalMasUno = $fechaFinal2->format("Y-m-d");
 
+var_dump($fechaFinalMasUno);
 			if($fechaFinalMasUno == $fechaActualMasUno){
 
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha BETWEEN '$fechaInicial' AND '$fechaFinalMasUno'");

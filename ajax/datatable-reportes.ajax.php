@@ -46,19 +46,23 @@ class TablaReportes{
  	 		TRAEMOS LOS ESTADOS
   			=============================================*/
 
+			if($reportes[$i]["estado"] == 1){
 
-		  	if($reportes[$i]["estado"] != 0){
-
-                        echo '<td><button class="btn btn-success btn-xs btnActivarReporte" readonly idReporte="'.$value["id"].'" estadoReporte="0">Verificando</button></td>';
-
-
-                      
-                  }
-                    else{
-
-                   $estado = "<button class='btn btn-danger btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='1'En proceso</button>";
+                       $estado = "<button class='btn btn-warning btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='2'>En Proceso</button>";
 
                   }
+                    else if($reportes[$i]["estado"] == 2 ){
+
+
+                    	$estado = "<button class='btn btn-success btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='0'>Finalizado</button>";
+
+                    }else{
+
+                   $estado = "<button class='btn btn-danger btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='1'>Verificando</button>";
+
+                  }
+
+
 
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES

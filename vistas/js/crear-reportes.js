@@ -90,6 +90,33 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
 
  	})
 
+   if(estadoReporte == 0){
+
+    $(this).removeClass('btn-success');
+    $(this).addClass('btn-danger');
+    $(this).html('Verificando');
+    $(this).attr('estadoReporte', 1);
+
+   }
+   else if (estadoReporte == 1){
+
+     $(this).removeClass('btn-danger');
+    $(this).addClass('btn-warning');
+    $(this).html('En Proceso');
+    $(this).attr('estadoReporte', 2);
+
+
+   }else{
+
+    $(this).removeClass('btn-warning');
+    $(this).addClass('btn-success');
+    $(this).html('Finalizado');
+    $(this).attr('estadoReporte', 0);
+
+
+
+   }
+
 
  })
 

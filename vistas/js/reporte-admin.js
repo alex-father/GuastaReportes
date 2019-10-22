@@ -63,7 +63,7 @@ $(document).on("click", ".btnActivarReporte", function(){
         processData: false,
         success: function(respuesta){
 
-          console.log("respuesta", respuesta);
+          
 
           if(window.matchMedia("(max-width:1400px)").matches){
     
@@ -93,15 +93,23 @@ $(document).on("click", ".btnActivarReporte", function(){
 
     $(this).removeClass('btn-success');
     $(this).addClass('btn-danger');
-    $(this).html('Desativado');
+    $(this).html('Verificando');
     $(this).attr('estadoReporte', 1);
 
    }
-   else{
+   else if (estadoReporte == 1){
 
-    $(this).removeClass('btn-danger');
+     $(this).removeClass('btn-danger');
+    $(this).addClass('btn-warning');
+    $(this).html('En Proceso');
+    $(this).attr('estadoReporte', 2);
+
+
+   }else{
+
+    $(this).removeClass('btn-warning');
     $(this).addClass('btn-success');
-    $(this).html('Activado');
+    $(this).html('Finalizado');
     $(this).attr('estadoReporte', 0);
 
 

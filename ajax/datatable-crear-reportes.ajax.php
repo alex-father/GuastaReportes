@@ -42,15 +42,19 @@ class TablaCrearReportes{
  	 		TRAEMOS LOS ESTADOS
   			=============================================*/
 
+				if($reportes[$i]["estado"] == 1){
 
-		  	if($reportes[$i]["estado"] != 0){
-
-                       $estado = "<button class='btn btn-success btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='0'>Activado</button>";
+                       $estado = "<button class='btn btn-warning btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='2'>En Proceso</button>";
 
                   }
-                    else{
+                    else if($reportes[$i]["estado"] == 2 ){
 
-                   $estado = "<button class='btn btn-danger btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."'  estadoReporte='1'>Desactivado</button>";
+
+                    	$estado = "<button class='btn btn-success btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='0'>Finalizado</button>";
+
+                    }else{
+
+                   $estado = "<button class='btn btn-danger btn-xs btnActivarCrearReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='1'>Verificando</button>";
 
                   }
 
