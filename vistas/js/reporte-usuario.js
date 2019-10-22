@@ -2,17 +2,11 @@
 /*===============================================
 =            Crear codigo de Reporte            =
 ===============================================*/
-
-
-
-
-
 $("#nuevaCategoriaUsuario").change(function(){
-
 
   var idCategoria = $(this).val();
   
-  var datos = new FormData();
+    var datos = new FormData();
     datos.append("idCategoria", idCategoria);
 
     $.ajax({
@@ -31,34 +25,28 @@ $("#nuevaCategoriaUsuario").change(function(){
           var nuevoCodigo = idCategoria +"01";
           $("#nuevoCodigo").val(nuevoCodigo);
 
-
         }else{
 
           var nuevoCodigo = Number(respuesta["codigo_reporte"])+1;
             $("#nuevoCodigo").val(nuevoCodigo);
 
-            
-
         }
                 
       }
 
-    })
+   })
 
 })
 
 /*=============================================
-=           Ver Reporte          =
+=           Editar reporte de usuario        =
 =============================================*/
-
 
 $(".tablas tbody").on("click", "button.btnEditarReporte", function(){
 
   var idReporte = $(this).attr("idReporte");
-
-  console.log("respuesta", idReporte);
   
-  var datos = new FormData();
+    var datos = new FormData();
     datos.append("idReporte", idReporte);
 
      $.ajax({
@@ -86,11 +74,8 @@ $(".tablas tbody").on("click", "button.btnEditarReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
-            
-
             $("#editarCategoria").val(respuesta["id"]);
             $("#editarCategoria").html(respuesta["categoria"]);
-
 
           }
 

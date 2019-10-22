@@ -14,7 +14,7 @@
         
         <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
         
-        <li class="active">Administrar tu reportes</li>
+        <li class="active">Administra tus reportes</li>
       
       </ol>
 
@@ -314,7 +314,7 @@
          <?php 
 
           $crearReporte = new ControladorReportesUsuarios();
-          $crearReporte ->ctrCrearReportes();
+          $crearReporte ->ctrCrearReporte();
 
          ?>
 
@@ -411,12 +411,8 @@
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                
-                  
+ 
                   <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
-
-                
 
               </div>
 

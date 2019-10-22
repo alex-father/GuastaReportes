@@ -1,22 +1,38 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
 
-  <section class="content-header">
+    <section class="content-header">
     
-    <h1>
+      <h1>
+        
+        Crear Reporte Final
       
-      Crear Reporte Final
-    
-    </h1>
+      </h1>
 
-    <ol class="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        
+        <li class="active">Crear Reportes</li>
       
-      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
-      <li class="active">Crear Reportes</li>
-    
-    </ol>
+      </ol>
 
-  </section>
+    </section>
 
   <section class="content">
 
@@ -56,21 +72,18 @@
                     
                     <span class="input-group-addon"><i class="fa fa-user-plus"></i></span> 
 
-                    
                     <?php 
-                    $idEmpleado = $_SESSION["id"];
-                    $nombreEmpleado =  $_SESSION["nombre"];
 
-                    echo ' <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="'.$nombreEmpleado.'" readonly>
+                      $idEmpleado = $_SESSION["id"];
+                      $nombreEmpleado =  $_SESSION["nombre"];
 
-                            <input type="hidden" name="idEmpleado" value="'.$idEmpleado.'">';
+                        echo ' <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="'.$nombreEmpleado.'" readonly>
 
+                                <input type="hidden" name="idEmpleado" value="'.$idEmpleado.'">';
 
-                     ?>
+                    ?>
 
-                   
-
-                  </div>
+                   </div>
 
                 </div> 
 
@@ -86,10 +99,10 @@
 
                     <?php 
 
-                    $item = null;
-                    $valor = null;
+                      $item = null;
+                      $valor = null;
 
-                      $reportes = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
+                        $reportes = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
 
 
                       if(!$reportes){
@@ -101,43 +114,27 @@
 
                         foreach ($reportes as $key => $value) {
 
+                        }
 
+                          $codigo = $value["codigo"]+ 1;
+
+                          echo '<input type="text" class="form-control" id="nuevoReporteCreado" name="nuevoReporteCreado" value="'.$codigo.'" readonly>';
 
                         }
 
-                        var_dump($value["codigo"]);
-
-                        $codigo = $value["codigo"]+ 1;
-
-                        echo '<input type="text" class="form-control" id="nuevoReporteCreado" name="nuevoReporteCreado" value="'.$codigo.'" readonly>';
-
-
-                      }
-
                      ?>
                     
-                    
-                  
                   </div>
                 
                 </div>
-
-
-                  
 
                 <!--=====================================
                       Entrada para agregar el Reporte
                 ======================================--> 
 
-                <div class="form-group row nuevoReporte">
-
-                </div>
-
-
+              <div class="form-group row nuevoReporte"></div>
 
                 <input type="hidden" id="listarReportes" name="listarReportes">
-
-
 
                 <!--=====================================
                 BOTÓN PARA AGREGAR PRODUCTO
@@ -163,7 +160,6 @@
 
             $crearReporte = new ControladorCrearReportes();
             $crearReporte->ctrCrearReportes();
-
 
          ?>
 
@@ -192,13 +188,15 @@
                <thead>
 
                  <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Imagen</th>
-                  <th>Ubicacion</th>
-                  <th>Codigo Reporte</th>
-                  <th>Usuario</th>
-                  <th>Estado</th>
-                  <th>Acciones</th>
+
+                    <th style="width: 10px">#</th>
+                    <th>Imagen</th>
+                    <th>Ubicacion</th>
+                    <th>Codigo Reporte</th>
+                    <th>Usuario</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+
                 </tr>
 
               </thead>
@@ -209,7 +207,6 @@
 
         </div>
 
-
       </div>
 
     </div>
@@ -219,12 +216,12 @@
 </div>
 
 <!--=============================================
-  =           Modal           =
+  =           Modal registrar usuarios         =
   =============================================-->
 <div id="modalRegistroUsuario" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   
-
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -236,7 +233,9 @@
           <div class="modal-header" style="background:#00a65a; color: white; ">
 
             <button type="button " class="close" data-dismiss="modal">&times;</button>
+
             <h4 class="modal-title ">Registrarse</h4>
+
           </div>
 
         <!--=============================================
@@ -247,7 +246,7 @@
 
                 <div class="box-body">
 
-                  <!-- entrada del empleado -->
+                  <!-- Entrada del empleado -->
 
                   <div class="form-group">
 
@@ -261,7 +260,7 @@
                     
                   </div>
 
-                  <!-- entrada del usuario -->
+                  <!-- Entrada del usuario -->
 
                   <div class="form-group">
 
@@ -276,7 +275,7 @@
                     
                   </div>
 
-                  <!-- entrada del la contraseña -->
+                  <!-- Entrada del la contraseña -->
 
                   <div class="form-group">
 
@@ -291,7 +290,7 @@
                     
                   </div>
 
-                  <!-- entrada del usuario -->
+                  <!-- Entrada del usuario -->
 
                   <div class="form-group">
 
@@ -305,7 +304,8 @@
                     </div>
                     
                   </div>
-                  <!-- entrada del email -->
+
+                  <!-- Entrada del email -->
 
                   <div class="form-group">
 
@@ -320,7 +320,7 @@
                     
                   </div>
 
-                  <!-- entrada del dpi -->
+                  <!-- Entrada del dpi -->
 
                   <div class="form-group">
 
@@ -335,9 +335,7 @@
                     
                   </div>
 
-                  
-
-                  <!-- entrada para seleccionar el perfil -->
+                  <!-- Entrada para seleccionar el perfil -->
 
                   <div class="form-group">
 
@@ -366,8 +364,6 @@
 
                               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
-
-
                         </div>
                   
                     </div>
@@ -390,15 +386,13 @@
 
         </div>
         
-
       </div>
 
   </div>
 
-              <?php 
+   <?php 
 
+      $crearUsuarioLogin = new ControladorUsuarios();
+      $crearUsuarioLogin -> ctrCrearUsuarioLogin();
 
-              $crearUsuarioLogin = new ControladorUsuarios();
-              $crearUsuarioLogin -> ctrCrearUsuarioLogin();
-
-               ?>
+    ?>

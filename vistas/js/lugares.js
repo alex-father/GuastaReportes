@@ -7,9 +7,8 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
 
   var idLugar = $(this).attr("idLugar");
 
-  
-  var datos = new FormData();
-  datos.append("idLugar", idLugar);
+     var datos = new FormData();
+     datos.append("idLugar", idLugar);
 
   $.ajax({
 
@@ -34,26 +33,20 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
       $("#editarCodigo").val(respuesta["codigo"]);
       $("#idCodigo").val(respuesta["codigo"]);
       
-
-
     }
 
   });
 
 })
 
-
       /*=============================================
             Eliminar Ubicacion
       =============================================*/
-
 
 $(".tablas").on("click", ".btnEliminarLugar", function(){
 
       var idLugar = $(this).attr("idLugar");
       
-
-
       swal({
         title: '¿Desea eliminar el usuario?',
         text: "¡Puede cancelar la accíón!",
@@ -73,5 +66,4 @@ $(".tablas").on("click", ".btnEliminarLugar", function(){
 
       })
 
-
-    })
+   })

@@ -5,6 +5,10 @@
 	class ModeloLugares{
 
 
+			/*=============================================
+			=            Ingresar Ubicacion           =
+			=============================================*/
+		
 		static public function mdlIngresarLugar($tabla, $datos){
 
 
@@ -29,11 +33,8 @@
 
 		}
 
-
-
-
 		/*=============================================
-			Mostrar Lugares
+			Mostrar ubicaciones
 		=============================================*/
 
 	static public function mdlMostrarLugares($tabla, $item, $valor){
@@ -65,7 +66,7 @@
 	}
 
 	/*=============================================
-				Editar Lugares
+				Editar ubicaciones
 	=============================================*/
 
 	static public function mdlEditarLugar($tabla, $datos){
@@ -93,7 +94,7 @@
 	}
 
 	/*=============================================
-			Borrar Lugares
+			Borrar ubicaciones
 	=============================================*/
 
 	static public function mdlBorrarLugar($tabla, $datos){
@@ -118,7 +119,7 @@
 
 	}
 
-	}
+}
 
 
 

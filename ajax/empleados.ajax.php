@@ -6,7 +6,7 @@ require_once "../modelos/empleados.modelo.php";
 class AjaxEmpleados{
 
 	/*=============================================
-	EDITAR Empleado
+		Editar Empleado
 	=============================================*/	
 
 	public $idEmpleado;
@@ -24,7 +24,7 @@ class AjaxEmpleados{
 	}
 
 	/*=============================================
-	ACTIVAR Empleado
+			Activar empleado
 	=============================================*/	
 
 	public $activarEmpleado;
@@ -48,7 +48,7 @@ class AjaxEmpleados{
 	}
 
 	/*=============================================
-	VALIDAR NO REPETIR Empleado
+		Validar no repetir Empleado
 	=============================================*/	
 
 	public $validarEmpleado;
@@ -66,7 +66,7 @@ class AjaxEmpleados{
 }
 
 /*=============================================
-EDITAR Empleado
+		Editar Empleado
 =============================================*/
 if(isset($_POST["idEmpleado"])){
 
@@ -77,7 +77,7 @@ if(isset($_POST["idEmpleado"])){
 }
 
 /*=============================================
-ACTIVAR Empleado
+		ACTIVAR Empleado
 =============================================*/	
 
 if(isset($_POST["activarId"])){
@@ -90,7 +90,7 @@ if(isset($_POST["activarId"])){
 }
 
 /*=============================================
-VALIDAR NO REPETIR Empleado
+		VALIDAR NO REPETIR Empleado
 =============================================*/
 
 if(isset( $_POST["validarEmpleado"])){

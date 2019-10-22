@@ -10,7 +10,7 @@ require_once "../modelos/categorias.modelo.php";
 class TablaCrearReportes{
 
  	/*=============================================
- 	 MOSTRAR LA TABLA DE reportes
+ 	 Mostrar tabla de reportes en crear-reporte
   	=============================================*/ 
 
 	public function mostrarTablaCrearReportes(){

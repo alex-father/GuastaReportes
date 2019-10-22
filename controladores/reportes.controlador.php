@@ -3,13 +3,11 @@
 class ControladorReportes{
 
 	/*=============================================
-	MOSTRAR Reportes
+			Mostrar Reportes por parte de empleado
 	=============================================*/
 
 	static public function ctrMostrarReportes($item, $valor){
 		
-
-
 		$tabla = "tbl_reportes";
 
 		$respuesta = ModeloReportes::mdlMostrarReportes($tabla, $item, $valor);
@@ -18,28 +16,11 @@ class ControladorReportes{
 
 	}
 
-
 	/*=============================================
-			Mostrar Reportes de Usuario
+		Crear Reportes por parte de empleado
 	=============================================*/
 
-	static public function ctrMostrarReportesUsuario($item, $valor){
-		
-
-
-		$tabla = "btl_reportes";
-
-		$respuesta = ModeloReportes::mdlMostrarReportesUsuario($tabla, $item, $valor);
-
-		return $respuesta;
-
-	}
-
-	/*=============================================
-	CREAR Reportes
-	=============================================*/
-
-	static public function ctrCrearReportes(){
+	static public function ctrCrearreportes(){
 
 		if (isset($_POST["nuevoCodigo"])){
 
@@ -48,8 +29,8 @@ class ControladorReportes{
 						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
 
 
-						/*=============================================
-				VALIDAR IMAGEN
+				/*=============================================
+						VALIDAR IMAGEN
 				=============================================*/
 
 			   	$ruta = "vistas/img/reportes/default/anonymous.png";;
@@ -115,11 +96,8 @@ class ControladorReportes{
 
 				}
 
-		
-
 		$tabla = "tbl_reportes";
 		
-
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
 							   "codigo_reporte" => $_POST["nuevoCodigo"],
 							   "usuario" => $_POST["usuario"],
@@ -127,12 +105,7 @@ class ControladorReportes{
 							   "descripcion" => $_POST["nuevaDescripcion"],
 							   "imagen" => $ruta);
 
-
-
 				$respuesta = ModeloReportes::mdlIngresarReporte($tabla, $datos);
-
-
-				var_dump($respuesta);
 
 				if($respuesta == "ok"){
 
@@ -178,22 +151,20 @@ class ControladorReportes{
 
 		}
 
-	
-
 	}
 
 	/*=============================================
-	EDITAR PRODUCTO
+	Editar reporte por parte de empleado
 	=============================================*/
 
-	static public function ctrEditarProducto(){
+	static public function ctrEditarReporte(){
 
 		if(isset($_POST["editarDescripcion"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"])){
 
 		   		/*=============================================
-				VALIDAR IMAGEN
+					VALIDAR IMAGEN
 				=============================================*/
 
 			   	$ruta = $_POST["imagenActual"];
@@ -328,7 +299,7 @@ class ControladorReportes{
 	}
 
 	/*=============================================
-	BORRAR PRODUCTO
+	Eliminar reporte por parte de empleado
 	=============================================*/
 	static public function ctrEliminarReporte(){
 
@@ -354,7 +325,7 @@ class ControladorReportes{
 
 				swal({
 					  type: "success",
-					  title: "El Reporte ha sido borrado correctamente",
+					  title: "El Reporte ha sido eliminado",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then(function(result){
@@ -369,7 +340,6 @@ class ControladorReportes{
 
 			}		
 		}
-
 
 	}
 

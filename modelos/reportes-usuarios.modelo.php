@@ -30,7 +30,7 @@ class ModeloReportesUsuarios{
 	}
 
 	/*=============================================
-	
+	  Ingresar reporte por parte de usuario
 	=============================================*/
 	static public function mdlIngresarReportesUsuarios($tabla, $datos){
 
@@ -61,9 +61,9 @@ class ModeloReportesUsuarios{
 
 	}
 
-	/*=============================================
-	EDITAR PRODUCTO
-	=============================================*/
+		/*=============================================
+				Editar reporte por parte de usuario
+		=============================================*/
 	static public function mdlEditarReportesUsuarios($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, codigo_reporte = :codigo_reporte, usuario = :usuario, lugar = :lugar, descripcion = :descripcion, imagen = :imagen WHERE codigo_reporte = :codigo_reporte");
@@ -91,7 +91,7 @@ class ModeloReportesUsuarios{
 	}
 
 			/*=============================================
-					Actualizar Reporte
+				Actualizar Reporte por parte de usuario
 			=============================================*/
 
 

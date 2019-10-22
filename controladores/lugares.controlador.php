@@ -3,6 +3,10 @@
 
 class ControladorLugares{
 
+	/*=============================================
+	=            Crear ubicacion            =
+	=============================================*/
+
 	static public function ctrCrearLugar(){
 
 
@@ -73,6 +77,10 @@ class ControladorLugares{
 
 			}
 
+
+			/*=============================================
+			=            Mostrar ubicacion            =
+			=============================================*/
 			static public function ctrMostrarLugares($item, $valor){
 
 				$tabla = "tbl_aldeas";
@@ -193,12 +201,7 @@ class ControladorLugares{
 		
 	}
 
-
-
-
-
-
-		}
+}
 
 
 

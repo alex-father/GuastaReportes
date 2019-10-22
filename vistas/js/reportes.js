@@ -1,15 +1,21 @@
+/*=============================================
+=          Capturamos el rango de fechas          =
+=============================================*/
+
 
 if(localStorage.getItem("capturarRango") != null){
 
   $("#daterange-btn span").html(localStorage.getItem("capturarRango"));
 
+  }else{
 
-}else{
+    $().html('Rango de fecha')
 
-  $().html('Rango de fecha')
+  }
 
-}
-
+/*=============================================
+=            Imprimimos el reporte          =
+=============================================*/
 
 
 $(".tablas").on("click", ".btnImprimirReporte", function(){
@@ -24,14 +30,13 @@ $(".tablas").on("click", ".btnImprimirReporte", function(){
 })
 
 
-		 /*=============================================
-		   Eliminar Reporte Final
+		  /*=============================================
+		           Eliminar Reporte Final
 		    =============================================*/
 
     $(".tablas").on("click", ".btnEliminarReporteFinal", function(){
 
       var codigoReporte = $(this).attr("codigoReporte");
-
 
       swal({
         title: '¿Desea eliminar el reporte final ?',
@@ -42,7 +47,7 @@ $(".tablas").on("click", ".btnImprimirReporte", function(){
           cancelButtonColor: '#d33',
           cancelButtonText: 'Cancelar',
           confirmButtonText: 'Si, borrar Reporte Final!'
-      }).then(function(result){
+          }).then(function(result){
 
         if(result.value){
 
@@ -55,9 +60,9 @@ $(".tablas").on("click", ".btnImprimirReporte", function(){
 
     })
 
-    /*=============================================
-RANGO DE FECHAS
-=============================================*/
+      /*=============================================
+          RANGO DE FECHAS
+      =============================================*/
 
 $('#daterange-btn').daterangepicker(
   {
@@ -69,10 +74,14 @@ $('#daterange-btn').daterangepicker(
       'Este mes'  : [moment().startOf('month'), moment().endOf('month')],
       'Último mes'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
     },
+
     startDate: moment(),
     endDate  : moment()
+
   },
+
   function (start, end) {
+
     $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 
     var fechaInicial = start.format('YYYY-MM-DD');
@@ -89,20 +98,23 @@ $('#daterange-btn').daterangepicker(
 
 )
 
-/*=============================================
-CANCELAR RANGO DE FECHAS
-=============================================*/
+    /*=============================================
+    CANCELAR RANGO DE FECHAS
+    =============================================*/
 
 $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
 
   localStorage.removeItem("capturarRango");
+
   localStorage.clear();
+  
   window.location = "reportes";
+
 })
 
-/*=============================================
-CAPTURAR HOY
-=============================================*/
+    /*=============================================
+    CAPTURAR HOY
+    =============================================*/
 
 $(".daterangepicker.opensleft .ranges li").on("click", function(){
 

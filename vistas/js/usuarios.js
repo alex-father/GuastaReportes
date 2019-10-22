@@ -5,8 +5,6 @@ $(".nuevaFotoUsuario").change(function(){
 
   var imagen = this.files[0];
 
- 
-  
   /*=============================================
     VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
     =============================================*/
@@ -58,6 +56,7 @@ $(".nuevaFotoUsuario").change(function(){
 /*=============================================
 SUBIENDO LA FOTO DEL USUARIO Login
 =============================================*/
+
 $(".nuevaFotoLogin").change(function(){
 
   var imagen = this.files[0];
@@ -190,14 +189,13 @@ $(".tablas").on("click", ".btnActivar", function(){
 
               }
 
+          });
 
-        });
-
-          }
+        }
 
       }
 
-    })
+  })
 
     if(estadoUsuario == 0){
 
@@ -250,13 +248,11 @@ $("#nuevoUsuario").change(function(){
 
            }
 
-
          }
 
      });
 
-
-   })
+})
 
     /*=============================================
     ELIMINAR USUARIO
@@ -286,17 +282,18 @@ $("#nuevoUsuario").change(function(){
 
         }
 
-      })
+   })
 
-
-    })
+})
 
     /*===================================
     =            Validad DPI            =
     ===================================*/
     
     function cuiIsValid(cui) {
+
     var console = window.console;
+
     if (!cui) {
         console.log("CUI vacío");
         return true;
@@ -305,7 +302,9 @@ $("#nuevoUsuario").change(function(){
     var cuiRegExp = /^[0-9]{4}\s?[0-9]{5}\s?[0-9]{4}$/;
 
     if (!cuiRegExp.test(cui)) {
+
         console.log("CUI con formato inválido");
+
         return false;
     }
 
@@ -352,6 +351,7 @@ $("#nuevoUsuario").change(function(){
     ];
     
     if (depto === 0 || muni === 0)
+
     {
         console.log("CUI con código de municipio o departamento inválido.");
         return false;
@@ -381,6 +381,7 @@ $("#nuevoUsuario").change(function(){
     var modulo = (total % 11);
     
     console.log("CUI con módulo: " + modulo);
+
     return modulo === verificador;
 }
 
@@ -395,11 +396,13 @@ $('#cui').bind('change paste keyup', function (e) {
         $next.addClass('glyphicon-ok');
         $parent.removeClass('has-error');
         $next.removeClass('glyphicon-remove');
+        
     } else if (cui) {
         $parent.addClass('has-error');
         $next.addClass('glyphicon-remove');
         $parent.removeClass('has-success');
         $next.removeClass('glyphicon-ok');
+
     } else {
         $parent.removeClass('has-error');
         $next.removeClass('glyphicon-remove');

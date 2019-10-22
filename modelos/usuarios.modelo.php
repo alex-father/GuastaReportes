@@ -5,12 +5,10 @@ require_once "conexion.php";
 class ModeloUsuarios{
 
 	/*=============================================
-	MOSTRAR USUARIOS
+	Mostrar usuarios por parte de empleados
 	=============================================*/
 
 	static public function mdlMostrarUsuarios($tabla, $item, $valor){
-
-		
 
 		/* preguntamos si la variable viene vacia */
 
@@ -33,10 +31,8 @@ class ModeloUsuarios{
 		
 		return $stmt -> fetch();
 
-	} 
-		else
+	}else{
 
-			{
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 
 				$stmt -> execute();
@@ -49,12 +45,12 @@ class ModeloUsuarios{
 		
 		$stmt -> null;
 
-
-
 	}
 
 		
-
+		/*=============================================
+		=   Ingresar usuarios  por parte de empleado         =
+		=============================================*/
 
 	static public function mdlIngresarUsuario($tabla, $datos){
 
@@ -73,6 +69,7 @@ class ModeloUsuarios{
 		if($stmt->execute()){
 
 			return "ok";
+
 		}else{
 
 			return "error";
@@ -82,14 +79,12 @@ class ModeloUsuarios{
 
 		$stmt -> null;
 
-
 	}
 
 
 		/*=============================================
-			Editar USUARIO
+			Editar usuario por parte de empleado
 		=============================================*/
-
 
 	public function mdlEditarUsuario($tabla, $datos){
 	
@@ -117,10 +112,8 @@ class ModeloUsuarios{
 
 	}
 
-
-
 	/*=============================================
-	ACTUALIZAR USUARIO
+		Actualizar usuario por parte de empleado
 	=============================================*/
 
 	static public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2){
@@ -147,9 +140,8 @@ class ModeloUsuarios{
 	}
 
 
-
 	/*=============================================
-	BORRAR USUARIO
+	Eliminar usuario por parte de empleado
 	=============================================*/
 
 	static public function mdlBorrarUsuario($tabla, $datos){
@@ -174,7 +166,5 @@ class ModeloUsuarios{
 
 
 	}
-
-
 
 }

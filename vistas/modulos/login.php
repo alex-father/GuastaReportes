@@ -1,13 +1,10 @@
 
 <div id="back"></div>
 
-
-
     <div class="login-box" >
 
       <img src="vistas/img/plantilla/login.png" class="img-responsive">
 
- 
         <div class="login-box-body">
 
             <p class="login-box-msg">Inicia sesion para comenzar</p>
@@ -22,65 +19,52 @@
 
                 </div>
 
-               <div class="form-group has-feedback">
+                 <div class="form-group has-feedback">
 
-              <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" required>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" required>
 
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-     
-              </div>
+                      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+           
+                </div>
 
                 <div>
              
-
                     <button type="submit" class="btn login_btn btn-block">Ingresar</button>
-
 
                     <a  class="btn login_btn btn-block" data-toggle="modal" data-target="#modalRegistroUsuario">Registrarse</a>
               
-               </div>
+                </div>
 
-                  
+                <?php
 
-              <?php
+                $login = new ControladorUsuarios();
+                $login -> ctrIngresoUsuario();
 
-             
+                ?>
 
-              $login = new ControladorUsuarios();
-              $login -> ctrIngresoUsuario();
-
-
-              ?>
-
-
-
-          </form>
+            </form>
 
           <center>
 
-          <h4><a href="indexAdmin.php" class="text-center" color="">Acceso administrativo</a>
-          </h4>
+            <h4><a href="indexAdmin.php" class="text-center" color="">Acceso administrativo</a>
+            </h4>
 
           </center>
 
        </div>
-
-
-
-        </div>
-
-
-
+    
     </div>
 
+</div>
 
-<!--=============================================
-  =           Modal           =
-  =============================================-->
+
+  <!--=============================================
+    =           Modal  registro de usuario         =
+    =============================================-->
 <div id="modalRegistroUsuario" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   
-
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -92,7 +76,9 @@
           <div class="modal-header" style="background:#00a65a; color: white; ">
 
             <button type="button " class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title ">Registrarse</h4>
+
+              <h4 class="modal-title ">Registrarse</h4>
+
           </div>
 
         <!--=============================================
@@ -103,7 +89,7 @@
 
                 <div class="box-body">
 
-                  <!-- entrada del empleado -->
+                  <!-- Entrada del empleado -->
 
                   <div class="form-group">
 
@@ -117,7 +103,7 @@
                     
                   </div>
 
-                  <!-- entrada del usuario -->
+                  <!-- Entrada del usuario -->
 
                   <div class="form-group">
 
@@ -132,7 +118,7 @@
                     
                   </div>
 
-                  <!-- entrada del la contraseña -->
+                  <!-- Entrada del la contraseña -->
 
                   <div class="form-group">
 
@@ -147,7 +133,7 @@
                     
                   </div>
 
-                  <!-- entrada del telefono -->
+                  <!-- Entrada del telefono -->
 
                   <div class="form-group">
 
@@ -161,7 +147,7 @@
                     </div>
                     
                   </div>
-                  <!-- entrada del email -->
+                  <!-- Entrada del email -->
 
                   <div class="form-group">
 
@@ -176,7 +162,7 @@
                     
                   </div>
 
-                  <!-- entrada del dpi -->
+                  <!-- Entrada del dpi -->
 
                   <div class="form-group">
 
@@ -191,15 +177,11 @@
                     
                   </div>
 
-                  <!-- entrada para seleccionar el perfil -->
+                  <!-- Entrada para el perfil -->
 
-                  
-
-                        <input type="hidden"  name="nuevoPerfil" id="nuevoPerfil" 
+                    <input type="hidden"  name="nuevoPerfil" id="nuevoPerfil" 
                       value="Usuario" readonly >
-                      
-                   
-
+                     
                   <div class="form-group">
                       
                        <div class="panel">Subir Foto</div>
@@ -211,39 +193,35 @@
 
                               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
-
-
-                        </div>
+                  </div>
                   
-                    </div>
+              </div>
 
-                </div>
+         </div>
 
           <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+          <div class="modal-footer">
 
-                  <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
 
-                  <button type="submit" class="btn btn-success pull-right">Registrarser</button>
+              <button type="submit" class="btn btn-success pull-right">Registrarser</button>
 
-                </div>
+          </div>
 
-            </form>
+      </form>
 
-        </div>
+    </div>
         
-
-      </div>
-
   </div>
 
-              <?php 
+</div>
 
+      <?php 
 
-              $crearUsuarioLogin = new ControladorUsuarios();
-              $crearUsuarioLogin -> ctrCrearUsuarioLogin();
+      $crearUsuarioLogin = new ControladorUsuarios();
+      $crearUsuarioLogin -> ctrCrearUsuarioLogin();
 
-               ?>
+       ?>

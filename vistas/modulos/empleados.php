@@ -1,22 +1,38 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
 
-  <section class="content-header">
+   <section class="content-header">
     
-    <h1>
-      
-      Administrar Empleados
-    
-    </h1>
+        <h1>
+          
+          Administrar Empleados
+        
+        </h1>
 
-    <ol class="breadcrumb">
-      
-      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
-      <li class="active">Administrar Emleados</li>
-    
-    </ol>
+        <ol class="breadcrumb">
+          
+          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+          
+          <li class="active">Administrar Emleados</li>
+        
+        </ol>
 
-  </section>
+    </section>
 
   <!-- Main content -->
   <section class="content">
@@ -67,17 +83,16 @@
               
               foreach ($empleados as $key => $value){
                       
-                       echo ' 
-                          <td>'.($key+1).'</td>
-                          <td>'.$value["nombre"].'</td>
-                          <td>'.$value["usuario"].'</td>';
+                       echo '<td>'.($key+1).'</td>
+                             <td>'.$value["nombre"].'</td>
+                             <td>'.$value["usuario"].'</td>';
 
                   if($value["foto"] != ""){
 
                     echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
 
                     }
-                    else  {
+                    else{
 
                     echo '<td><img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
 
@@ -91,8 +106,7 @@
 
                     echo '<td><button class="btn btn-success btn-xs btnActivarEmpleado" idEmpleado="'.$value["id"].'" estadoEmpleado="0">Activado</button></td>';
 
-                  }
-                  else {
+                  }else{
 
                     echo '<td><button class="btn btn-danger btn-xs btnActivarEmpleado" idEmpleado="'.$value["id"].'" estadoEmpleado="1">Desactivado</button></td>';
 
@@ -131,12 +145,12 @@
    </div>
 
   <!--=============================================
-  =           Modal           =
+  =           Modal para agregar empleados         =
   =============================================-->
 <div id="modalAgregarEmpleado" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   
-
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -159,7 +173,7 @@
 
         <div class="box-body">
 
-          <!-- entrada del empleado -->
+          <!-- Entrada del nombre -->
 
           <div class="form-group">
 
@@ -173,7 +187,7 @@
             
           </div>
 
-          <!-- entrada del usuario -->
+          <!-- Entrada del usuario -->
 
           <div class="form-group">
 
@@ -187,7 +201,7 @@
             
           </div>
 
-          <!-- entrada del la contraseña -->
+          <!-- Entrada del la contraseña -->
 
           <div class="form-group">
 
@@ -201,7 +215,7 @@
             
           </div>
 
-          <!-- entrada para seleccionar el perfil -->
+          <!-- Entrada para seleccionar el perfil -->
 
           <div class="form-group">
 
@@ -222,75 +236,72 @@
             
           </div>
 
-                <div class="form-group">
+          <div class="form-group">
               
-                    <div class="panel">Subir Foto</div>
+              <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevaFotoEmpleado" name="nuevaFotoEmpleado" required>
+                  <input type="file" class="nuevaFotoEmpleado" name="nuevaFotoEmpleado" required>
 
-                      <p class="help-block">Peso maximo de la foto 2MB</p>
+                  <p class="help-block">Peso maximo de la foto 2MB</p>
 
 
-                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
+                  <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
-                      
-
-                </div>
+              </div>
           
-            </div> 
+          </div> 
 
-        </div>
+      </div>
 
         <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+       <div class="modal-footer">
 
-                  <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
 
-                  <button type="submit" class="btn btn-success pull-right">Guardar</button>
+            <button type="submit" class="btn btn-success pull-right">Guardar</button>
 
-                </div>
+       </div>
 
-                <?php
+        <?php
 
-                $crearEmpleado = new ControladorEmpleados();
-                $crearEmpleado -> ctrCrearEmpleado();
+          $crearEmpleado = new ControladorEmpleados();
+          $crearEmpleado -> ctrCrearEmpleado();
 
+        ?>
 
-                ?>
+      </form>
 
-            </form>
+     </div>
 
-        </div>
+   </div>
 
-      </div>
-
-    </div>
+</div>
 
     <!--=============================================
   =           Modal Editar Empleado         =
   =============================================-->
 <div id="modalEditarEmpleado" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   
-
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-      <!--=============================================
-        =           Cabecera del Modal           =
-        =============================================-->
+         <!--=============================================
+          =           Cabecera del Modal           =
+          =============================================-->
 
-      <div class="modal-header" style="background:#00a65a; color: white; ">
+          <div class="modal-header" style="background:#00a65a; color: white; ">
 
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Empleados</h4>
-      </div>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Editar Empleados</h4>
+          </div>
 
-        <!--=============================================
+          <!--=============================================
           =           Cuerpo del Modal           =
           =============================================-->
 
@@ -298,7 +309,7 @@
 
         <div class="box-body">
 
-          <!-- entrada del empleado -->
+          <!-- Ver empleado -->
 
           <div class="form-group">
 
@@ -311,21 +322,21 @@
             </div>
             
           </div>
-          <!-- entrada del usuario -->
+          <!-- eVer usuario -->
 
           <div class="form-group">
 
-            <div class="input-group">
+              <div class="input-group">
 
-              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-              <input type="text" class="form-control input-lg" id="editarEmpleado" name="editarEmpleado" value="" readonly>
-              
-            </div>
+                <input type="text" class="form-control input-lg" id="editarEmpleado" name="editarEmpleado" value="" readonly>
+                
+              </div>
 
           </div>
 
-          <!-- entrada del la contraseña -->
+          <!-- Ver contraseña -->
 
           <div class="form-group">
 
@@ -340,7 +351,7 @@
             
           </div>
 
-          <!-- entrada para seleccionar el perfil -->
+          <!-- Ver el perfil -->
 
           <div class="form-group">
 
@@ -356,71 +367,61 @@
 
                   <option value="Empleado">Empleado</option>
 
-                  
-                  
-
                 </select>
               
             </div>
             
           </div>
 
-                <div class="form-group">
+          <div class="form-group">
               
-                    <div class="panel">Subir Foto</div>
+             <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevaFotoEmpleado" name="editarFoto">
+                <input type="file" class="nuevaFotoEmpleado" name="editarFoto">
 
-                      <p class="help-block">Peso maximo de la foto 2MB</p>
+                <p class="help-block">Peso maximo de la foto 2MB</p>
 
-                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
+                <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
                       <input type="hidden" name="fotoActual" id="fotoActual">
 
-                </div>
+             </div>
           
-            </div> 
+         </div> 
 
-        </div>
+      </div>
 
         <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+        <div class="modal-footer">
 
-                  <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
 
-                  <button type="submit" class="btn btn-success pull-right">Actualizar</button>
+            <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
-                </div>
+        </div>
 
-               
-                
+         <?php
 
-                <?php
-
-                $editarEmpleado = new ControladorEmpleados();
-                $editarEmpleado -> ctrEditarEmpleado();
+            $editarEmpleado = new ControladorEmpleados();
+            $editarEmpleado -> ctrEditarEmpleado();
 
 
-
-                ?>
-
-               
-
+          ?>
 
             </form>
 
         </div>
 
-      </div>
-
     </div>
 
-     <?php
+</div>
+
+  <?php
 
     $borrarEmpleado = new ControladorEmpleados();
     $borrarEmpleado -> ctrBorrarEmpleado();
 
 
-    ?>
+  ?>

@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloEmpleados{
 
 	/*=============================================
-	MOSTRAR Empleados
+			Mostrar Empleados
 	=============================================*/
 
 	static public function mdlMostrarEmpleados($tabla, $item, $valor){
@@ -48,12 +48,11 @@ class ModeloEmpleados{
 		
 		$stmt -> null;
 
-
-
 	}
 
-		
-
+		/*=============================================
+		=            Ingresar empleados            =
+		=============================================*/
 
 	static public function mdlIngresarEmpleado($tabla, $datos){
 
@@ -81,6 +80,10 @@ class ModeloEmpleados{
 	}
 
 
+			/*=============================================
+			=           Editar empleado            =
+			=============================================*/
+	
 	public function mdlEditarEmpleado($tabla, $datos){
 	
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, password = :password, perfil = :perfil, foto = :foto WHERE usuario = :usuario");
@@ -107,7 +110,9 @@ class ModeloEmpleados{
 
 	}
 
-
+		/*============================================
+		=            Actualizar empleados            =
+		============================================*/
 
 	static public function mdlActualizarEmpleado($tabla, $item1, $valor1, $item2, $valor2){
 
@@ -134,7 +139,7 @@ class ModeloEmpleados{
 
 
 	/*=============================================
-	BORRAR USUARIO
+				Borrar empleados
 	=============================================*/
 
 	static public function mdlBorrarEmpleado($tabla, $datos){

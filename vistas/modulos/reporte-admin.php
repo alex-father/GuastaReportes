@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -131,7 +147,7 @@
 </div>
 
 <!--=====================================
-MODAL AGREGAR Reporte
+    Agregar  Reporte
 ======================================-->
 
 <div id="modalAgregarReporte" class="modal fade" role="dialog">
@@ -223,10 +239,7 @@ MODAL AGREGAR Reporte
 
                    echo' <input type="text" class="form-control input-lg" name="usuario" value="'.$_SESSION["usuario"].'" placeholder="'.$_SESSION["usuario"].'" readonly>'
 
-
                  ?>
-
-               
 
               </div>
 
@@ -254,7 +267,6 @@ MODAL AGREGAR Reporte
 
                       echo '<option value="'.$value["aldea"].'">'.$value["aldea"].'</option>';
 
-                      
                     }
 
                    ?>
@@ -309,7 +321,7 @@ MODAL AGREGAR Reporte
          <?php 
 
           $crearReporte = new ControladorReportes();
-          $crearReporte->ctrCrearReportes();
+          $crearReporte->ctrCrearreportes();
          ?>
 
       </form>
@@ -395,8 +407,6 @@ MODAL AGREGAR Reporte
 
                  <input type="text" class="form-control input-lg" name="editarUsuario"  id="editarUsuario" readonly>
 
-               
-
               </div>
 
             </div>
@@ -409,11 +419,7 @@ MODAL AGREGAR Reporte
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                
-                  
                   <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
-
-                
 
               </div>
 
@@ -464,13 +470,9 @@ MODAL AGREGAR Reporte
         <?php 
 
           $editar = new ControladorReportes();
-          $editar->ctrEditarProducto();
-
-
+          $editar->ctrEditarReporte();
 
          ?>
-
-         
 
       </form>
 
@@ -486,12 +488,6 @@ MODAL AGREGAR Reporte
    $eliminarReporte = new ControladorReportes();
    $eliminarReporte->ctrEliminarReporte();
 
-
-
-
  ?>
 
-
-
-<!--====  End of Section comment  ====-->
 

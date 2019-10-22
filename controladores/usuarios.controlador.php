@@ -108,15 +108,16 @@ class ControladorUsuarios{
 		static public function ctrMostrarUsuarios($item, $valor){
 
 			$tabla = "tbl_usuarios";
-
-      
+  
 			$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
-			
 			return $respuesta;
 		}
 
 
+/*=============================================
+=            Crear usuario nuevo           =
+=============================================*/
 
 
 		static public function ctrCrearUsuarioLogin(){

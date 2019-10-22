@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloCrearReportes{
 
 	/*=============================================
-	CREAR CATEGORIA
+	   Ingresa reporte final a la BD
 	=============================================*/
 
 	static public function mdlIngresarReportes($tabla, $datos){
@@ -37,12 +37,10 @@ class ModeloCrearReportes{
 
 
 	/*=============================================
-	MOSTRAR CATEGORIAS
+			Mostrar reportefinal para ver codigo
 	=============================================*/
 
 	static public function mdlMostrarCrearReportes($tabla, $item, $valor){
-
-
 
 
 		if($item != null){
@@ -71,34 +69,9 @@ class ModeloCrearReportes{
 
 	}
 
-	/*=============================================
-	EDITAR CATEGORIA
-	=============================================*/
-
-	static public function mdlEditarCategoria($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
-
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
-
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt->close();
-		$stmt = null;
-
-	}
 
 			/*=============================================
-			ELIMINAR VENTA
+				Eliminar reporte final
 			=============================================*/
 
 	static public function mdlEliminarReporte($tabla, $datos){
@@ -120,42 +93,6 @@ class ModeloCrearReportes{
 		$stmt -> close();
 
 		$stmt = null;
-
-	}
-
-
-
-
-
-
-	/*=============================================
-	contar los reportes
-	=============================================*/
-
-	static public function mdlContarReportes($tabla, $item, $valor){
-
-		
-
-		if($item != null){
-
-			$stmt = Conexion::conectar()->prepare("SELECT COUNT * FROM $tabla WHERE $item = :$item");
-
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-			$stmt -> execute();
-
-			return $stmt -> fetchAll();
-
-		}
-
-
-
-		$stmt -> close();
-
-		$stmt = null;
-
-
-
 
 	}
 

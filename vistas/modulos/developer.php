@@ -1,9 +1,4 @@
-<div class="content-wrapper">
-
-
-  
-
-  
+<div class="content-wrapper"> 
 <!-- Navbar -->
 <nav class="nav-bar1">
   <div class="container">

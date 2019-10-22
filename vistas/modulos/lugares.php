@@ -1,22 +1,38 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
 
-  <section class="content-header">
+    <section class="content-header">
     
-    <h1>
-      
-      Administrar Ubicación
-    
-    </h1>
+        <h1>
+          
+          Administrar Ubicación
+        
+        </h1>
 
-    <ol class="breadcrumb">
-      
-      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
-      <li class="active">Administrar ubicación</li>
-    
-    </ol>
+        <ol class="breadcrumb">
+          
+          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+          
+          <li class="active">Administrar ubicación</li>
+        
+        </ol>
 
-  </section>
+    </section>
 
   <!-- Main content -->
   <section class="content">
@@ -26,13 +42,13 @@
 
         <div class="box-header with-border">
   
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarLugar">
-          
-          Agregar Ubicación
+          <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarLugar">
+            
+            Agregar Ubicación
 
-        </button>
+          </button>
 
-      </div>
+        </div>
 
       <div class="box-body" >
 
@@ -60,49 +76,48 @@
 
               </thead>
 
-            <tbody>
+                <tbody>
 
-              <?php
+                  <?php
 
-                $item = null;
-                $valor = null;
+                    $item = null;
+                    $valor = null;
 
-                $usuarios = ControladorLugares::ctrMostrarLugares($item, $valor);
+                    $usuarios = ControladorLugares::ctrMostrarLugares($item, $valor);
 
-                foreach ($usuarios as $key => $value){
-         
-                  echo ' <tr>
-                          <td>'.($key+1).'</td>
-                          <td>'.$value["codigo"].'</td>
-                          <td>'.$value["municipio"].'</td>
-                          <td>'.$value["aldea"].'</td>
-                          <td>'.$value["fecha"].'</td>';
-
-                  
+                    foreach ($usuarios as $key => $value){
+             
+                        echo '<tr>
+                              <td>'.($key+1).'</td>
+                              <td>'.$value["codigo"].'</td>
+                              <td>'.$value["municipio"].'</td>
+                              <td>'.$value["aldea"].'</td>
+                              <td>'.$value["fecha"].'</td>';
 
 
-                     if($_SESSION["perfil"] =="Administrador"){
+                         if($_SESSION["perfil"] =="Administrador"){
                             
                             echo'<td>
 
-                          <div class="btn-group">
+                                      <div class="btn-group">
 
+                                        <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
-                              
-                            <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
+                                          <button class="btn btn-danger btnEliminarLugar" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
-                            <button class="btn btn-danger btnEliminarLugar" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                                      </div>  
 
-                          </div>  
+                                  </td>';
+                            
+                                }
 
-                        </td>';
-                      }
+                    echo '</tr>';
 
-               echo '</tr>';
-                 }
-              ?>
+                       }
+
+                    ?>
                 
-              </tbody>
+                 </tbody>
           
              </table>
 
@@ -115,7 +130,7 @@
    </div>
 
    <!--=====================================
-      Modal Agragar Ubicacion
+      Modal agregar ubicación
     ======================================-->
 
 <div id="modalAgregarLugar" class="modal fade" role="dialog">
@@ -146,7 +161,7 @@
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- Entrada para el municipio -->
             
             <div class="form-group">
               
@@ -160,7 +175,7 @@
 
             </div>
 
-            <!-- ENTRADA PARA EL USUARIO -->
+            <!-- Entrada para la ubicación -->
 
              <div class="form-group">
               
@@ -174,7 +189,7 @@
 
             </div>
 
-            <!-- entrada para el codigo -->
+            <!-- Entrada para el codigo -->
 
              <div class="form-group">
               
@@ -209,8 +224,6 @@
         $ubicacion = new ControladorLugares();
         $ubicacion ->ctrCrearLugar();
 
-        
-
         ?>
 
       </form>
@@ -225,12 +238,12 @@
  
 
     <!--=============================================
-  =           Modal Editar Ubicacion        =
-  =============================================-->
+      =           Modal Editar Ubicacion        =
+      =============================================-->
 <div id="modalEditarLugar" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   
-
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -253,7 +266,7 @@
 
         <div class="box-body">
 
-          <!-- entrada del municipio -->
+          <!-- Ver municipio -->
 
           <div class="form-group">
 
@@ -267,7 +280,8 @@
             </div>
             
           </div>
-          <!-- entrada del ubicación -->
+
+          <!-- Ver ubicación -->
 
           <div class="form-group">
 
@@ -282,7 +296,7 @@
 
           </div>
 
-          <!-- entrada del codigo -->
+          <!-- Ver codigo -->
 
           <div class="form-group">
 
@@ -291,8 +305,7 @@
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
               <input type="text" class="form-control input-lg"   id="editarCodigo" name="editarCodigo" value="" required>
-              <input type="hidden"  name="idCodigo" id="idCodigo" required>
-              
+              <input type="hidden"  name="idCodigo" id="idCodigo" required>             
               
             </div>
             
@@ -306,37 +319,35 @@
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+      <div class="modal-footer">
 
-                  <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
 
-                  <button type="submit" class="btn btn-success pull-right">Actualizar</button>
+        <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
-                </div>
-
-
-              <?php 
-
-                $editarUbicacion = new ControladorLugares();
-                $editarUbicacion ->ctrEditarLugar();
+      </div>
 
 
-               ?>
+      <?php 
 
-            </form>
+        $editarUbicacion = new ControladorLugares();
+        $editarUbicacion ->ctrEditarLugar();
 
-        </div>
+
+      ?>
+
+          </form>
 
       </div>
 
     </div>
 
+  </div>
+
     <?php 
 
       $borrarUbicacion = new ControladorLugares();
       $borrarUbicacion ->ctrBorrarLugar();
-
-
 
      ?>
 
