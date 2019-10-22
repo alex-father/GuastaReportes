@@ -76,7 +76,7 @@
 
 								<!-- Dropdown-toggle -->
 
-								<ul class="dropdown-menu">
+					<ul class="dropdown-menu">
 			              <!-- User image -->
 			              <li class="user-header">
 
@@ -121,14 +121,15 @@
 
 			                <div class="row">
 			                 
-			                  	<div class="col-lg-8 text-left">
-			                   		 <a href="#">Seguimos Trabajando</a>
-			                    
+			                  	<div class="col-lg-6 text-left">
+
+			                  		<center> <a href="#">Trabajando para ti!!</a> </center>
+
 			                  	</div>
 
-			                  	<div class="col-lg-4 text-right">
+			                  	<div class="col-lg-6 text-right">
 
-			                 		<a href="salir" class="btn btn-default ">Salir</a>
+			                 		<a href="salir" class="btn btn-primary">Salir  <i class="fa fa-sign-out"></i></a>
 
 			               	 	</div>
 
@@ -137,7 +138,7 @@
 			              </li>
 			             
 
-			            </ul>
+			          </ul>
 
 					</li>
 

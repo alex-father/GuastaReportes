@@ -108,9 +108,9 @@ session_start();
 
   </head>
 
-<!--=====================================
-CUERPO DOCUMENTO
-======================================-->
+      <!--=====================================
+      CUERPO DOCUMENTO
+      ======================================-->
 
 <body class="hold-transition skin-green sidebar-collapse sidebar-mini login-page">
  
@@ -179,14 +179,16 @@ CUERPO DOCUMENTO
   ?>
 
 
-<script src="vistas/js/categorias.js"></script>
-<script src="vistas/js/lugares.js"></script>
-<script src="vistas/js/empleados.js"></script>
-<script src="vistas/js/plantilla.js"></script>
-<script src="vistas/js/reportes.js"></script>
-<script src="vistas/js/reporte-usuario.js"></script>
-<script src="vistas/js/reporte-admin.js"></script>
-<script src="vistas/js/crear-reportes.js"></script>
-<script src="vistas/js/usuarios.js"></script>
-</body>
+      <script src="vistas/js/categorias.js"></script>
+      <script src="vistas/js/lugares.js"></script>
+      <script src="vistas/js/empleados.js"></script>
+      <script src="vistas/js/plantilla.js"></script>
+      <script src="vistas/js/reportes.js"></script>
+      <script src="vistas/js/reporte-usuario.js"></script>
+      <script src="vistas/js/reporte-admin.js"></script>
+      <script src="vistas/js/crear-reportes.js"></script>
+      <script src="vistas/js/usuarios.js"></script>
+
+  </body>
+  
 </html>

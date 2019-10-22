@@ -1,24 +1,42 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
+
+
 <div class="content-wrapper">
 
   <section class="content-header">
     
-    <h1>
+      <h1>
+        
+        Administrar usuarios
       
-      Administrar usuarios
-    
-    </h1>
+      </h1>
 
-    <ol class="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        
+        <li class="active">Administrar usuarios</li>
       
-      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
-      <li class="active">Administrar usuarios</li>
-    
-    </ol>
+      </ol>
 
   </section>
 
-  <!-- Main content -->
+  <!-- Contenido central -->
   <section class="content">
 
     <!-- Default box -->
@@ -26,108 +44,108 @@
 
         <div class="box-header with-border">
   
-        <button class="btn btn-success" data-toggle="modal" data-target="#modalCrearUsuario">
-          
-          Agregar usuario
+          <button class="btn btn-success" data-toggle="modal" data-target="#modalCrearUsuario">
+            
+            Agregar usuario
 
-        </button>
+          </button>
 
-      </div>
+        </div>
 
-      <div class="box-body" >
+          <div class="box-body" >
 
-          <table class="table table-bordered table-striped dt-responsive tablas" >
+              <table class="table table-bordered table-striped dt-responsive tablas" >
 
-              <thead>
+                  <thead>
 
-                  <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Nombre</th>
-                      <th>Usuario</th>
-                      <th>Foto</th>
-                      <th>Perfirl</th>
-                      <th>estado</th>
-                      <th>Ultimo Login</th>
+                      <tr>
+                          <th style="width: 10px">#</th>
+                          <th>Nombre</th>
+                          <th>Usuario</th>
+                          <th>Foto</th>
+                          <th>Perfirl</th>
+                          <th>estado</th>
+                          <th>Ultimo Login</th>
 
-                      <?php  
+                          <?php  
 
-                       if($_SESSION["perfil"] =="Administrador"){
+                           if($_SESSION["perfil"] =="Administrador"){
 
-                             echo '<th>Acción</th>';
+                                 echo '<th>Acción</th>';
+                              }
+
+                          ?>
+
+                      </tr>
+
+                  </thead>
+
+                <tbody>
+
+                    <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+                      foreach ($usuarios as $key => $value){
+               
+                        echo '<tr>
+                                <td>'.($key+1).'</td>
+                                <td>'.$value["nombre"].'</td>
+                                <td>'.$value["usuario"].'</td>';
+
+                        if($value["foto"] != ""){
+
+                              echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+
+                          }else{
+
+                             echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+
                           }
 
-                      ?>
+                             echo '<td>'.$value["perfil"].'</td>';
 
-                  </tr>
+                            if($value["estado"] != 0){
 
-              </thead>
+                                echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
 
-            <tbody>
+                            }else{
 
-              <?php
+                               echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
 
-                $item = null;
-                $valor = null;
+                            }             
 
-                $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-                foreach ($usuarios as $key => $value){
-         
-                  echo ' <tr>
-                          <td>'.($key+1).'</td>
-                          <td>'.$value["nombre"].'</td>
-                          <td>'.$value["usuario"].'</td>';
-
-                  if($value["foto"] != ""){
-
-                    echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
-
-                    }
-                    else  {
-
-                    echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
-
-                    }
-
-                   echo '<td>'.$value["perfil"].'</td>';
-
-                  if($value["estado"] != 0){
-
-                    echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
-
-                  }else{
-
-                    echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
-
-                  }             
-
-                    echo '<td>'.$value["ultimo_login"].'</td>';
+                           echo '<td>'.$value["ultimo_login"].'</td>';
 
 
-                     if($_SESSION["perfil"] =="Administrador"){
-                            
-                            echo'<td>
+                           if($_SESSION["perfil"] =="Administrador"){
+                                  
+                                  echo'<td>
 
-                          <div class="btn-group">
+                                <div class="btn-group">
 
+                                  <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
 
-                              
-                            <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
 
-                            <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+                                </div>  
 
-                          </div>  
+                              </td>';
 
-                        </td>';
-                      }
+                            }
 
-               echo '</tr>';
-                 }
-              ?>
-                
+                     echo '</tr>';
+
+                       }
+
+                    ?>
+                      
               </tbody>
           
-             </table>
+            </table>
 
            </div>
   
@@ -137,13 +155,13 @@
   
    </div>
 
-  !--=============================================
-  =           Modal           =
-  =============================================-->
+    <!--=============================================
+    =           Modal crear usuarios          =
+    =============================================-->
 <div id="modalCrearUsuario" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   
-
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -155,7 +173,9 @@
           <div class="modal-header" style="background:#00a65a; color: white; ">
 
             <button type="button " class="close" data-dismiss="modal">&times;</button>
+
             <h4 class="modal-title ">Registrarse</h4>
+
           </div>
 
         <!--=============================================
@@ -166,7 +186,7 @@
 
                 <div class="box-body">
 
-                  <!-- entrada del empleado -->
+                  <!-- entrada del nombre -->
 
                   <div class="form-group">
 
@@ -210,7 +230,7 @@
                     
                   </div>
 
-                  <!-- entrada del usuario -->
+                  <!-- entrada del telefono -->
 
                   <div class="form-group">
 
@@ -224,6 +244,7 @@
                     </div>
                     
                   </div>
+
                   <!-- entrada del email -->
 
                   <div class="form-group">
@@ -254,8 +275,6 @@
                     
                   </div>
 
-                  
-
                   <!-- entrada para seleccionar el perfil -->
 
                   <div class="form-group">
@@ -274,56 +293,53 @@
                     
                   </div>
 
-                        <div class="form-group">
+                  <div class="form-group">
                       
-                            <div class="panel">Subir Foto</div>
+                      <div class="panel">Subir Foto</div>
 
-                            <input type="file" class="nuevaFotoLogin" name="nuevaFotoLogin" required>
+                          <input type="file" class="nuevaFotoLogin" name="nuevaFotoLogin" required>
 
                               <p class="help-block">Peso maximo de la foto 200MB</p>
 
 
                               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
-
-
-                        </div>
+                      </div>
                   
-                    </div>
+               </div>
 
-                </div>
+         </div>
 
           <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+            <div class="modal-footer">
 
-                  <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
 
-                  <button type="submit" class="btn btn-success pull-right">Registrarser</button>
+                <button type="submit" class="btn btn-success pull-right">Registrarser</button>
 
-                </div>
+            </div>
 
-            </form>
 
-        </div>
-        
-
-      </div>
-
-  </div>
               <?php 
-
 
               $crearUsuario = new ControladorUsuarios();
               $crearUsuario-> ctrCrearUsuario();
+
                ?>
 
+        </form>
 
+      </div>
+        
+   </div>
+
+</div>
 
     <!--=============================================
-  =           Modal Editar Empleado         =
+  =           Modal Editar Usuario         =
   =============================================-->
 <div id="modalEditarUsuario" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -340,7 +356,9 @@
       <div class="modal-header" style="background:#00a65a; color: white; ">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
+
         <h4 class="modal-title">Editar Usuarios</h4>
+
       </div>
 
         <!--=============================================
@@ -351,7 +369,7 @@
 
         <div class="box-body">
 
-          <!-- entrada del empleado -->
+          <!-- entrada del nombre -->
 
           <div class="form-group">
 
@@ -407,46 +425,41 @@
 
                   <option value="Usuario">Usuario</option>
 
-                  
-                  
-
-                </select>
+                  </select>
               
             </div>
             
           </div>
 
-                <div class="form-group">
+          <div class="form-group">
               
-                    <div class="panel">Subir Foto</div>
+              <div class="panel">Subir Foto</div>
 
-                    <input type="file" class="nuevaFotoUsuario" name="editarFoto">
+                  <input type="file" class="nuevaFotoUsuario" name="editarFoto">
 
-                      <p class="help-block">Peso maximo de la foto 2MB</p>
+                    <p class="help-block">Peso maximo de la foto 2MB</p>
 
-                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
-                      <input type="hidden" name="fotoActual" id="fotoActual">
+                    <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
+                      
+                    <input type="hidden" name="fotoActual" id="fotoActual">
 
-                </div>
+          </div>
           
-            </div> 
+      </div> 
 
-        </div>
+    </div>
 
         <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+            <div class="modal-footer">
 
-                  <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
 
-                  <button type="submit" class="btn btn-success pull-right">Actualizar</button>
+                <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
-                </div>
-
-               
-                
+            </div>
 
                 <?php
 
@@ -454,22 +467,16 @@
                 $editarUsuario->ctrEditarUsuario();
 
 
-
                 ?>
 
                
-
-
-            </form>
+          </form>
 
         </div>
 
       </div>
 
-    </div>
-
- 
-
+  </div>
 
     <?php
 

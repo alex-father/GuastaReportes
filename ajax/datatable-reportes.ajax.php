@@ -49,12 +49,14 @@ class TablaReportes{
 
 		  	if($reportes[$i]["estado"] != 0){
 
-                       $estado = "<button class='btn btn-success btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='0'>Activado</button>";
+                        echo '<td><button class="btn btn-success btn-xs btnActivarReporte" readonly idReporte="'.$value["id"].'" estadoReporte="0">Verificando</button></td>';
 
+
+                      
                   }
                     else{
 
-                   $estado = "<button class='btn btn-danger btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='1'>Desactivado</button>";
+                   $estado = "<button class='btn btn-danger btn-xs btnActivarReporte' idReporte='".$reportes[$i]["id"]."' estadoReporte='1'En proceso</button>";
 
                   }
 

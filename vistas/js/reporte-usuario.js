@@ -36,7 +36,6 @@ $("#nuevaCategoriaUsuario").change(function(){
 
           var nuevoCodigo = Number(respuesta["codigo_reporte"])+1;
             $("#nuevoCodigo").val(nuevoCodigo);
-            console.log("respuesta2",nuevoCodigo);
 
             
 

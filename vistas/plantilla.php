@@ -21,8 +21,8 @@ session_start();
   <link rel="icon" href="vistas/img/plantilla/logo-muni1.png">
 
    <!--=====================================
-  PLUGINS DE CSS
-  ======================================-->
+    PLUGINS DE CSS
+    ======================================-->
 
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="vistas/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -111,9 +111,9 @@ session_start();
 
   </head>
 
-<!--=====================================
-CUERPO DOCUMENTO
-======================================-->
+      <!--=====================================
+      CUERPO DOCUMENTO
+      ======================================-->
 
 <body class="hold-transition skin-green sidebar-collapse sidebar-mini login-page">
  
@@ -124,7 +124,7 @@ CUERPO DOCUMENTO
    echo '<div class="wrapper">';
 
     /*=============================================
-    CABEZOTE
+    CABECRA
     =============================================*/
 
     include "modulos/cabezote.php";
@@ -142,8 +142,8 @@ CUERPO DOCUMENTO
     if(isset($_GET["ruta"])){
 
       if($_GET["ruta"] == "inicio" ||
-        $_GET["ruta"] == "categoria" ||
-        $_GET["ruta"] == "lugares" ||
+         $_GET["ruta"] == "categoria" ||
+         $_GET["ruta"] == "lugares" ||
          $_GET["ruta"] == "empleados" ||
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "reporte-admin" ||
@@ -184,14 +184,16 @@ CUERPO DOCUMENTO
   ?>
 
 
-<script src="vistas/js/categorias.js"></script>
-<script src="vistas/js/lugares.js"></script>
-<script src="vistas/js/empleados.js"></script>
-<script src="vistas/js/plantilla.js"></script>
-<script src="vistas/js/reportes.js"></script>
-<script src="vistas/js/reporte-usuario.js"></script>
-<script src="vistas/js/reporte-admin.js"></script>
-<script src="vistas/js/crear-reportes.js"></script>
-<script src="vistas/js/usuarios.js"></script>
-</body>
+    <script src="vistas/js/categorias.js"></script>
+    <script src="vistas/js/lugares.js"></script>
+    <script src="vistas/js/empleados.js"></script>
+    <script src="vistas/js/plantilla.js"></script>
+    <script src="vistas/js/reportes.js"></script>
+    <script src="vistas/js/reporte-usuario.js"></script>
+    <script src="vistas/js/reporte-admin.js"></script>
+    <script src="vistas/js/crear-reportes.js"></script>
+    <script src="vistas/js/usuarios.js"></script>
+
+  </body>
+  
 </html>

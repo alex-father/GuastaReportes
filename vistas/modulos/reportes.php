@@ -1,153 +1,168 @@
+<?php
 
-        <div class="content-wrapper">
+if($_SESSION["perfil"] == "Usuario"){
 
-  <section class="content-header">
-    
-    <h1>
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
+<div class="content-wrapper">
+
+      <section class="content-header">
       
-      Gestión de Reportes
-    
-    </h1>
-
-    <ol class="breadcrumb">
-      
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
-      <li class="active">Administrar Reportes</li>
-    
-    </ol>
-
-  </section>
-
-  <section class="content">
-
-    <div class="box">
-
-      <div class="box-header with-border">
-  
-        <a href="crear-reporte">
-
-          <button class="btn btn-success">
+          <h1>
             
-            Crear Reporte Final
-
-          </button>
-
-        </a>
-
-         <button type="button" class="btn bg-orange-active color-palette pull-right" id="daterange-btn">
-
-           
-            <span>
-              <i class="fa fa-calendar"></i> Rango de fecha
-            </span>
-
-            <i class="fa fa-caret-down"></i>
-
-         </button>
-
-      </div>
-
-      <div class="box-body">
-        
-       <table class="table table-bordered table-striped dt-responsive tablas">
-         
-        <thead>
-         
-         <tr>
-           
-           <th style="width:10px">#</th>
-           <th>Código</th>
-           <th>Usuario</th>
-           <th>Empleado</th>
-           <th>Lugar</th>
-           <th>Descripción</th>
-           <th>Categoria</th> 
-           <th>Fecha de Reclamo</th>
-           <th>Fecha de Creacion</th>
-           <th>Acciones</th>
-
-         </tr> 
-
-        </thead>
-
-        <tbody>
-
-
-          <?php 
-
-
-          if(isset($_GET["fechaInicial"])){
-
-            $fechaInicial = $_GET["fechaInicial"];
-            $fechaFinal = $_GET["fechaFinal"];
-
-
-
-          }else{
-
-               $fechaInicial = null;
-               $fechaFinal = null;
-
-          }
-
-          $item = null;
-
-          $valor = null;
-
-
-          $respuesta = ControladorCrearReportes::ctrMostrarRangoFechasReportes($fechaInicial, $fechaFinal);
-
-
-          foreach ($respuesta as $key => $value) {
-            # code...
+            Gestión de Reportes
           
-          echo ' <tr>
+          </h1>
 
-            <td>'.($key+1).'1</td>
+          <ol class="breadcrumb">
+            
+            <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+            
+            <li class="active">Administrar Reportes</li>
+          
+          </ol>
 
-            <td>'.$value["codigo"].'</td>
+    </section>
 
-            <td>'.$value["id_usuario"].'</td>
+    <section class="content">
 
-            <td>'.$value["id_empleado"].'</td>
+      <div class="box">
 
-            <td>'.$value["lugar"].'</td>
+        <div class="box-header with-border">
+  
+            <a href="crear-reporte">
 
-            <td>'.$value["descripcion"].'</td>
-
-            <td>'.$value["categoria"].'</td>
-
-            <td>'.$value["fecha_inicio"].'</td>
-
-            <td>'.$value["fecha"].'</td>
-
-            <td>
-
-              <div class="btn-group">
-                  
-                <button class="btn btn-primary btnImprimirReporte" codigoReporte="'.$value["codigo"].'">
-
-                <i class="fa fa-print"></i>
+                <button class="btn btn-success">
+                
+                    Crear Reporte Final
 
                 </button>
 
-                <button class="btn btn-danger btnEliminarReporteFinal" codigoReporte="'.$value["id"].'"><i class="fa fa-times"></i></button>
+            </a>
 
-              </div>  
+           <button type="button" class="btn bg-orange-active color-palette pull-right" id="daterange-btn">
 
-            </td>
+             
+              <span>
+                <i class="fa fa-calendar"></i> Rango de fecha
+              </span>
 
-          </tr>';
+              <i class="fa fa-caret-down"></i>
+
+           </button>
+
+        </div>
+
+        <div class="box-body">
+        
+           <table class="table table-bordered table-striped dt-responsive tablas">
+         
+            <thead>
+             
+             <tr>
+               
+               <th style="width:10px">#</th>
+               <th>Código</th>
+               <th>Usuario</th>
+               <th>Empleado</th>
+               <th>Lugar</th>
+               <th>Descripción</th>
+               <th>Categoria</th> 
+               <th>Fecha de Reclamo</th>
+               <th>Fecha de Creacion</th>
+               <th>Acciones</th>
+
+             </tr> 
+
+            </thead>
+
+            <tbody>
+
+
+              <?php 
+
+
+              if(isset($_GET["fechaInicial"])){
+
+                $fechaInicial = $_GET["fechaInicial"];
+                $fechaFinal = $_GET["fechaFinal"];
+
+
+
+              }else{
+
+                   $fechaInicial = null;
+                   $fechaFinal = null;
 
               }
 
-        
-           ?>
-          
-        </tbody>
+              $item = null;
 
-       </table>
+              $valor = null;
+
+
+              $respuesta = ControladorCrearReportes::ctrMostrarRangoFechasReportes($fechaInicial, $fechaFinal);
+
+
+              foreach ($respuesta as $key => $value) {
+                # code...
+              
+              echo ' <tr>
+
+                <td>'.($key+1).'1</td>
+
+                <td>'.$value["codigo"].'</td>
+
+                <td>'.$value["id_usuario"].'</td>
+
+                <td>'.$value["id_empleado"].'</td>
+
+                <td>'.$value["lugar"].'</td>
+
+                <td>'.$value["descripcion"].'</td>
+
+                <td>'.$value["categoria"].'</td>
+
+                <td>'.$value["fecha_inicio"].'</td>
+
+                <td>'.$value["fecha"].'</td>
+
+                <td>
+
+                  <div class="btn-group">
+                      
+                    <button class="btn btn-primary btnImprimirReporte" codigoReporte="'.$value["codigo"].'">
+
+                    <i class="fa fa-print"></i>
+
+                    </button>
+
+                    <button class="btn btn-danger btnEliminarReporteFinal" codigoReporte="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                  </div>  
+
+                </td>
+
+              </tr>';
+
+                }
+
+            
+               ?>
+              
+          </tbody>
+
+        </table>
 
       </div>
 
@@ -157,10 +172,10 @@
 
 </div>
 
-<?php  
+    <?php  
 
-$eliminarReporte = new ControladorCrearReportes();
-$eliminarReporte -> ctrEliminarReporteFinal();
+    $eliminarReporte = new ControladorCrearReportes();
+    $eliminarReporte -> ctrEliminarReporteFinal();
 
 
-   ?>     
+    ?>     

@@ -1192,7 +1192,7 @@ a:focus {
   padding: 15px;
   border-bottom: 1px solid #f4f4f4;
   border-top: 1px solid #dddddd;
-  background-color: #9EA39D;
+  background: linear-gradient(10deg, yellow,sienna, royalblue, green, purple);
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-body:before,
 .navbar-nav > .user-menu > .dropdown-menu > .user-body:after {
@@ -1211,8 +1211,9 @@ a:focus {
   clear: both;
 }
 .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
-  color: #444 !important;
+  color: #050500 !important;
 }
+
 @media (max-width: 991px) {
   .navbar-nav > .user-menu > .dropdown-menu > .user-body a {
     background: #fff !important;
@@ -2407,12 +2408,12 @@ a:focus {
 .btn-default {
   background-color: none;
   color: #444;
-  border-color: #ddd;
+  border-color: #F2E524;
 }
 .btn-default:hover,
 .btn-default:active,
 .btn-default.hover {
-  background-color: #e7e7e7;
+  background-color: none;
 }
 .btn-primary {
   background-color: #3c8dbc;

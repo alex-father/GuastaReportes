@@ -1,22 +1,24 @@
+
+
 <div class="content-wrapper">
 
-  <section class="content-header">
-    
-    <h1>
+    <section class="content-header">
       
-      Tus Reportes
-    
-    </h1>
+      <h1>
+        
+        Tus Reportes
+      
+      </h1>
 
-    <ol class="breadcrumb">
+      <ol class="breadcrumb">
+        
+        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        
+        <li class="active">Administrar tu reportes</li>
       
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
-      <li class="active">Administrar tu reportes</li>
-    
-    </ol>
+      </ol>
 
-  </section>
+    </section>
 
   <section class="content">
 
@@ -38,19 +40,19 @@
          
         <thead>
          
-         <tr>
-           
-           <th style="width:10px">#</th>
-           <th>Imagen</th>
-           <th>Categoria</th>
-           <th>Lugar</th>
-           <th>Usuario</th>
-           <th>Descripción</th>
-           <th>Estado</th>
-           <th>Agregado</th>
-           <th>Ver Reporte</th>
+           <tr>
+             
+             <th style="width:10px">#</th>
+             <th>Imagen</th>
+             <th>Categoria</th>
+             <th>Lugar</th>
+             <th>Usuario</th>
+             <th>Descripción</th>
+             <th>Estado</th>
+             <th>Agregado</th>
+             <th>Ver Reporte</th>
 
-         </tr> 
+           </tr> 
 
         </thead>
 
@@ -61,80 +63,79 @@
           $item = "usuario";
           $valor = $_SESSION["usuario"];
 
-         
-
             $reportes = ControladorReportesUsuarios::ctrMostrarReportesUsuarios($item, $valor);
-
-           
 
             foreach ($reportes as $key => $value) {
 
               
               $imagen = "<a href='".$reportes[$key]["imagen"]."' download><img src='".$reportes[$key]["imagen"]."' width='100' height='120'></a>";
 
-          
-
-
-              echo '
-                        <td>'.($key+1).'</td>
-                        <td>'.$imagen.'</td>';
+        
+              echo '<td>'.($key+1).'</td>
+                    <td>'.$imagen.'</td>';
 
                         $item = "id";
                         $valor = $value["id_categoria"];
 
                         $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-
-
-                    echo ' <td>'.$categoria["categoria"].'</td>
-                          
-                           <td>'.$value["lugar"].'</td>
-                           <td>'.$value["usuario"].'</td>
-                           <td>'.$value["descripcion"].'</td>';
+              echo '<td>'.$categoria["categoria"].'</td>
+                    <td>'.$value["lugar"].'</td>
+                    <td>'.$value["usuario"].'</td>
+                    <td>'.$value["descripcion"].'</td>';
 
 
 
                    if($value["estado"] != 0){
 
-                        echo '<td><button class="btn btn-success btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="0">Activado</button></td>';
+                        echo '<td><button class="btn btn-warning btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="0">Verificando</button></td>';
 
-                  }
-                    else{
 
-                    echo '<td><button class="btn btn-danger btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="1">Desactivado</button></td>';
+                      }
+
+
+                  }else{
+
+                        echo '<td><button class="btn btn-danger btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="1">En proceso</button></td>';
 
                   }
                        
-                       echo ' <td>'.$value["fecha"].'</td>
+                        echo '<td>'.$value["fecha"].'</td>
 
-                               <td>
-                               <div><button class="btn btn-warning btnEditarReporte" idReporte="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarReporte"><i class="fa fa-search-plus"></i></button>
-                               </div>
+                              <td>
 
-                          </td>
+                                 <div>
 
-                      </tr>';
+                                   <button class="btn btn-warning btnEditarReporte" idReporte="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarReporte"><i class="fa fa-search-plus"></i>
+
+                                   </button>
+
+                                 </div>
+                              
+                              </td>
+
+                       </tr>';
               
-            }
+                  }
 
 
-           ?>
+                ?>
 
-        </tbody>
+            </tbody>
 
-       </table>
+          </table>
+
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+  </div>
 
-</div>
-
-<!--=====================================
-MODAL AGREGAR Reporte
-======================================-->
+      <!--=====================================
+      Modal agregar reporte
+      ======================================-->
 
 <div id="modalReportesUsuario" class="modal fade" role="dialog">
   
@@ -219,19 +220,18 @@ MODAL AGREGAR Reporte
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
                 <?php 
 
                    $usuario = $_SESSION["usuario"];
 
-                   echo' <input type="text" class="form-control input-lg" name="usuario" value="'.$_SESSION["usuario"].'" placeholder="'.$_SESSION["usuario"].'" readonly>'
+                   echo'<input type="text" class="form-control input-lg" name="usuario" value="'.$_SESSION["usuario"].'" placeholder="'.$_SESSION["usuario"].'" readonly>'
 
 
                  ?>
 
-               
-
-              </div>
+               </div>
 
             </div>
 
@@ -246,6 +246,7 @@ MODAL AGREGAR Reporte
                 <select class="form-control input-lg" name="nuevoLugar">
                   
                   <option value="">Selecionar Barrio o Aldea</option>
+
                   <?php 
 
                     $item = null;
@@ -285,13 +286,13 @@ MODAL AGREGAR Reporte
               
               <div class="panel">SUBIR IMAGEN</div>
 
-              <input type="file" id="nuevaImagen" name="nuevaImagen">
+                <input type="file" id="nuevaImagen" name="nuevaImagen">
 
-              <p class="help-block">Peso máximo de la imagen 2MB</p>
+                <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-              <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  ver" width="100px">
+                <img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail  ver" width="100px">
 
-            </div>
+              </div>
 
           </div>
 
@@ -315,7 +316,6 @@ MODAL AGREGAR Reporte
           $crearReporte ->ctrCrearReportes();
 
          ?>
-
 
       </form>
 
