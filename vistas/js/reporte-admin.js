@@ -60,24 +60,6 @@ $(document).on("click", ".btnActivarReporte", function(){
         processData: false,
         success: function(respuesta){
 
-          if(window.matchMedia("(max-width:1400px)").matches){
-    
-           swal({
-            title: "El reporte ha sido actualizado",
-            type: "success",
-            confirmButtonText: "¡Cerrar!"
-          }).then(function(result) {
-            
-              if (result.value) {
-
-              window.location = "reporte-admin";
-
-            }
-
-          });
-
-        }
-
      }
 
   })

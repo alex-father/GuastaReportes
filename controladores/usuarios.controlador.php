@@ -31,7 +31,7 @@ class ControladorUsuarios{
 				$valor = $_POST["ingUsuario"];
 
 				/* Vamos a solicitar una repuesta del modelo utilizando el metodoMdlMostrarUsuarios y le enviamos tres parametros */
-				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+				$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
 				/* Comparamos la informacion del usuario que trae $respuesta de la BD*/
 				

@@ -116,17 +116,22 @@ if($_SESSION["perfil"] == "Usuario"){
 
                     echo '<td>'.$value["ultimo_login"].'</td>
 
-                        <td>
 
-                          <div class="btn-group">
+                        <td>';
+
+
+                  if($_SESSION["perfil"] == "Administrador"){
+
+                         echo '<div class="btn-group">
                               
                             <button class="btn btn-warning btnEditarEmpleado" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEmpleado"><i class="fa fa-pencil"></i></button>
 
                             <button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'" fotoEmpleado="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
 
-                          </div>  
+                          </div>';
+                          }  
 
-                        </td>
+                       echo '</td>
 
                   </tr>';
                  }
