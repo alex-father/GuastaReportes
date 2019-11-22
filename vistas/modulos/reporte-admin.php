@@ -1,19 +1,3 @@
-<?php
-
-if($_SESSION["perfil"] == "Usuario"){
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
-}
-
-?>
-
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -147,7 +131,7 @@ if($_SESSION["perfil"] == "Usuario"){
 </div>
 
 <!--=====================================
-    Agregar  Reporte
+MODAL AGREGAR Reporte
 ======================================-->
 
 <div id="modalAgregarReporte" class="modal fade" role="dialog">
@@ -239,7 +223,10 @@ if($_SESSION["perfil"] == "Usuario"){
 
                    echo' <input type="text" class="form-control input-lg" name="usuario" value="'.$_SESSION["usuario"].'" placeholder="'.$_SESSION["usuario"].'" readonly>'
 
+
                  ?>
+
+               
 
               </div>
 
@@ -267,6 +254,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
                       echo '<option value="'.$value["aldea"].'">'.$value["aldea"].'</option>';
 
+                      
                     }
 
                    ?>
@@ -321,7 +309,11 @@ if($_SESSION["perfil"] == "Usuario"){
          <?php 
 
           $crearReporte = new ControladorReportes();
-          $crearReporte->ctrCrearreportes();
+          $crearReporte->ctrCrearReportes();
+
+          $bitacora = new ControladorBitacoraReportes();
+          $bitacora -> ctrCrearBitacoraReportesAdmin();
+
          ?>
 
       </form>
@@ -407,6 +399,8 @@ if($_SESSION["perfil"] == "Usuario"){
 
                  <input type="text" class="form-control input-lg" name="editarUsuario"  id="editarUsuario" readonly>
 
+               
+
               </div>
 
             </div>
@@ -419,7 +413,11 @@ if($_SESSION["perfil"] == "Usuario"){
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
+                
+                  
                   <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
+
+                
 
               </div>
 
@@ -470,9 +468,13 @@ if($_SESSION["perfil"] == "Usuario"){
         <?php 
 
           $editar = new ControladorReportes();
-          $editar->ctrEditarReporte();
+          $editar->ctrEditarProducto();
+
+
 
          ?>
+
+         
 
       </form>
 
@@ -488,6 +490,12 @@ if($_SESSION["perfil"] == "Usuario"){
    $eliminarReporte = new ControladorReportes();
    $eliminarReporte->ctrEliminarReporte();
 
+
+
+
  ?>
 
+
+
+<!--====  End of Section comment  ====-->
 

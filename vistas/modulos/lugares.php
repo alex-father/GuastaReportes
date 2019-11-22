@@ -1,38 +1,22 @@
-<?php
-
-if($_SESSION["perfil"] == "Usuario"){
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
-}
-
-?>
-
 <div class="content-wrapper">
 
-    <section class="content-header">
+  <section class="content-header">
     
-        <h1>
-          
-          Administrar Ubicación
-        
-        </h1>
+    <h1>
+      
+      Administrar Ubicación
+    
+    </h1>
 
-        <ol class="breadcrumb">
-          
-          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-          
-          <li class="active">Administrar ubicación</li>
-        
-        </ol>
+    <ol class="breadcrumb">
+      
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      
+      <li class="active">Administrar ubicación</li>
+    
+    </ol>
 
-    </section>
+  </section>
 
   <!-- Main content -->
   <section class="content">
@@ -42,13 +26,13 @@ if($_SESSION["perfil"] == "Usuario"){
 
         <div class="box-header with-border">
   
-          <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarLugar">
-            
-            Agregar Ubicación
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarLugar">
+          
+          Agregar Ubicación
 
-          </button>
+        </button>
 
-        </div>
+      </div>
 
       <div class="box-body" >
 
@@ -76,48 +60,49 @@ if($_SESSION["perfil"] == "Usuario"){
 
               </thead>
 
-                <tbody>
+            <tbody>
 
-                  <?php
+              <?php
 
-                    $item = null;
-                    $valor = null;
+                $item = null;
+                $valor = null;
 
-                    $usuarios = ControladorLugares::ctrMostrarLugares($item, $valor);
+                $usuarios = ControladorLugares::ctrMostrarLugares($item, $valor);
 
-                    foreach ($usuarios as $key => $value){
-             
-                        echo '<tr>
-                              <td>'.($key+1).'</td>
-                              <td>'.$value["codigo"].'</td>
-                              <td>'.$value["municipio"].'</td>
-                              <td>'.$value["aldea"].'</td>
-                              <td>'.$value["fecha"].'</td>';
+                foreach ($usuarios as $key => $value){
+         
+                  echo ' <tr>
+                          <td>'.($key+1).'</td>
+                          <td>'.$value["codigo"].'</td>
+                          <td>'.$value["municipio"].'</td>
+                          <td>'.$value["aldea"].'</td>
+                          <td>'.$value["fecha"].'</td>';
+
+                  
 
 
-                         if($_SESSION["perfil"] =="Administrador"){
+                     if($_SESSION["perfil"] =="Administrador"){
                             
                             echo'<td>
 
-                                      <div class="btn-group">
+                          <div class="btn-group">
 
-                                        <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
-                                          <button class="btn btn-danger btnEliminarLugar" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                              
+                            <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
-                                      </div>  
+                            <button class="btn btn-danger btnEliminarLugar" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
-                                  </td>';
-                            
-                                }
+                          </div>  
 
-                    echo '</tr>';
+                        </td>';
+                      }
 
-                       }
-
-                    ?>
+               echo '</tr>';
+                 }
+              ?>
                 
-                 </tbody>
+              </tbody>
           
              </table>
 
@@ -130,7 +115,7 @@ if($_SESSION["perfil"] == "Usuario"){
    </div>
 
    <!--=====================================
-      Modal agregar ubicación
+      Modal Agragar Ubicacion
     ======================================-->
 
 <div id="modalAgregarLugar" class="modal fade" role="dialog">
@@ -161,7 +146,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
           <div class="box-body">
 
-            <!-- Entrada para el municipio -->
+            <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
               
@@ -175,7 +160,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
             </div>
 
-            <!-- Entrada para la ubicación -->
+            <!-- ENTRADA PARA EL USUARIO -->
 
              <div class="form-group">
               
@@ -189,7 +174,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
             </div>
 
-            <!-- Entrada para el codigo -->
+            <!-- entrada para el codigo -->
 
              <div class="form-group">
               
@@ -224,6 +209,8 @@ if($_SESSION["perfil"] == "Usuario"){
         $ubicacion = new ControladorLugares();
         $ubicacion ->ctrCrearLugar();
 
+        
+
         ?>
 
       </form>
@@ -238,12 +225,12 @@ if($_SESSION["perfil"] == "Usuario"){
  
 
     <!--=============================================
-      =           Modal Editar Ubicacion        =
-      =============================================-->
+  =           Modal Editar Ubicacion        =
+  =============================================-->
 <div id="modalEditarLugar" class="modal fade" role="dialog">
-
   <div class="modal-dialog">
   
+
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -266,7 +253,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
         <div class="box-body">
 
-          <!-- Ver municipio -->
+          <!-- entrada del municipio -->
 
           <div class="form-group">
 
@@ -280,8 +267,7 @@ if($_SESSION["perfil"] == "Usuario"){
             </div>
             
           </div>
-
-          <!-- Ver ubicación -->
+          <!-- entrada del ubicación -->
 
           <div class="form-group">
 
@@ -296,7 +282,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
           </div>
 
-          <!-- Ver codigo -->
+          <!-- entrada del codigo -->
 
           <div class="form-group">
 
@@ -305,7 +291,8 @@ if($_SESSION["perfil"] == "Usuario"){
               <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
               <input type="text" class="form-control input-lg"   id="editarCodigo" name="editarCodigo" value="" required>
-              <input type="hidden"  name="idCodigo" id="idCodigo" required>             
+              <input type="hidden"  name="idCodigo" id="idCodigo" required>
+              
               
             </div>
             
@@ -319,35 +306,37 @@ if($_SESSION["perfil"] == "Usuario"){
           =           Pie del Modal           =
           =============================================-->
 
-      <div class="modal-footer">
+                <div class="modal-footer">
 
-        <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
 
-        <button type="submit" class="btn btn-success pull-right">Actualizar</button>
+                  <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
-      </div>
-
-
-      <?php 
-
-        $editarUbicacion = new ControladorLugares();
-        $editarUbicacion ->ctrEditarLugar();
+                </div>
 
 
-      ?>
+              <?php 
 
-          </form>
+                $editarUbicacion = new ControladorLugares();
+                $editarUbicacion ->ctrEditarLugar();
+
+
+               ?>
+
+            </form>
+
+        </div>
 
       </div>
 
     </div>
 
-  </div>
-
     <?php 
 
       $borrarUbicacion = new ControladorLugares();
       $borrarUbicacion ->ctrBorrarLugar();
+
+
 
      ?>
 

@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloReportes{
 
 	/*=============================================
-		Mostrar reportes por parte de empleado
+	MOSTRAR PRODUCTOS
 	=============================================*/
 
 	static public function mdlMostrarReportes($tabla, $item, $valor){
@@ -37,8 +37,33 @@ class ModeloReportes{
 	}
 
 
+
 	/*=============================================
-		Ingresar reportes por parte de empleado
+					Mostrar solo los del Usuario
+	=============================================*/
+
+	static public function mdlMostrarReportesUsuario($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchALL();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	REGISTRO DE PRODUCTO
 	=============================================*/
 	static public function mdlIngresarReporte($tabla, $datos){
 
@@ -68,7 +93,7 @@ class ModeloReportes{
 	}
 
 	/*=============================================
-		Editar reporte por parte de empleado
+	EDITAR PRODUCTO
 	=============================================*/
 	static public function mdlEditarReporte($tabla, $datos){
 
@@ -97,8 +122,9 @@ class ModeloReportes{
 	}
 
 			/*=============================================
-				Actualizar Reporte por parte de empleado
+					BActualizar Reporte
 			=============================================*/
+
 
 	static public function mdlActualizarReporte($tabla, $item1, $valor1, $item2, $valor2){
 
@@ -124,7 +150,7 @@ class ModeloReportes{
 	}
 
 			/*=============================================
-				Eliminar reporte por parte de empleado
+					BORRAR PRODUCTO
 			=============================================*/
 
 	static public function mdlEliminarReportes($tabla, $datos){
@@ -150,7 +176,7 @@ class ModeloReportes{
 	}
 
 	/*=============================================
-		Rango de fechas de reportes finales
+	RANGO FECHAS
 	=============================================*/	
 
 	static public function mdlRangoFechasReportes($tabla, $fechaInicial, $fechaFinal){
@@ -185,7 +211,8 @@ class ModeloReportes{
 			$fechaFinal2 = new DateTime($fechaFinal);
 			$fechaFinal2 ->add(new DateInterval("P2D"));
 			$fechaFinalMasUno = $fechaFinal2->format("Y-m-d");
-			
+
+var_dump($fechaFinalMasUno);
 			if($fechaFinalMasUno == $fechaActualMasUno){
 
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha BETWEEN '$fechaInicial' AND '$fechaFinalMasUno'");

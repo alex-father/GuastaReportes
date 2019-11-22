@@ -1,38 +1,22 @@
-<?php
-
-if($_SESSION["perfil"] == "Usuario"){
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
-}
-
-?>
-
 <div class="content-wrapper">
 
-   <section class="content-header">
+  <section class="content-header">
     
-        <h1>
-          
-          Administrar Empleados
-        
-        </h1>
+    <h1>
+      
+      Administrar Empleados
+    
+    </h1>
 
-        <ol class="breadcrumb">
-          
-          <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-          
-          <li class="active">Administrar Emleados</li>
-        
-        </ol>
+    <ol class="breadcrumb">
+      
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      
+      <li class="active">Administrar Emleados</li>
+    
+    </ol>
 
-    </section>
+  </section>
 
   <!-- Main content -->
   <section class="content">
@@ -40,11 +24,19 @@ if($_SESSION["perfil"] == "Usuario"){
     <!-- Default box -->
     <div class="box">
 
-      <div class="box-header with-border">
+      <?php  
+
+      if($_SESSION["perfil"] == "Administrador"){
+
+     echo '<div class="box-header with-border">
 
         <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarEmpleado"> Agregar Empleado</button>
 
-      </div>
+      </div>';
+    }
+
+
+      ?>
 
       <div class="box-body" >
 
@@ -66,7 +58,14 @@ if($_SESSION["perfil"] == "Usuario"){
                       ?>
                       
                       <th>Ultimo Login</th>
-                      <th>Acción</th>
+
+                      <?php  
+                      if($_SESSION["perfil"] =="Administrador"){
+
+                     echo ' <th>Acción</th>';
+                   }
+                      ?>
+                      
 
                   </tr>
 
@@ -83,16 +82,17 @@ if($_SESSION["perfil"] == "Usuario"){
               
               foreach ($empleados as $key => $value){
                       
-                       echo '<td>'.($key+1).'</td>
-                             <td>'.$value["nombre"].'</td>
-                             <td>'.$value["usuario"].'</td>';
+                       echo ' 
+                          <td>'.($key+1).'</td>
+                          <td>'.$value["nombre"].'</td>
+                          <td>'.$value["usuario"].'</td>';
 
                   if($value["foto"] != ""){
 
                     echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
 
                     }
-                    else{
+                    else  {
 
                     echo '<td><img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
 
@@ -106,7 +106,8 @@ if($_SESSION["perfil"] == "Usuario"){
 
                     echo '<td><button class="btn btn-success btn-xs btnActivarEmpleado" idEmpleado="'.$value["id"].'" estadoEmpleado="0">Activado</button></td>';
 
-                  }else{
+                  }
+                  else {
 
                     echo '<td><button class="btn btn-danger btn-xs btnActivarEmpleado" idEmpleado="'.$value["id"].'" estadoEmpleado="1">Desactivado</button></td>';
 
@@ -114,26 +115,25 @@ if($_SESSION["perfil"] == "Usuario"){
 
                 }            
 
-                    echo '<td>'.$value["ultimo_login"].'</td>
+                    echo '<td>'.$value["ultimo_login"].'</td>';
 
 
-                        <td>';
+                      if($_SESSION["perfil"] =="Administrador"){
+                        
+                        echo '<td>
 
-
-                  if($_SESSION["perfil"] == "Administrador"){
-
-                         echo '<div class="btn-group">
+                          <div class="btn-group">
                               
                             <button class="btn btn-warning btnEditarEmpleado" idEmpleado="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEmpleado"><i class="fa fa-pencil"></i></button>
 
                             <button class="btn btn-danger btnEliminarEmpleado" idEmpleado="'.$value["id"].'" fotoEmpleado="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
 
-                          </div>';
-                          }  
+                          </div>  
 
-                       echo '</td>
+                        </td>';
+                      }
 
-                  </tr>';
+                 echo' </tr>';
                  }
               ?>
                 
@@ -150,12 +150,12 @@ if($_SESSION["perfil"] == "Usuario"){
    </div>
 
   <!--=============================================
-  =           Modal para agregar empleados         =
+  =           Modal           =
   =============================================-->
 <div id="modalAgregarEmpleado" class="modal fade" role="dialog">
-
   <div class="modal-dialog">
   
+
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -178,7 +178,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
         <div class="box-body">
 
-          <!-- Entrada del nombre -->
+          <!-- entrada del empleado -->
 
           <div class="form-group">
 
@@ -192,7 +192,7 @@ if($_SESSION["perfil"] == "Usuario"){
             
           </div>
 
-          <!-- Entrada del usuario -->
+          <!-- entrada del usuario -->
 
           <div class="form-group">
 
@@ -206,7 +206,7 @@ if($_SESSION["perfil"] == "Usuario"){
             
           </div>
 
-          <!-- Entrada del la contraseña -->
+          <!-- entrada del la contraseña -->
 
           <div class="form-group">
 
@@ -220,7 +220,7 @@ if($_SESSION["perfil"] == "Usuario"){
             
           </div>
 
-          <!-- Entrada para seleccionar el perfil -->
+          <!-- entrada para seleccionar el perfil -->
 
           <div class="form-group">
 
@@ -241,72 +241,75 @@ if($_SESSION["perfil"] == "Usuario"){
             
           </div>
 
-          <div class="form-group">
+                <div class="form-group">
               
-              <div class="panel">Subir Foto</div>
+                    <div class="panel">Subir Foto</div>
 
-                  <input type="file" class="nuevaFotoEmpleado" name="nuevaFotoEmpleado" required>
+                    <input type="file" class="nuevaFotoEmpleado" name="nuevaFotoEmpleado" required>
 
-                  <p class="help-block">Peso maximo de la foto 2MB</p>
+                      <p class="help-block">Peso maximo de la foto 2MB</p>
 
 
-                  <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
+                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
-              </div>
+                      
+
+                </div>
           
-          </div> 
+            </div> 
 
-      </div>
+        </div>
 
         <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-       <div class="modal-footer">
+                <div class="modal-footer">
 
-            <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success pull-left" data-dismiss="modal">Cerrar</button>
 
-            <button type="submit" class="btn btn-success pull-right">Guardar</button>
+                  <button type="submit" class="btn btn-success pull-right">Guardar</button>
 
-       </div>
+                </div>
 
-        <?php
+                <?php
 
-          $crearEmpleado = new ControladorEmpleados();
-          $crearEmpleado -> ctrCrearEmpleado();
+                $crearEmpleado = new ControladorEmpleados();
+                $crearEmpleado -> ctrCrearEmpleado();
 
-        ?>
 
-      </form>
+                ?>
 
-     </div>
+            </form>
 
-   </div>
+        </div>
 
-</div>
+      </div>
+
+    </div>
 
     <!--=============================================
   =           Modal Editar Empleado         =
   =============================================-->
 <div id="modalEditarEmpleado" class="modal fade" role="dialog">
-
   <div class="modal-dialog">
   
+
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
 
-         <!--=============================================
-          =           Cabecera del Modal           =
-          =============================================-->
+      <!--=============================================
+        =           Cabecera del Modal           =
+        =============================================-->
 
-          <div class="modal-header" style="background:#00a65a; color: white; ">
+      <div class="modal-header" style="background:#00a65a; color: white; ">
 
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Editar Empleados</h4>
-          </div>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar Empleados</h4>
+      </div>
 
-          <!--=============================================
+        <!--=============================================
           =           Cuerpo del Modal           =
           =============================================-->
 
@@ -314,7 +317,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
         <div class="box-body">
 
-          <!-- Ver empleado -->
+          <!-- entrada del empleado -->
 
           <div class="form-group">
 
@@ -327,21 +330,21 @@ if($_SESSION["perfil"] == "Usuario"){
             </div>
             
           </div>
-          <!-- eVer usuario -->
+          <!-- entrada del usuario -->
 
           <div class="form-group">
 
-              <div class="input-group">
+            <div class="input-group">
 
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                <input type="text" class="form-control input-lg" id="editarEmpleado" name="editarEmpleado" value="" readonly>
-                
-              </div>
+              <input type="text" class="form-control input-lg" id="editarEmpleado" name="editarEmpleado" value="" readonly>
+              
+            </div>
 
           </div>
 
-          <!-- Ver contraseña -->
+          <!-- entrada del la contraseña -->
 
           <div class="form-group">
 
@@ -356,7 +359,7 @@ if($_SESSION["perfil"] == "Usuario"){
             
           </div>
 
-          <!-- Ver el perfil -->
+          <!-- entrada para seleccionar el perfil -->
 
           <div class="form-group">
 
@@ -372,61 +375,71 @@ if($_SESSION["perfil"] == "Usuario"){
 
                   <option value="Empleado">Empleado</option>
 
+                  
+                  
+
                 </select>
               
             </div>
             
           </div>
 
-          <div class="form-group">
+                <div class="form-group">
               
-             <div class="panel">Subir Foto</div>
+                    <div class="panel">Subir Foto</div>
 
-                <input type="file" class="nuevaFotoEmpleado" name="editarFoto">
+                    <input type="file" class="nuevaFotoEmpleado" name="editarFoto">
 
-                <p class="help-block">Peso maximo de la foto 2MB</p>
+                      <p class="help-block">Peso maximo de la foto 2MB</p>
 
-                <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
+                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
                       <input type="hidden" name="fotoActual" id="fotoActual">
 
-             </div>
+                </div>
           
-         </div> 
+            </div> 
 
-      </div>
+        </div>
 
         <!--=============================================
           =           Pie del Modal           =
           =============================================-->
 
-        <div class="modal-footer">
+                <div class="modal-footer">
 
-            <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
 
-            <button type="submit" class="btn btn-success pull-right">Actualizar</button>
+                  <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
-        </div>
+                </div>
 
-         <?php
+               
+                
 
-            $editarEmpleado = new ControladorEmpleados();
-            $editarEmpleado -> ctrEditarEmpleado();
+                <?php
+
+                $editarEmpleado = new ControladorEmpleados();
+                $editarEmpleado -> ctrEditarEmpleado();
 
 
-          ?>
+
+                ?>
+
+               
+
 
             </form>
 
         </div>
 
+      </div>
+
     </div>
 
-</div>
-
-  <?php
+     <?php
 
     $borrarEmpleado = new ControladorEmpleados();
     $borrarEmpleado -> ctrBorrarEmpleado();
 
 
-  ?>
+    ?>

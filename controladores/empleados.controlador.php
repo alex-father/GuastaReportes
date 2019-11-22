@@ -3,7 +3,7 @@
 class ControladorEmpleados{
 
 	/*=============================================
-	Ingreso de empleados
+	INGRESO DE USUARIO
 	=============================================*/
 
 	 static public function ctrIngresoEmpleado(){
@@ -101,7 +101,7 @@ class ControladorEmpleados{
 	
 
 		/*=============================================
-				Crear de empleado
+		INGRESO DE USUARIO
 		=============================================*/
 
 	static public function ctrCrearEmpleado(){
@@ -281,11 +281,6 @@ class ControladorEmpleados{
 
 		}
 
-
-		/*=========================================
-		=            Motrar empleados             =
-		=========================================*/
-		
 		static public function ctrMostrarEmpleados($item, $valor){
 
 			$tabla = "tbl_empleados";
@@ -295,10 +290,6 @@ class ControladorEmpleados{
 			return $respuesta;
 		}
 
-
-		/*=============================================
-		=            Editar empleado         =
-		=============================================*/
 
 		static public function ctrEditarEmpleado(){
 
@@ -383,7 +374,8 @@ class ControladorEmpleados{
 							}
 
 						}
-						
+
+
 								$tabla = "tbl_empleados";
 
 							if($_POST["editarPassword"] != ""){
@@ -478,7 +470,7 @@ class ControladorEmpleados{
 
 
 		/*=============================================
-				Borrar empleados
+				BORRAR USUARIO
 		=============================================*/
 
 	static public function ctrBorrarEmpleado(){

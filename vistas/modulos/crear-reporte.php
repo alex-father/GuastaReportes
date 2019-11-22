@@ -1,38 +1,22 @@
-<?php
-
-if($_SESSION["perfil"] == "Usuario"){
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
-}
-
-?>
-
 <div class="content-wrapper">
 
-    <section class="content-header">
+  <section class="content-header">
     
-      <h1>
-        
-        Crear Reporte Final
+    <h1>
       
-      </h1>
+      Crear Reporte Final
+    
+    </h1>
 
-      <ol class="breadcrumb">
-        
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        
-        <li class="active">Crear Reportes</li>
+    <ol class="breadcrumb">
       
-      </ol>
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      
+      <li class="active">Crear Reportes</li>
+    
+    </ol>
 
-    </section>
+  </section>
 
   <section class="content">
 
@@ -72,18 +56,21 @@ if($_SESSION["perfil"] == "Usuario"){
                     
                     <span class="input-group-addon"><i class="fa fa-user-plus"></i></span> 
 
+                    
                     <?php 
+                    $idEmpleado = $_SESSION["id"];
+                    $nombreEmpleado =  $_SESSION["nombre"];
 
-                      $idEmpleado = $_SESSION["id"];
-                      $nombreEmpleado =  $_SESSION["nombre"];
+                    echo ' <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="'.$nombreEmpleado.'" readonly>
 
-                        echo ' <input type="text" class="form-control" id="nuevoEmpleado" name="nuevoEmpleado" value="'.$nombreEmpleado.'" readonly>
+                            <input type="hidden" name="idEmpleado" value="'.$idEmpleado.'">';
 
-                                <input type="hidden" name="idEmpleado" value="'.$idEmpleado.'">';
 
-                    ?>
+                     ?>
 
-                   </div>
+                   
+
+                  </div>
 
                 </div> 
 
@@ -99,10 +86,10 @@ if($_SESSION["perfil"] == "Usuario"){
 
                     <?php 
 
-                      $item = null;
-                      $valor = null;
+                    $item = null;
+                    $valor = null;
 
-                        $reportes = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
+                      $reportes = ControladorCrearReportes::ctrMostrarCrearReportes($item, $valor);
 
 
                       if(!$reportes){
@@ -114,27 +101,41 @@ if($_SESSION["perfil"] == "Usuario"){
 
                         foreach ($reportes as $key => $value) {
 
-                        }
 
-                          $codigo = $value["codigo"]+ 1;
-
-                          echo '<input type="text" class="form-control" id="nuevoReporteCreado" name="nuevoReporteCreado" value="'.$codigo.'" readonly>';
 
                         }
+
+                        $codigo = $value["codigo"]+ 1;
+
+                        echo '<input type="text" class="form-control" id="nuevoReporteCreado" name="nuevoReporteCreado" value="'.$codigo.'" readonly>';
+
+
+                      }
 
                      ?>
                     
+                    
+                  
                   </div>
                 
                 </div>
+
+
+                  
 
                 <!--=====================================
                       Entrada para agregar el Reporte
                 ======================================--> 
 
-              <div class="form-group row nuevoReporte"></div>
+                <div class="form-group row nuevoReporte">
+
+                </div>
+
+
 
                 <input type="hidden" id="listarReportes" name="listarReportes">
+
+
 
                 <!--=====================================
                 BOTÓN PARA AGREGAR PRODUCTO
@@ -160,6 +161,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
             $crearReporte = new ControladorCrearReportes();
             $crearReporte->ctrCrearReportes();
+
 
          ?>
 
@@ -188,15 +190,13 @@ if($_SESSION["perfil"] == "Usuario"){
                <thead>
 
                  <tr>
-
-                    <th style="width: 10px">#</th>
-                    <th>Imagen</th>
-                    <th>Ubicacion</th>
-                    <th>Codigo Reporte</th>
-                    <th>Usuario</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-
+                  <th style="width: 10px">#</th>
+                  <th>Imagen</th>
+                  <th>Ubicacion</th>
+                  <th>Codigo Reporte</th>
+                  <th>Usuario</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
                 </tr>
 
               </thead>
@@ -207,6 +207,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
         </div>
 
+
       </div>
 
     </div>
@@ -216,12 +217,12 @@ if($_SESSION["perfil"] == "Usuario"){
 </div>
 
 <!--=============================================
-  =           Modal registrar usuarios         =
+  =           Modal           =
   =============================================-->
 <div id="modalRegistroUsuario" class="modal fade" role="dialog">
-
   <div class="modal-dialog">
   
+
     <div class="modal-content">
 
       <form role="form" method="post" enctype="multipart/form-data">
@@ -233,9 +234,7 @@ if($_SESSION["perfil"] == "Usuario"){
           <div class="modal-header" style="background:#00a65a; color: white; ">
 
             <button type="button " class="close" data-dismiss="modal">&times;</button>
-
             <h4 class="modal-title ">Registrarse</h4>
-
           </div>
 
         <!--=============================================
@@ -246,7 +245,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
                 <div class="box-body">
 
-                  <!-- Entrada del empleado -->
+                  <!-- entrada del empleado -->
 
                   <div class="form-group">
 
@@ -260,7 +259,7 @@ if($_SESSION["perfil"] == "Usuario"){
                     
                   </div>
 
-                  <!-- Entrada del usuario -->
+                  <!-- entrada del usuario -->
 
                   <div class="form-group">
 
@@ -275,7 +274,7 @@ if($_SESSION["perfil"] == "Usuario"){
                     
                   </div>
 
-                  <!-- Entrada del la contraseña -->
+                  <!-- entrada del la contraseña -->
 
                   <div class="form-group">
 
@@ -290,7 +289,7 @@ if($_SESSION["perfil"] == "Usuario"){
                     
                   </div>
 
-                  <!-- Entrada del usuario -->
+                  <!-- entrada del usuario -->
 
                   <div class="form-group">
 
@@ -304,8 +303,7 @@ if($_SESSION["perfil"] == "Usuario"){
                     </div>
                     
                   </div>
-
-                  <!-- Entrada del email -->
+                  <!-- entrada del email -->
 
                   <div class="form-group">
 
@@ -320,7 +318,7 @@ if($_SESSION["perfil"] == "Usuario"){
                     
                   </div>
 
-                  <!-- Entrada del dpi -->
+                  <!-- entrada del dpi -->
 
                   <div class="form-group">
 
@@ -335,7 +333,9 @@ if($_SESSION["perfil"] == "Usuario"){
                     
                   </div>
 
-                  <!-- Entrada para seleccionar el perfil -->
+                  
+
+                  <!-- entrada para seleccionar el perfil -->
 
                   <div class="form-group">
 
@@ -364,6 +364,8 @@ if($_SESSION["perfil"] == "Usuario"){
 
                               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
 
+
+
                         </div>
                   
                     </div>
@@ -386,13 +388,15 @@ if($_SESSION["perfil"] == "Usuario"){
 
         </div>
         
+
       </div>
 
   </div>
 
-   <?php 
+              <?php 
 
-      $crearUsuarioLogin = new ControladorUsuarios();
-      $crearUsuarioLogin -> ctrCrearUsuarioLogin();
 
-    ?>
+              $crearUsuarioLogin = new ControladorUsuarios();
+              $crearUsuarioLogin -> ctrCrearUsuarioLogin();
+
+               ?>

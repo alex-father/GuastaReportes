@@ -123,6 +123,16 @@
 
 						</a>
 
+					</li>
+					<li>
+
+						<a href="bitacora">
+							
+							<i class="fa fa-book"></i>
+							<span>Bitácora</span>
+
+						</a>
+
 					</li>';
 
 				}

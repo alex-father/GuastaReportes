@@ -1,29 +1,25 @@
 <?php
 
-class ControladorReportesUsuarios{
+class ControladorBitacoraReportes{
 
 
 	/*=============================================
 			Mostrar Reportes de Usuario
 	=============================================*/
 
-	static public function ctrMostrarReportesUsuarios($item, $valor){
+	static public function ctrMostrarBitacoraReportes($item, $valor){
 		
 
 
-		$tabla = "tbl_reportes";
+		$tabla = "tbl_bitacora";
 
-		$respuesta = ModeloReportesUsuarios::mdlMostrarReportesUsuarios($tabla, $item, $valor);
+		$respuesta = ModeloBitacoraReportes::mdlMostrarBitacoraReportes($tabla, $item, $valor);
 
 		return $respuesta;
 
 	}
 
-	/*=============================================
-	Crear Reportes
-	=============================================*/
-
-	static public function ctrCrearReportes(){
+	static public function ctrCrearBitacoraReportes(){
 
 		
 
@@ -103,7 +99,7 @@ class ControladorReportesUsuarios{
 
 		
 
-		$tabla = "tbl_reportes";
+		$tabla = "tbl_bitacora";
 		
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoriaUsuario"],
@@ -115,78 +111,34 @@ class ControladorReportesUsuarios{
 
 
 
-				$respuesta = ModeloReportesUsuarios::mdlIngresarReportesUsuarios($tabla, $datos);
-
-
-				
-
-				if($respuesta == "ok"){
-
-					echo'<script>
-
-						swal({
-							  type: "success",
-							  title: "El reporte ha sido guardado correctamente",
-							  showConfirmButton: true,
-							  confirmButtonText: "Cerrar"
-							  }).then((result) => {
-										if (result.value) {
-											
-
-										window.location = "reporte-usuario";
-
-										}
-									})
-
-						</script>';
-
-					}
-
-				}else{
-
-				echo'<script>
-
-					swal({
-						  type: "error",
-						  title: "¡El reporte no puede ir con los campos vacíos o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then((result) => {
-							if (result.value) {
-
-							window.location = "reporte-usuario";
-
-							}
-						})
-
-			  	</script>';
-			}
+				$respuesta = ModeloBitacoraReportes::mdlIngresarBitacoraReportes($tabla, $datos);
 
 		}
 
 	
 
 	}
+}
 
-	/*=============================================
-	EDITAR PRODUCTO
-	=============================================*/
 
-	static public function ctrEditarReportesUsuarios(){
+static public function ctrCrearBitacoraReportesAdmin(){
 
-		if(isset($_POST["editarDescripcion"])){
+		if (isset($_POST["nuevoCodigo"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,. ]+$/', $_POST["editarDescripcion"])){
 
-		   		/*=============================================
+					if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,. ]+$/', $_POST["nuevaDescripcion"]) &&
+						preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
+
+
+						/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = $_POST["imagenActual"];
+			   	$ruta = "vistas/img/reportes/default/anonymous.png";;
 
-			   	if(isset($_FILES["editarImagen"]["tmp_name"]) && !empty($_FILES["editarImagen"]["tmp_name"])){
+			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
-					list($ancho, $alto) = getimagesize($_FILES["editarImagen"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -195,27 +147,15 @@ class ControladorReportesUsuarios{
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-					$directorio = "vistas/img/reportes/".$_POST["editarCodigo"];
+					$directorio = "vistas/img/reportes/".$_POST["nuevoCodigo"];
 
-					/*=============================================
-					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
-					=============================================*/
+					mkdir($directorio, 0755);
 
-					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/reportes/default/anonymous.png"){
-
-						unlink($_POST["imagenActual"]);
-
-					}else{
-
-						mkdir($directorio, 0755);	
-					
-					}
-					
 					/*=============================================
 					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 					=============================================*/
 
-					if($_FILES["editarImagen"]["type"] == "image/jpeg"){
+					if($_FILES["nuevaImagen"]["type"] == "image/jpeg"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -223,9 +163,9 @@ class ControladorReportesUsuarios{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/reportes/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/reportes/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
 
-						$origen = imagecreatefromjpeg($_FILES["editarImagen"]["tmp_name"]);						
+						$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -235,7 +175,7 @@ class ControladorReportesUsuarios{
 
 					}
 
-					if($_FILES["editarImagen"]["type"] == "image/png"){
+					if($_FILES["nuevaImagen"]["type"] == "image/png"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
@@ -243,9 +183,9 @@ class ControladorReportesUsuarios{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/reportes/".$_POST["editarCodigo"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/reportes/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
 
-						$origen = imagecreatefrompng($_FILES["editarImagen"]["tmp_name"]);						
+						$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
 
 						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
@@ -257,60 +197,28 @@ class ControladorReportesUsuarios{
 
 				}
 
-				$tabla = "tbl_reportes";
+		
 
-				$datos = array("id_categoria" => $_POST["editarCategoria"],
-							   "codigo_reporte" => $_POST["editarCodigo"],
-							   "usuario" => $_POST["editarUsuario"],
-							   "lugar" => $_POST["editarUbicacion"],
-							   "descripcion" => $_POST["editarDescripcion"],
+		$tabla = "tbl_bitacora";
+		
+
+				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+							   "codigo_reporte" => $_POST["nuevoCodigo"],
+							   "usuario" => $_POST["usuario"],
+							   "lugar" => $_POST["nuevoLugar"],
+							   "descripcion" => $_POST["nuevaDescripcion"],
 							   "imagen" => $ruta);
 
-				$respuesta = ModeloReportesUsuarios::mdlEditarReportesUsuarios($tabla, $datos);
-
-				if($respuesta == "ok"){
-
-					echo'<script>
-
-						swal({
-							  type: "success",
-							  title: "El reporte ha sido editado correctamente",
-							  showConfirmButton: true,
-							  confirmButtonText: "Cerrar"
-							  }).then(function(result){
-										if (result.value) {
-
-										window.location = "reporte-admin";
-
-										}
-									})
-
-						</script>';
-
-				}
 
 
-			}else{
+				$respuesta = ModeloBitacoraReportes::mdlIngresarBitacoraReportes($tabla, $datos);
 
-				echo'<script>
-
-					swal({
-						  type: "error",
-						  title: "¡El reporte no puede ir con los campos vacíos o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
-							if (result.value) {
-
-							window.location = "reporte-admin";
-
-							}
-						})
-
-			  	</script>';
-			}
 		}
 
+	
+
 	}
+
+}
 
 }

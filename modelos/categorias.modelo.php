@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloCategorias{
 
 	/*=============================================
-				Crear categorias
+	CREAR CATEGORIA
 	=============================================*/
 
 	static public function mdlIngresarCategoria($tabla, $datos){
@@ -30,7 +30,7 @@ class ModeloCategorias{
 	}
 
 	/*=============================================
-				Mostrar categorias
+	MOSTRAR CATEGORIAS
 	=============================================*/
 
 	static public function mdlMostrarCategorias($tabla, $item, $valor){
@@ -62,7 +62,7 @@ class ModeloCategorias{
 	}
 
 	/*=============================================
-				Editar categorias
+	EDITAR CATEGORIA
 	=============================================*/
 
 	static public function mdlEditarCategoria($tabla, $datos){
@@ -88,7 +88,7 @@ class ModeloCategorias{
 	}
 
 	/*=============================================
-				Borrar categorias
+	BORRAR CATEGORIA
 	=============================================*/
 
 	static public function mdlBorrarCategoria($tabla, $datos){

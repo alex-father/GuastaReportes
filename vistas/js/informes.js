@@ -1,7 +1,7 @@
 
-if(localStorage.getItem("capturarRango") != null){
+if(localStorage.getItem("capturarRango2") != null){
 
-  $("#daterange-btn span").html(localStorage.getItem("capturarRango"));
+  $("#daterange-btn2 span").html(localStorage.getItem("capturarRango"));
 
 
 }else{
@@ -10,56 +10,11 @@ if(localStorage.getItem("capturarRango") != null){
 
 }
 
-
-
-$(".tablas").on("click", ".btnImprimirReporte", function(){
-
-
-    var codigoReporte = $(this).attr("codigoReporte");
-
-
-      window.open("extensiones/tcpdf/pdf/reporte.php?codigo="+codigoReporte, "_blank");
-
-
-})
-
-
-		 /*=============================================
-		   Eliminar Reporte Final
-		    =============================================*/
-
-    $(".tablas").on("click", ".btnEliminarReporteFinal", function(){
-
-      var codigoReporte = $(this).attr("codigoReporte");
-
-
-      swal({
-        title: '¿Desea eliminar el reporte final ?',
-        text: "¡Puede cancelar la accíón!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Si, borrar Reporte Final!'
-      }).then(function(result){
-
-        if(result.value){
-
-          window.location = "index.php?ruta=reportes&codigoReporte="+codigoReporte;
-
-        }
-
-      })
-
-
-    })
-
     /*=============================================
 RANGO DE FECHAS
 =============================================*/
 
-$('#daterange-btn').daterangepicker(
+$('#daterange-btn2').daterangepicker(
   {
     ranges   : {
       'Hoy'       : [moment(), moment()],
@@ -73,17 +28,17 @@ $('#daterange-btn').daterangepicker(
     endDate  : moment()
   },
   function (start, end) {
-    $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    $('#daterange-btn2 span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 
     var fechaInicial = start.format('YYYY-MM-DD');
 
     var fechaFinal = end.format('YYYY-MM-DD');
 
-    var capturarRango = $("#daterange-btn span").html();
+    var capturarRango = $("#daterange-btn2 span").html();
    
-    localStorage.setItem("capturarRango", capturarRango);
+    localStorage.setItem("capturarRango2", capturarRango);
 
-    window.location = "index.php?ruta=reportes&fechaInicial="+fechaInicial+"&fechaFinal="+fechaFinal;
+    window.location = "index.php?ruta=informes&fechaInicial="+fechaInicial+"&fechaFinal="+fechaFinal;
 
   }
 
@@ -95,7 +50,7 @@ CANCELAR RANGO DE FECHAS
 
 $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
 
-  localStorage.removeItem("capturarRango");
+  localStorage.removeItem("capturarRango2");
   localStorage.clear();
   window.location = "reportes";
 })

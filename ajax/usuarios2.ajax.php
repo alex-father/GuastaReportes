@@ -33,7 +33,7 @@ class AjaxEmpleados{
 
 	public function ajaxActivarEmpleado(){
 
-		$tabla = "tbl_empleados";
+		$tabla = "empleados";
 
 		$item1 = "estado";
 		$valor1 = $this->activarEmpleado;
@@ -43,7 +43,7 @@ class AjaxEmpleados{
 
 		$respuesta = ModeloEmpleados::mdlActualizarEmpleado($tabla, $item1, $valor1, $item2, $valor2);
 
-
+		
 
 	}
 

@@ -1,12 +1,12 @@
 /*=============================================
-      Subiendo la foto de empleado
+SUBIENDO LA FOTO DEL EMPLEADO
 =============================================*/
 $(".nuevaFotoEmpleado").change(function(){
 
   var imagen = this.files[0];
   
   /*=============================================
-    Validamos el formato si es png o jpg
+    VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
     =============================================*/
 
     if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
@@ -48,16 +48,18 @@ $(".nuevaFotoEmpleado").change(function(){
     }
 })
 
-    /*=============================================
-        Editando  empleado
-    =============================================*/
+
+
+
 
 $(document).on("click", ".btnEditarEmpleado", function(){
 
   var idEmpleado = $(this).attr("idEmpleado");
   
-   var datos = new FormData();
-   datos.append("idEmpleado", idEmpleado);
+  var datos = new FormData();
+  
+  datos.append("idEmpleado", idEmpleado);
+
 
   $.ajax({
 
@@ -93,14 +95,15 @@ $(document).on("click", ".btnEditarEmpleado", function(){
 })
 
 
-    /*=============================================
+          /*=============================================
             Activar Empleado
-     =============================================*/
+          =============================================*/
 
 $(".tablas").on("click", ".btnActivarEmpleado", function(){
 
   var idEmpleado = $(this).attr("idEmpleado");
   var estadoEmpleado = $(this).attr("estadoEmpleado");
+
 
   var datos = new FormData();
   datos.append("activarId", idEmpleado);
@@ -116,13 +119,15 @@ $(".tablas").on("click", ".btnActivarEmpleado", function(){
         processData: false,
         success: function(respuesta){
 
+          console.log("res", respuesta);
+
           if(window.matchMedia("(max-width:1400px)").matches){
     
            swal({
             title: "El empleado ha sido actualizado",
             type: "success",
             confirmButtonText: "¡Cerrar!"
-             }).then(function(result) {
+          }).then(function(result) {
             
               if (result.value) {
 
@@ -141,25 +146,30 @@ $(".tablas").on("click", ".btnActivarEmpleado", function(){
 
    if(estadoEmpleado == 0){
 
-      $(this).removeClass('btn-success');
-      $(this).addClass('btn-danger');
-      $(this).html('Desativado');
-      $(this).attr('estadoEmpleado', 1);
-
-   }else{
-
-      $(this).removeClass('btn-danger');
-      $(this).addClass('btn-success');
-      $(this).html('Activado');
-      $(this).attr('estadoEmpleado', 0);
+    $(this).removeClass('btn-success');
+    $(this).addClass('btn-danger');
+    $(this).html('Desativado');
+    $(this).attr('estadoEmpleado', 1);
 
    }
+   else{
+
+    $(this).removeClass('btn-danger');
+    $(this).addClass('btn-success');
+    $(this).html('Activado');
+    $(this).attr('estadoEmpleado', 0);
+
+
+
+   }
+
 
 })
 
 
+
 /*================================================
-=      Revisar Empleado repetido            =
+=            Reviasr Empleado repetido            =
 ================================================*/
 
 $("#nuevoEmpleado").change(function(){
@@ -167,8 +177,7 @@ $("#nuevoEmpleado").change(function(){
   $(".alert").remove();
 
   var empleado = $(this).val();
-
-    var datos = new FormData();
+  var datos = new FormData();
     datos.append("validarEmpleado", empleado);
 
      $.ajax({
@@ -186,6 +195,7 @@ $("#nuevoEmpleado").change(function(){
 
               $("#nuevoEmpleado").parent().after('<div class="alert alert-warning"> Este Usuario ya existe</div>');
         
+
               $("#nuevoEmpleado").val("");
 
            }
@@ -200,7 +210,7 @@ $("#nuevoEmpleado").change(function(){
 
 
      /*=============================================
-           Eliminar empleado
+      ELIMINAR USUARIO
       =============================================*/
 
     $(document).on("click", ".btnEliminarEmpleado", function(){
@@ -227,9 +237,10 @@ $("#nuevoEmpleado").change(function(){
 
         }
 
-    })
+      })
 
- })
+
+    })
 
 
 

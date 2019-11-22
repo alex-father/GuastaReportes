@@ -31,7 +31,7 @@ class ControladorUsuarios{
 				$valor = $_POST["ingUsuario"];
 
 				/* Vamos a solicitar una repuesta del modelo utilizando el metodoMdlMostrarUsuarios y le enviamos tres parametros */
-				$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
+				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
 				/* Comparamos la informacion del usuario que trae $respuesta de la BD*/
 				
@@ -108,16 +108,15 @@ class ControladorUsuarios{
 		static public function ctrMostrarUsuarios($item, $valor){
 
 			$tabla = "tbl_usuarios";
-  
+
+      
 			$respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
 
+			
 			return $respuesta;
 		}
 
 
-/*=============================================
-=            Crear usuario nuevo           =
-=============================================*/
 
 
 		static public function ctrCrearUsuarioLogin(){

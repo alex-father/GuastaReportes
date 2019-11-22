@@ -1,9 +1,16 @@
+
+
+
+
 <div id="back"></div>
+
+
 
     <div class="login-box" >
 
       <img src="vistas/img/plantilla/login.png" class="img-responsive">
 
+ 
         <div class="login-box-body">
 
             <p class="login-box-msg">ADMINISTRACION</p>
@@ -18,26 +25,35 @@
 
                 </div>
 
-                 <div class="form-group has-feedback">
+               <div class="form-group has-feedback">
 
-                    <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" required>
+              <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" required>
 
-                      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-           
-                </div>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+     
+              </div>
 
                 <div>
+             
 
                     <button type="submit" class="btn login_btn btn-block">Ingresar</button>
 
+
                  </div>
 
+                  
+
               <?php
+
+             
 
               $login = new ControladorEmpleados();
               $login -> ctrIngresoEmpleado();
 
+
               ?>
+
+
 
           </form>
 

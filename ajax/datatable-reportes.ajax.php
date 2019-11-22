@@ -10,7 +10,7 @@ require_once "../modelos/categorias.modelo.php";
 class TablaReportes{
 
  	/*=============================================
- 	 Mostrar tabla de reportes en reporte-admin
+ 	 MOSTRAR LA TABLA DE reportes
   	=============================================*/ 
 
 	public function mostrarTablaReportes(){

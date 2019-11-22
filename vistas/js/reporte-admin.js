@@ -2,6 +2,8 @@
 =            Cargar la tabla dinamica             =
 =================================================*/
 
+
+
 $('.tablaReportes').DataTable( {
     "ajax": "ajax/datatable-reportes.ajax.php",
     "deferRender": true,
@@ -32,23 +34,24 @@ $('.tablaReportes').DataTable( {
 				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			}
 
-	  }
+	}
 
-  } 
+} );
 
-);
+	/*=============================================
+	ACTIVANDO EL REPORTE
+	=============================================*/
 
-  	/*=============================================
-  	Activando reporte
-  	=============================================*/
+
 $(document).on("click", ".btnActivarReporte", function(){
 
   var idReporte = $(this).attr("idReporte");
   var estadoReporte = $(this).attr("estadoReporte");
 
-    var datos = new FormData();
-    datos.append("activarId", idReporte);
-    datos.append("activarReporte", estadoReporte);
+
+  var datos = new FormData();
+  datos.append("activarId", idReporte);
+  datos.append("activarReporte", estadoReporte);
 
    $.ajax({
 
@@ -60,35 +63,59 @@ $(document).on("click", ".btnActivarReporte", function(){
         processData: false,
         success: function(respuesta){
 
+          
+
+          if(window.matchMedia("(max-width:1400px)").matches){
+    
+           swal({
+            title: "El reporte ha sido actualizado",
+            type: "success",
+            confirmButtonText: "¡Cerrar!"
+          }).then(function(result) {
+            
+              if (result.value) {
+
+              window.location = "reporte-admin";
+
+            }
+
+          });
+
+        }
+
      }
+
 
   })
 
 
-  if(estadoReporte == 0){
+   if(estadoReporte == 0){
 
-      $(this).removeClass('btn-success');
-      $(this).addClass('btn-danger');
-      $(this).html('Verificando');
-      $(this).attr('estadoReporte', 1);
-
-     }
-     else if (estadoReporte == 1){
-
-       $(this).removeClass('btn-danger');
-      $(this).addClass('btn-warning');
-      $(this).html('En Proceso');
-      $(this).attr('estadoReporte', 2);
-
-
-     }else{
-
-      $(this).removeClass('btn-warning');
-      $(this).addClass('btn-success');
-      $(this).html('Finalizado');
-      $(this).attr('estadoReporte', 0);
+    $(this).removeClass('btn-success');
+    $(this).addClass('btn-danger');
+    $(this).html('Verificando');
+    $(this).attr('estadoReporte', 1);
 
    }
+   else if (estadoReporte == 1){
+
+     $(this).removeClass('btn-danger');
+    $(this).addClass('btn-warning');
+    $(this).html('En Proceso');
+    $(this).attr('estadoReporte', 2);
+
+
+   }else{
+
+    $(this).removeClass('btn-warning');
+    $(this).addClass('btn-success');
+    $(this).html('Finalizado');
+    $(this).attr('estadoReporte', 0);
+
+
+
+   }
+
 
 })
 
@@ -99,7 +126,9 @@ $("#nuevaCategoria").change(function(){
 
 	var idCategoria = $(this).val();
 
-	  var datos = new FormData();
+  
+
+	var datos = new FormData();
   	datos.append("idCategoria", idCategoria);
 
   	$.ajax({
@@ -112,6 +141,8 @@ $("#nuevaCategoria").change(function(){
       processData: false,
       dataType:"json",
       success:function(respuesta){
+        
+        console.log("respuesta", respuesta);
 
       	if(respuesta == false){
 
@@ -134,9 +165,9 @@ $("#nuevaCategoria").change(function(){
 })
 
 
-    /*=============================================
-    Subir foto de reporte de empleado
-    =============================================*/
+/*=============================================
+SUBIENDO LA FOTO DEL PRODUCTO
+=============================================*/
 
 $("#nuevaImagen").change(function(){
 
@@ -185,13 +216,14 @@ $("#nuevaImagen").change(function(){
 })
 
 
-  /*=============================================
-          Editar foto de reporte de empleado
-  =============================================*/
+/*=============================================
+SUBIENDO LA FOTO DEL PRODUCTO
+=============================================*/
 
 $("#editarImagen").change(function(){
 
   var imagen = this.files[0];
+  console.log("respuesta", imagen);
   
   /*=============================================
     VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
@@ -235,9 +267,9 @@ $("#editarImagen").change(function(){
     }
 })
 
-      /*=============================================
-              Editar reporte de empleado
-      =============================================*/
+/*=============================================
+        EDITAR PRODUCTO
+=============================================*/
 
 $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
@@ -257,6 +289,8 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
       dataType:"json",
       success:function(respuesta){
 
+        console.log("respuesta", respuesta);
+
         var datosCategorias = new FormData();
         datosCategorias.append("idCategoria",respuesta["id_categoria"]);
 
@@ -271,8 +305,11 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
+            
+
             $("#editarCategoria").val(respuesta["id"]);
             $("#editarCategoria").html(respuesta["categoria"]);
+
 
           }
 
@@ -285,8 +322,8 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 
           if(respuesta["imagen"] != ""){
 
-              $("#imagenActual").val(respuesta["imagen"]);
-              $(".verimagen").attr("src", respuesta["imagen"]);
+          $("#imagenActual").val(respuesta["imagen"]);
+          $(".verimagen").attr("src", respuesta["imagen"]);
 
         }
 
@@ -297,14 +334,14 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
 })
 
 
-      /*=============================================
-              Eliminar reporte de empleado
-      =============================================*/
+/*=============================================
+        EDITAR PRODUCTO
+=============================================*/
 
 $(".tablaReportes tbody").on("click", "button.btnEliminarReporte", function(){
 
-    var idReporte = $(this).attr("idReporte");
-    var codigo = $(this).attr("codigo");
+  var idReporte = $(this).attr("idReporte");
+   var codigo = $(this).attr("codigo");
     var imagen = $(this).attr("imagen");
   
    swal({
@@ -315,8 +352,8 @@ $(".tablaReportes tbody").on("click", "button.btnEliminarReporte", function(){
         confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Si, borrar usuario!'
-         }).then(function(result){
+          confirmButtonText: 'Si, borrar reporte!'
+      }).then(function(result){
 
         if(result.value){
 

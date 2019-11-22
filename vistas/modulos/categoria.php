@@ -1,51 +1,34 @@
-<?php
-
-if($_SESSION["perfil"] == "Usuario"){
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
-}
-
-?>
-
 <div class="content-wrapper">
 
-    <section class="content-header">
+  <section class="content-header">
     
-        <h1>
-          
-        Categorías
-        
-        </h1>
+    <h1>
+      
+    Categorías
+    
+    </h1>
 
-        <ol class="breadcrumb">
-          
-          <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-          
-          <li class="active">Administrar Categoría</li>
-        
-        </ol>
+    <ol class="breadcrumb">
+      
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      
+      <li class="active">Administrar Categoría</li>
+    
+    </ol>
 
-    </section>
+  </section>
 
   <!-- Main content -->
   <section class="content">
 
     <!-- Default box -->
+  <div class="box">
 
-      <div class="box">
+      <div class="box-header with-border">
 
-        <div class="box-header with-border">
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarCategoría"> Agregar Categoría</button>
 
-          <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarCategoría"> Agregar Categoría</button>
-
-        </div>
+      </div>
 
         <div class="box-body" >
 
@@ -75,24 +58,23 @@ if($_SESSION["perfil"] == "Usuario"){
                  
                   echo ' <tr>
 
-                            <td>'.($key+1).'</td>
+                          <td>'.($key+1).'</td>
 
-                            <td class="text-uppercase">'.$value["categoria"].'</td>
+                          <td class="text-uppercase">'.$value["categoria"].'</td>
 
-                            <td>
+                          <td>
 
-                              <div class="btn-group">
+                            <div class="btn-group">
                                 
-                                <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
 
-                                <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                              <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
-                              </div>  
+                            </div>  
 
                           </td>
 
                         </tr>';
-
                     }
 
               ?>
@@ -110,12 +92,12 @@ if($_SESSION["perfil"] == "Usuario"){
   </div>
 
   <!--=============================================
-  =           Modal agregar categorias        =
+  =           Modal           =
   =============================================-->
 <div id="modalAgregarCategoría" class="modal fade" role="dialog">
-
   <div class="modal-dialog">
- 
+  
+
     <div class="modal-content">
 
       <form role="form" method="post">
@@ -127,9 +109,7 @@ if($_SESSION["perfil"] == "Usuario"){
       <div class="modal-header" style="background:#00a65a; color: white; ">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-
         <h4 class="modal-title">Agregar Categoría</h4>
-
       </div>
 
         <!--=============================================
@@ -186,9 +166,9 @@ if($_SESSION["perfil"] == "Usuario"){
 
   </div>
 
-      <!--=====================================
-         MODAL editar categoria
-      ======================================-->
+  <!--=====================================
+MODAL EDITAR CATEGORÍA
+======================================-->
 
 <div id="modalEditarCategoria" class="modal fade" role="dialog">
   
@@ -218,7 +198,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
           <div class="box-body">
 
-            <!-- Ver NOMBRE -->
+            <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
               
@@ -250,7 +230,7 @@ if($_SESSION["perfil"] == "Usuario"){
 
         </div>
 
-        <?php
+      <?php
 
           $editarCategoria = new ControladorCategorias();
           $editarCategoria -> ctrEditarCategoria();

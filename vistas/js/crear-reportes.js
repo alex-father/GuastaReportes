@@ -2,6 +2,8 @@
 =    Cargar la Tabla dinámica de reportes          =
 =============================================*/
 
+
+
 $('.tablaCrearReportes').DataTable( {
     "ajax": "ajax/datatable-crear-reportes.ajax.php",
     "deferRender": true,
@@ -31,11 +33,10 @@ $('.tablaCrearReportes').DataTable( {
 				"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
 				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			}
-	 }
 
- } 
+	}
 
-);
+} );
 
 
 /*=============================================
@@ -47,6 +48,7 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
 
   var idReporte = $(this).attr("idReporte");
   var estadoReporte = $(this).attr("estadoReporte");
+
 
   var datos = new FormData();
   datos.append("activarId", idReporte);
@@ -61,6 +63,8 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
         contentType: false,
         processData: false,
         success: function(respuesta){
+
+         
 
           if(window.matchMedia("(max-width:1400px)").matches){
     
@@ -80,45 +84,51 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
 
         }
 
+        listarReportes();
+
      }
 
  	})
 
    if(estadoReporte == 0){
 
-      $(this).removeClass('btn-success');
-      $(this).addClass('btn-danger');
-      $(this).html('Verificando');
-      $(this).attr('estadoReporte', 1);
+    $(this).removeClass('btn-success');
+    $(this).addClass('btn-danger');
+    $(this).html('Verificando');
+    $(this).attr('estadoReporte', 1);
 
-   }else if (estadoReporte == 1){
+   }
+   else if (estadoReporte == 1){
 
-      $(this).removeClass('btn-danger');
-      $(this).addClass('btn-warning');
-      $(this).html('En Proceso');
-      $(this).attr('estadoReporte', 2);
+     $(this).removeClass('btn-danger');
+    $(this).addClass('btn-warning');
+    $(this).html('En Proceso');
+    $(this).attr('estadoReporte', 2);
 
 
    }else{
 
-      $(this).removeClass('btn-warning');
-      $(this).addClass('btn-success');
-      $(this).html('Finalizado');
-      $(this).attr('estadoReporte', 0);
+    $(this).removeClass('btn-warning');
+    $(this).addClass('btn-success');
+    $(this).html('Finalizado');
+    $(this).attr('estadoReporte', 0);
+
+
 
    }
 
- })
 
-    /*=============================================
-      Agregamos las datos a la tabla de reporte final en PC
-    =============================================*/
+ })
 
 
 $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(){
 
 	var idReporte = $(this).attr("id");
   var categoria = $(this).attr("codigo");
+
+	
+	
+
 
 	var datos = new FormData();
 	datos.append("idReporte", idReporte);
@@ -133,6 +143,8 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
       processData: false,
       dataType:"json",
       success:function(respuesta){
+
+     
 
         var ubicacion = respuesta["lugar"];
         var fecha = respuesta["fecha"];
@@ -210,16 +222,17 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 
               '</div>')
 
-			     }
 
-		  })
+        listarReportes();
+
+			}
+
+		})
   
 	
 	})
 
-      /*=============================================
-           Quitamos el reporte del formulario en pc
-      =============================================*/
+
 
 $(".tablaCrearReportes").on("draw.dt", function(){
 
@@ -232,16 +245,21 @@ $(".tablaCrearReportes").on("draw.dt", function(){
       $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").removeClass('btn-default');
       $("button.btnRecuperarBoton[idReporte='"+listaIdReportes[i]["idReporte"]+"']").addClass('btn-sucess btnAgregarReporte');
 
-       }
+
+      listarReportes();
 
     }
+
+
+  }
+
 
 })
 
 
-/*=============================================
-      Quitamos el reporte del formulario en movil
-=============================================*/
+
+
+
 
 $(".formularioReporte").on("click", "button.quitarReporte", function(){
 
@@ -249,17 +267,29 @@ $(this).parent().parent().remove();
 
   var idReporte = $(this).attr("idReporte");
 
+  console.log("boton", idReporte);
+
+
+  listarReportes()
+
+
 })
 
 /*====================================================
 =            Agregar reportes desde movil            =
 ====================================================*/
+
+
 var numeroReporte = 0;
 
 $(".btnAgregarReporte").click(function(){
 
+        
+
   var datos = new FormData();
   datos.append("traerReportes", "ok");
+
+
 
   $.ajax({
 
@@ -271,6 +301,8 @@ $(".btnAgregarReporte").click(function(){
         processData: false,
         dataType:"json",
         success:function(respuesta){
+
+            console.log("res", respuesta);
 
         var ubicacion = respuesta["lugar"];
         var fecha = respuesta["fecha"];
@@ -365,34 +397,44 @@ $(".btnAgregarReporte").click(function(){
                     '</div>'+
                       
                  '</div>')
+   
+
 
      respuesta.forEach(funcionForEach);
 
-     /*=============================================
-     =          Funcion para agragar los datos al formulario en movil           =
-     =============================================*/
-     
     
+
            function funcionForEach(item, index){
+
+            
 
               $(".nuevoCodigoReporte").append(
 
             '<option idReporte="'+item.id+'" value="'+item.id+'">'+item.codigo_reporte+'</option>'
 
+
               )
+
+            
 
          }
 
+         
+
+     
+
       }
+
 
   })
 
 })
 
 
-      /*=============================================
-          Seleccionar Reporte por medio de codigo en movil
-      =============================================*/
+/*=============================================
+          Seleccionar Reporte
+=============================================*/
+
 
 $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
@@ -412,8 +454,9 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
         dataType:"json",
         success:function(respuesta){
 
+         
           var datosCategorias = new FormData();
-          datosCategorias.append("idCategoria",respuesta["id_categoria"]);
+        datosCategorias.append("idCategoria",respuesta["id_categoria"]);
 
         $.ajax({
 
@@ -428,6 +471,7 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
             $(".Categoria").val(respuesta["categoria"]);
 
+
           }
 
         })
@@ -437,10 +481,11 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           $(".Descripcion").val(respuesta["descripcion"]);
           $(".Fecha").val(respuesta["fecha"]);
 
+          
+
         }
 
-     })
-
+      })
 })
 
 
@@ -461,6 +506,8 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
             var fecha = $(".fecha");
 
+
+
                         listarReportes.push({ 
                                               "usuario":$(usuario).attr(),
                                               "categoria":$(categoria).val(),
@@ -470,6 +517,9 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
 
                                               })  
 
-                      $("#listarReportes").val(JSON.stringify(listarReportes)); 
+                     
 
+                          $("#listarReportes").val(JSON.stringify(listarReportes)); 
+
+            
           }

@@ -121,14 +121,17 @@
 
 			                <div class="row">
 			                 
-			                 <center>
-			                  	<div class="col-lg-12 text-right">
+			                  	<div class="col-lg-6 text-left">
+
+			                  		<center> <a href="#">Trabajando para ti!!</a> </center>
+
+			                  	</div>
+
+			                  	<div class="col-lg-6 text-right">
 
 			                 		<a href="salir" class="btn btn-primary">Salir  <i class="fa fa-sign-out"></i></a>
 
 			               	 	</div>
-
-			               	 </center>
 
 			                </div>
 
