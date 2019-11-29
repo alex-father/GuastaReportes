@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+  }
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -78,17 +94,13 @@
                           <td>'.$value["aldea"].'</td>
                           <td>'.$value["fecha"].'</td>';
 
-                  
-
 
                      if($_SESSION["perfil"] =="Administrador"){
                             
                             echo'<td>
 
                           <div class="btn-group">
-
-
-                              
+   
                             <button class="btn btn-warning btnEditarLugar" idLugar="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarLugar"><i class="fa fa-pencil"></i></button>
 
                             <button class="btn btn-danger btnEliminarLugar" idLugar="'.$value["id"].'"><i class="fa fa-times"></i></button>
@@ -96,10 +108,13 @@
                           </div>  
 
                         </td>';
+
                       }
 
-               echo '</tr>';
+                  echo '</tr>';
+
                  }
+
               ?>
                 
               </tbody>
@@ -209,8 +224,6 @@
         $ubicacion = new ControladorLugares();
         $ubicacion ->ctrCrearLugar();
 
-        
-
         ?>
 
       </form>
@@ -220,9 +233,6 @@
   </div>
 
 </div>
-
-
- 
 
     <!--=============================================
   =           Modal Editar Ubicacion        =
@@ -306,24 +316,22 @@
           =           Pie del Modal           =
           =============================================-->
 
-                <div class="modal-footer">
+              <div class="modal-footer">
 
                   <button type="button" class="btn btn-success pull-left btnCerrar" data-dismiss="modal">Cerrar</button>
 
                   <button type="submit" class="btn btn-success pull-right">Actualizar</button>
 
-                </div>
-
+              </div>
 
               <?php 
 
                 $editarUbicacion = new ControladorLugares();
                 $editarUbicacion ->ctrEditarLugar();
 
-
                ?>
 
-            </form>
+          </form>
 
         </div>
 
@@ -331,13 +339,11 @@
 
     </div>
 
-    <?php 
+        <?php 
 
-      $borrarUbicacion = new ControladorLugares();
-      $borrarUbicacion ->ctrBorrarLugar();
+          $borrarUbicacion = new ControladorLugares();
+          $borrarUbicacion ->ctrBorrarLugar();
 
-
-
-     ?>
+         ?>
 
    

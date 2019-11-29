@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloCrearReportes{
 
 	/*=============================================
-	CREAR CATEGORIA
+	Ingreso de reportes
 	=============================================*/
 
 	static public function mdlIngresarReportes($tabla, $datos){
@@ -37,13 +37,10 @@ class ModeloCrearReportes{
 
 
 	/*=============================================
-	MOSTRAR CATEGORIAS
+	Mostrar reportes
 	=============================================*/
 
 	static public function mdlMostrarCrearReportes($tabla, $item, $valor){
-
-
-
 
 		if($item != null){
 
@@ -71,34 +68,9 @@ class ModeloCrearReportes{
 
 	}
 
-	/*=============================================
-	EDITAR CATEGORIA
-	=============================================*/
-
-	static public function mdlEditarCategoria($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
-
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
-
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt->close();
-		$stmt = null;
-
-	}
-
+	
 			/*=============================================
-			ELIMINAR VENTA
+			Eliminar Categoria
 			=============================================*/
 
 	static public function mdlEliminarReporte($tabla, $datos){

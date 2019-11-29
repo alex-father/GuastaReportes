@@ -5,8 +5,6 @@ $(".nuevaFotoUsuario").change(function(){
 
   var imagen = this.files[0];
 
- 
-  
   /*=============================================
     VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
     =============================================*/
@@ -20,6 +18,7 @@ $(".nuevaFotoUsuario").change(function(){
           text: "¡La imagen debe estar en formato JPG o PNG!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
+
         });
 
     }else if(imagen["size"] > 8000000){
@@ -31,10 +30,10 @@ $(".nuevaFotoUsuario").change(function(){
           text: "¡La imagen no debe pesar más de 8MB!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
+
         });
 
-    }
-    else {
+    }else {
 
       var datosImagen = new FileReader;
       datosImagen.readAsDataURL(imagen);
@@ -46,9 +45,6 @@ $(".nuevaFotoUsuario").change(function(){
 
         $(".visualizar").attr("src", rutaImagen);
         
-
-      
-
       })
 
     }
@@ -88,8 +84,7 @@ $(".nuevaFotoLogin").change(function(){
           confirmButtonText: "¡Cerrar!"
         });
 
-    }
-    else {
+    }else {
 
       var datosImagen = new FileReader;
       datosImagen.readAsDataURL(imagen);
@@ -115,7 +110,6 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");
 
-  
   var datos = new FormData();
   datos.append("idUsuario", idUsuario);
 
@@ -128,9 +122,7 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
     contentType: false,
     processData: false,
     dataType: "json",
-    success: function(respuesta){
-
-       
+    success: function(respuesta){ 
       
       $("#editarNombre").val(respuesta["nombre"]);
       $("#editarUsuario").val(respuesta["usuario"]);
@@ -168,14 +160,13 @@ $(".tablas").on("click", ".btnActivar", function(){
 
     $.ajax({
 
-    url:"ajax/usuarios.ajax.php",
-    method: "POST",
-    data: datos,
-    cache: false,
+      url:"ajax/usuarios.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
       contentType: false,
       processData: false,
       success: function(respuesta){
-
 
           if(window.matchMedia("(max-width:1400px)").matches){
 
@@ -190,10 +181,9 @@ $(".tablas").on("click", ".btnActivar", function(){
 
               }
 
+          });
 
-        });
-
-          }
+        }
 
       }
 
@@ -250,7 +240,6 @@ $("#nuevoUsuario").change(function(){
 
            }
 
-
          }
 
      });
@@ -270,11 +259,11 @@ $("#nuevoUsuario").change(function(){
 
 
       swal({
-        title: '¿Desea eliminar el usuario?',
-        text: "¡Puede cancelar la accíón!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+          title: '¿Desea eliminar el usuario?',
+          text: "¡Puede cancelar la accíón!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           cancelButtonText: 'Cancelar',
           confirmButtonText: 'Si, borrar usuario!'
@@ -287,7 +276,6 @@ $("#nuevoUsuario").change(function(){
         }
 
       })
-
 
     })
 

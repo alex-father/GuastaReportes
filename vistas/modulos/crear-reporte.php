@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+  }
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -58,6 +74,7 @@
 
                     
                     <?php 
+                    
                     $idEmpleado = $_SESSION["id"];
                     $nombreEmpleado =  $_SESSION["nombre"];
 
@@ -66,9 +83,7 @@
                             <input type="hidden" name="idEmpleado" value="'.$idEmpleado.'">';
 
 
-                     ?>
-
-                   
+                     ?>  
 
                   </div>
 
@@ -101,8 +116,6 @@
 
                         foreach ($reportes as $key => $value) {
 
-
-
                         }
 
                         $codigo = $value["codigo"]+ 1;
@@ -113,15 +126,10 @@
                       }
 
                      ?>
-                    
-                    
-                  
+                      
                   </div>
                 
                 </div>
-
-
-                  
 
                 <!--=====================================
                       Entrada para agregar el Reporte

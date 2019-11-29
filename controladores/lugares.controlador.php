@@ -3,9 +3,8 @@
 
 class ControladorLugares{
 
+
 	static public function ctrCrearLugar(){
-
-
 
 				if(isset($_POST["nuevoCodigo"])){
 
@@ -19,12 +18,7 @@ class ControladorLugares{
 										"municipio" => $_POST["nuevoMunicipio"],
 										"aldea" => $_POST["nuevaUbicacion"]);
 
-						
-
-
 						$respuesta = ModeloLugares::mdlIngresarLugar($tabla, $datos);
-
-
 
 						if($respuesta == "ok"){
 
@@ -193,12 +187,7 @@ class ControladorLugares{
 		
 	}
 
-
-
-
-
-
-		}
+}
 
 
 

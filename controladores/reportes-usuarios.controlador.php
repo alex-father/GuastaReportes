@@ -25,8 +25,6 @@ class ControladorReportesUsuarios{
 
 	static public function ctrCrearReportes(){
 
-		
-
 		if (isset($_POST["nuevoCodigo"])){
 
 
@@ -38,7 +36,7 @@ class ControladorReportesUsuarios{
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = "vistas/img/reportes/default/anonymous.png";;
+			   	$ruta = "vistas/img/reportes/default/anonymous.png";
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
@@ -117,9 +115,6 @@ class ControladorReportesUsuarios{
 
 				$respuesta = ModeloReportesUsuarios::mdlIngresarReportesUsuarios($tabla, $datos);
 
-
-				
-
 				if($respuesta == "ok"){
 
 					echo'<script>
@@ -164,12 +159,10 @@ class ControladorReportesUsuarios{
 
 		}
 
-	
-
 	}
 
 	/*=============================================
-	EDITAR PRODUCTO
+	Editar reporte de usuario
 	=============================================*/
 
 	static public function ctrEditarReportesUsuarios(){

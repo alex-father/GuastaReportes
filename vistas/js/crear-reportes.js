@@ -2,8 +2,6 @@
 =    Cargar la Tabla dinámica de reportes          =
 =============================================*/
 
-
-
 $('.tablaCrearReportes').DataTable( {
     "ajax": "ajax/datatable-crear-reportes.ajax.php",
     "deferRender": true,
@@ -49,7 +47,6 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
   var idReporte = $(this).attr("idReporte");
   var estadoReporte = $(this).attr("estadoReporte");
 
-
   var datos = new FormData();
   datos.append("activarId", idReporte);
   datos.append("activarReporte", estadoReporte);
@@ -63,8 +60,6 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
         contentType: false,
         processData: false,
         success: function(respuesta){
-
-         
 
           if(window.matchMedia("(max-width:1400px)").matches){
     
@@ -113,8 +108,6 @@ $(document).on("click", ".btnActivarCrearReporte", function(){
     $(this).html('Finalizado');
     $(this).attr('estadoReporte', 0);
 
-
-
    }
 
 
@@ -126,11 +119,7 @@ $(".tablaCrearReportes tbody").on("click", "button.btnAgregarReporte", function(
 	var idReporte = $(this).attr("id");
   var categoria = $(this).attr("codigo");
 
-	
-	
-
-
-	var datos = new FormData();
+  var datos = new FormData();
 	datos.append("idReporte", idReporte);
 
 	$.ajax({
@@ -284,16 +273,12 @@ var numeroReporte = 0;
 
 $(".btnAgregarReporte").click(function(){
 
-        
-
   var datos = new FormData();
   datos.append("traerReportes", "ok");
 
-
-
   $.ajax({
 
-    url:"ajax/reportes.ajax.php",
+        url:"ajax/reportes.ajax.php",
         method: "POST",
         data: datos,
         cache: false,
@@ -301,8 +286,6 @@ $(".btnAgregarReporte").click(function(){
         processData: false,
         dataType:"json",
         success:function(respuesta){
-
-            console.log("res", respuesta);
 
         var ubicacion = respuesta["lugar"];
         var fecha = respuesta["fecha"];
@@ -390,41 +373,26 @@ $(".btnAgregarReporte").click(function(){
 
                                       '<option>Seleccione el Codigo</option>'+
 
-                            
-
+                          
                         '</div>'+
                         
                     '</div>'+
                       
                  '</div>')
    
-
-
      respuesta.forEach(funcionForEach);
 
-    
-
            function funcionForEach(item, index){
-
-            
 
               $(".nuevoCodigoReporte").append(
 
             '<option idReporte="'+item.id+'" value="'+item.id+'">'+item.codigo_reporte+'</option>'
 
-
               )
-
-            
 
          }
 
-         
-
-     
-
       }
-
 
   })
 
@@ -479,14 +447,13 @@ $(".formularioReporte").on("change", "select.nuevoCodigoReporte", function(){
           $(".usuario").val(respuesta["usuario"]);
           $(".Ubicacion").val(respuesta["5"]);
           $(".Descripcion").val(respuesta["descripcion"]);
-          $(".Fecha").val(respuesta["fecha"]);
-
-          
+          $(".Fecha").val(respuesta["fecha"]); 
 
         }
 
       })
-})
+    
+    })
 
 
           function listarReportes(){

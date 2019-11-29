@@ -50,8 +50,6 @@ $(".nuevaFotoEmpleado").change(function(){
 
 
 
-
-
 $(document).on("click", ".btnEditarEmpleado", function(){
 
   var idEmpleado = $(this).attr("idEmpleado");
@@ -160,13 +158,10 @@ $(".tablas").on("click", ".btnActivarEmpleado", function(){
     $(this).attr('estadoEmpleado', 0);
 
 
-
    }
 
 
 })
-
-
 
 /*================================================
 =            Reviasr Empleado repetido            =
@@ -210,7 +205,7 @@ $("#nuevoEmpleado").change(function(){
 
 
      /*=============================================
-      ELIMINAR USUARIO
+      Eliminar empleado
       =============================================*/
 
     $(document).on("click", ".btnEliminarEmpleado", function(){

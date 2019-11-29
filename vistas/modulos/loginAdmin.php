@@ -1,16 +1,9 @@
-
-
-
-
 <div id="back"></div>
-
-
 
     <div class="login-box" >
 
       <img src="vistas/img/plantilla/login.png" class="img-responsive">
 
- 
         <div class="login-box-body">
 
             <p class="login-box-msg">ADMINISTRACION</p>
@@ -35,26 +28,18 @@
 
                 <div>
              
-
                     <button type="submit" class="btn login_btn btn-block">Ingresar</button>
-
 
                  </div>
 
-                  
-
               <?php
-
-             
 
               $login = new ControladorEmpleados();
               $login -> ctrIngresoEmpleado();
 
 
               ?>
-
-
-
+              
           </form>
 
        </div>

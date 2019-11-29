@@ -10,11 +10,10 @@
 
             <?php 
 
-             
-
-           echo' <div class="box-header with-border">
-              <h3 class="box-title">Bienvenid@ '.$_SESSION["nombre"].'</h3>
-            </div>';
+           echo '<div class="box-header with-border">
+                 <h3 class="box-title">Bienvenid@ '.$_SESSION["nombre"].'</h3>
+                 </div>';
+                 
             ?>
             <!-- /.box-header -->
             <div class="box-body">

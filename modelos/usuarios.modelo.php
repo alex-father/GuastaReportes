@@ -10,8 +10,6 @@ class ModeloUsuarios{
 
 	static public function mdlMostrarUsuarios($tabla, $item, $valor){
 
-		
-
 		/* preguntamos si la variable viene vacia */
 
 		if ($item != null){
@@ -55,7 +53,6 @@ class ModeloUsuarios{
 
 		
 
-
 	static public function mdlIngresarUsuario($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil, email, dpi_user, foto, telefono, estado) VALUES (:nombre, :usuario, :password, :perfil, :email, :dpi_user, :foto, :telefono, :estado)");
@@ -87,7 +84,7 @@ class ModeloUsuarios{
 
 
 		/*=============================================
-			Editar USUARIO
+			Editar usuario
 		=============================================*/
 
 
@@ -120,7 +117,7 @@ class ModeloUsuarios{
 
 
 	/*=============================================
-	ACTUALIZAR USUARIO
+	Actualizar usuario
 	=============================================*/
 
 	static public function mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2){
@@ -149,7 +146,7 @@ class ModeloUsuarios{
 
 
 	/*=============================================
-	BORRAR USUARIO
+	Borrar usuario
 	=============================================*/
 
 	static public function mdlBorrarUsuario($tabla, $datos){

@@ -10,66 +10,61 @@
 
 			echo'<li>
 
-				<a href="inicio">
+					<a href="inicio">
 
-					<i class="fa fa-home"></i>
-					<span>Inicio</span>
+						<i class="fa fa-home"></i>
+						<span>Inicio</span>
 
-				</a>
+					</a>
 
-			</li>';
+				</li>';
 
 		}
-
-
-
 
 			if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"]== "Empleado"){
 
 		echo '<li>
 
-				<a href="categoria">
+					<a href="categoria">
 
-					<i class="fa fa-th"></i>
-					<span>Categorías</span>
+						<i class="fa fa-th"></i>
+						<span>Categorías</span>
 
-				</a>
+					</a>
 
-			</li>
-			<li>
+			  </li>
+				<li>
 
-				<a href="lugares">
+					<a href="lugares">
 
-					<i class="fa fa-map-marker"></i>
-					<span>Ubicaciones</span>
+						<i class="fa fa-map-marker"></i>
+						<span>Ubicaciones</span>
 
-				</a>
+					</a>
 
-			</li>
-			<li>
+				</li>
+				<li>
 
-				<a href="empleados">
+					<a href="empleados">
 
-					<i class="fa fa-users"></i>
-					<span>Empleados</span>
+						<i class="fa fa-users"></i>
+						<span>Empleados</span>
 
-				</a>
+					</a>
 
-			</li>
+				</li>
+				<li>
 
-			<li>
+					<a href="usuarios">
 
-				<a href="usuarios">
+						<i class="fa fa-users"></i>
+						<span>Usuarios</span>
 
-					<i class="fa fa-users"></i>
-					<span>Usuarios</span>
+					</a>
 
-				</a>
-
-			</li>';
+				</li>';
 
 		}
-
 
 		if($_SESSION["perfil"] == "Usuario"){
 
@@ -83,14 +78,11 @@
 				</a>
 
 			</li>';
+
 		}
 
 
-
-
-
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"]== "Empleado"){
-
 
 			echo '<li>
 
@@ -102,7 +94,6 @@
 						</a>
 
 					</li>
-
 					<li>
 
 						<a href="crear-reporte">
@@ -113,7 +104,6 @@
 						</a>
 
 					</li>
-
 					<li>
 
 						<a href="reportes">
@@ -138,6 +128,7 @@
 				}
 
 				?>
+
 				<li>
 
 					<a href="developer">
@@ -149,12 +140,11 @@
 
 				</li>
 
-				</ul>
+			</ul>
 
-			</li>
+		</li>
 
-		</ul>
-
+	</ul>
 
 		<script>
 
@@ -164,7 +154,6 @@
 				return this.href == url;
 
 			}).parent().addClass('active');
-
 			
 		</script>
 

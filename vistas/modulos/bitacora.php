@@ -1,4 +1,18 @@
+<?php
 
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+  }
+
+?>
 
 <div class="content-wrapper">
 
@@ -37,7 +51,16 @@
              <th>Usuario</th>
              <th>Descripción</th>
              <th>Agregado</th>
-             <th>Ver Reporte</th>
+
+             <?php  
+
+             if($_SESSION["perfil"] =="Administrador"){ 
+
+             echo '<th>Accion</th>';
+
+              }
+
+              ?>
 
            </tr> 
 
@@ -71,21 +94,22 @@
                     <td>'.$value["usuario"].'</td>
                     <td>'.$value["descripcion"].'</td>';
                        
-                        echo '<td>'.$value["fecha"].'</td>
+                        echo '<td>'.$value["fecha"].'</td>';
 
-                              <td>
+                              if($_SESSION["perfil"] =="Administrador"){
 
-                                 <div>
+                                 echo '<td>
 
-                                   <button class="btn btn-warning btnEditarReporte" idReporte="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarReporte"><i class="fa fa-search-plus"></i>
+                          <div class="btn-group">
 
-                                   </button>
+                               <button class="btn btn-danger btnEliminarBitacora" idBitacora="'.$value["id"].'" imagen="'.$value["imagen"].'" codigo="'.$value["codigo_reporte"].'"><i class="fa fa-times"></i></button>
 
-                                 </div>
-                              
-                              </td>
+                          </div>  
 
-                       </tr>';
+                             </td>';
+                              }
+
+                    echo '  </tr>';
               
                   }
 
@@ -103,5 +127,14 @@
     </section>
 
   </div>
+
+        <?php 
+
+          $eliminarBitacora = new ControladorBitacoraReportes();
+          $eliminarBitacora ->ctrEliminarReporteBitacora();
+
+
+
+         ?>
 
       

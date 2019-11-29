@@ -1,9 +1,5 @@
 <div class="content-wrapper">
 
-
-  
-
-  
 <!-- Navbar -->
 <nav class="nav-bar1">
   <div class="container">
@@ -21,9 +17,8 @@
 
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
-  <h3 class="margin">Quien soy?</h3>
   <img src="vistas/img/developer/developer.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>Alex Orellana - Desarrollador</h3>
+  <h3>Alex Orellana</h3>
 </div>
   </div>
 

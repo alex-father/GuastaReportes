@@ -3,7 +3,7 @@
 class ControladorEmpleados{
 
 	/*=============================================
-	INGRESO DE USUARIO
+	INGRESO DE EMPLEADOS
 	=============================================*/
 
 	 static public function ctrIngresoEmpleado(){
@@ -101,7 +101,7 @@ class ControladorEmpleados{
 	
 
 		/*=============================================
-		INGRESO DE USUARIO
+		INGRESO DE EMPLEADOS
 		=============================================*/
 
 	static public function ctrCrearEmpleado(){
@@ -291,9 +291,8 @@ class ControladorEmpleados{
 		}
 
 
+
 		static public function ctrEditarEmpleado(){
-
-
 
 				if (isset($_POST["editarEmpleado"])){
 
@@ -470,7 +469,7 @@ class ControladorEmpleados{
 
 
 		/*=============================================
-				BORRAR USUARIO
+				BORRAR EMPLEADO
 		=============================================*/
 
 	static public function ctrBorrarEmpleado(){

@@ -2,8 +2,6 @@
 =            Cargar la tabla dinamica             =
 =================================================*/
 
-
-
 $('.tablaReportes').DataTable( {
     "ajax": "ajax/datatable-reportes.ajax.php",
     "deferRender": true,
@@ -36,7 +34,7 @@ $('.tablaReportes').DataTable( {
 
 	}
 
-} );
+});
 
 	/*=============================================
 	ACTIVANDO EL REPORTE
@@ -63,8 +61,7 @@ $(document).on("click", ".btnActivarReporte", function(){
         processData: false,
         success: function(respuesta){
 
-          
-
+        
           if(window.matchMedia("(max-width:1400px)").matches){
     
            swal({
@@ -112,8 +109,6 @@ $(document).on("click", ".btnActivarReporte", function(){
     $(this).html('Finalizado');
     $(this).attr('estadoReporte', 0);
 
-
-
    }
 
 
@@ -125,10 +120,8 @@ CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 $("#nuevaCategoria").change(function(){
 
 	var idCategoria = $(this).val();
-
-  
-
 	var datos = new FormData();
+
   	datos.append("idCategoria", idCategoria);
 
   	$.ajax({
@@ -305,11 +298,8 @@ $(".tablaReportes tbody").on("click", "button.btnEditarReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
-            
-
             $("#editarCategoria").val(respuesta["id"]);
             $("#editarCategoria").html(respuesta["categoria"]);
-
 
           }
 
@@ -345,11 +335,11 @@ $(".tablaReportes tbody").on("click", "button.btnEliminarReporte", function(){
     var imagen = $(this).attr("imagen");
   
    swal({
-        title: '¿Desea eliminar el Reporte?',
-        text: "¡Puede cancelar la accíón!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+          title: '¿Desea eliminar el Reporte?',
+          text: "¡Puede cancelar la accíón!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           cancelButtonText: 'Cancelar',
           confirmButtonText: 'Si, borrar reporte!'

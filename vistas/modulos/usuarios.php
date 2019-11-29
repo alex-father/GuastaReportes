@@ -14,8 +14,6 @@ if($_SESSION["perfil"] == "Usuario"){
 
 ?>
 
-
-
 <div class="content-wrapper">
 
   <section class="content-header">

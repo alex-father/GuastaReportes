@@ -119,9 +119,7 @@ class ControladorUsuarios{
 
 
 
-		static public function ctrCrearUsuarioLogin(){
-
-				
+		static public function ctrCrearUsuarioLogin(){	
 				
     if(isset($_POST["nuevoUsuario"])){
 
@@ -133,8 +131,7 @@ class ControladorUsuarios{
         preg_match('/^[0-9]+$/', $_POST["nuevoDpi"]) &&
         preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoPerfil"])){
 
-        
-        
+       
         $ruta = "";
 
           /*=============================================
@@ -309,13 +306,8 @@ class ControladorUsuarios{
 			=            Crear Usuario            =
 			=====================================*/
 
-
-
-
     static public function ctrCrearUsuario(){
-
-				
-				
+		
     if(isset($_POST["nuevoUsuario"])){
 
       if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
@@ -326,7 +318,6 @@ class ControladorUsuarios{
         preg_match('/^[0-9]+$/', $_POST["nuevoDpi"]) &&
         preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoPerfil"])){
 
-        
         
         $ruta = "";
 
@@ -408,8 +399,6 @@ class ControladorUsuarios{
               imagepng($destino, $ruta);
             }
 
-
-
         }
 
 
@@ -465,8 +454,7 @@ class ControladorUsuarios{
 
           }
 
-        }
-          else{
+        }else{
 
               echo '<script>
 

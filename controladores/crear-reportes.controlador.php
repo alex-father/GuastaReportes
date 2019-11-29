@@ -4,26 +4,22 @@ class ControladorCrearReportes{
 
 
 	/*=============================================
-			Mostrar Reportes de Usuario
+			Mostrar Reportes 
 	=============================================*/
 
 	static public function ctrMostrarCrearReportes($item, $valor){
 		
 
-
 		$tabla = "tbl_reportefinal";
 
-
 		$respuesta = ModeloCrearReportes::mdlMostrarCrearReportes($tabla, $item, $valor);
-
-
 
 		return $respuesta;
 
 	}
 
 	/*=============================================
-	CREAR Reportes
+	Crear Reportes
 	=============================================*/
 
 	static public function ctrCrearReportes(){
@@ -63,11 +59,7 @@ class ControladorCrearReportes{
 								   "fecha_inicio"=>$fecha);
 
 
-					
-					
 					$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
-
-				
 
 					if($respuesta == "ok"){
 
@@ -107,16 +99,9 @@ class ControladorCrearReportes{
 
 								</script>';
 
-
-
-
 						}
 
-			    	
-
 					}else{
-
-
 
 					$respuestaid = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 			
@@ -130,13 +115,8 @@ class ControladorCrearReportes{
 										   "lugar"=>$ubicacion,
 										   "descripcion"=>$descripcion,
 										   "fecha_inicio"=>$fecha);
-
-
-							
 					
 					$respuesta = ModeloCrearReportes::mdlIngresarReportes($tabla, $datos);
-
-					
 
 					if($respuesta == "ok"){
 
@@ -176,12 +156,7 @@ class ControladorCrearReportes{
 
 								</script>';
 
-
-
-
-						}
-
-			
+				}
 
 			}
 
@@ -191,7 +166,7 @@ class ControladorCrearReportes{
 
 	
 	/*=============================================
-
+		Editar reportes
 	=============================================*/
 
 	static public function ctrEditarCrearReportesUsuarios(){
@@ -338,7 +313,7 @@ class ControladorCrearReportes{
 
 
 	/*=============================================
-	ELIMINAR VENTA
+	Eliminar reportes
 	=============================================*/
 
 	static public function ctrEliminarReporteFinal(){

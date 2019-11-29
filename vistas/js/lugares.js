@@ -34,8 +34,6 @@ $(".tablas").on("click", ".btnEditarLugar", function(){
       $("#editarCodigo").val(respuesta["codigo"]);
       $("#idCodigo").val(respuesta["codigo"]);
       
-
-
     }
 
   });

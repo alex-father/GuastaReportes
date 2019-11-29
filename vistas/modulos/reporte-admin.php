@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+  }
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -54,71 +70,6 @@
          </tr> 
 
         </thead>
-
-       <!-- <tbody>
-
-          <?php 
-
-          $item = null;
-          $valor = null;
-
-            $reportes = ControladorReportes::ctrMostrarReportes($item, $valor);
-
-
-            foreach ($reportes as $key => $value) {
-
-
-              echo '<tr>
-                        <td>'.($key+1).'</td>
-                        <td><img src="vistas/img/reportes/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                        <td>'.$value["codigo"].'</td>
-                        <td>'.$value["descripcion"].'</td>';
-
-                        $item = "id";
-                        $valor = $value["id_categoria"];
-
-                        $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-
-
-                    echo ' <td>'.$categoria["categoria"].'</td>
-                          
-                           <td>'.$value["lugar"].'</td>';
-
-
-
-                   if($value["estado"] != 0){
-
-                        echo '<td><button class="btn btn-success btn-xs btnActivar" idReporte="'.$value["id"].'" estadoReporte="0"></button></td>';
-
-                  }
-                    else{
-
-                    echo '<td><button class="btn btn-danger btn-xs btnActivar" idReporte="'.$value["id"].'" estadoReporte="1"></button></td>';
-
-                  }
-                       
-                       echo ' <td>'.$categoria["fecha"].'</td>
-                        <td>
-
-                          <div class="btn-group">
-                              
-                            <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                          </div>  
-
-                        </td>
-
-                      </tr>';
-              # code...
-            }
-
-
-           ?>
-
-        </tbody>-->
 
        </table>
 
@@ -226,8 +177,6 @@ MODAL AGREGAR Reporte
 
                  ?>
 
-               
-
               </div>
 
             </div>
@@ -243,6 +192,7 @@ MODAL AGREGAR Reporte
                 <select class="form-control input-lg" name="nuevoLugar">
                   
                   <option value="">Selecionar Barrio o Aldea</option>
+
                   <?php 
 
                     $item = null;
@@ -412,12 +362,8 @@ MODAL AGREGAR Reporte
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                
                   
                   <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
-
-                
 
               </div>
 
@@ -430,7 +376,6 @@ MODAL AGREGAR Reporte
                 <label for="comment">Descripción:</label>
 
                 <textarea class="form-control" rows="4" id="editarDescripcion" name="editarDescripcion" required></textarea>
-
 
             </div>
 
@@ -465,16 +410,14 @@ MODAL AGREGAR Reporte
 
         </div>
 
-        <?php 
+          <?php 
 
-          $editar = new ControladorReportes();
-          $editar->ctrEditarProducto();
+            $editar = new ControladorReportes();
+            $editar->ctrEditarProducto();
 
 
 
-         ?>
-
-         
+           ?>
 
       </form>
 
@@ -485,17 +428,10 @@ MODAL AGREGAR Reporte
 </div>
 
 
-<?php 
+    <?php 
 
-   $eliminarReporte = new ControladorReportes();
-   $eliminarReporte->ctrEliminarReporte();
+       $eliminarReporte = new ControladorReportes();
+       $eliminarReporte->ctrEliminarReporte();
 
-
-
-
- ?>
-
-
-
-<!--====  End of Section comment  ====-->
+     ?>
 

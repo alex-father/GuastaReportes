@@ -5,7 +5,7 @@ require_once "conexion.php";
 class ModeloReportes{
 
 	/*=============================================
-	MOSTRAR PRODUCTOS
+	Mostrar reportes
 	=============================================*/
 
 	static public function mdlMostrarReportes($tabla, $item, $valor){
@@ -39,7 +39,7 @@ class ModeloReportes{
 
 
 	/*=============================================
-					Mostrar solo los del Usuario
+		Mostrar solo reportes de los Usuarios
 	=============================================*/
 
 	static public function mdlMostrarReportesUsuario($tabla, $item, $valor){
@@ -63,8 +63,9 @@ class ModeloReportes{
 	}
 
 	/*=============================================
-	REGISTRO DE PRODUCTO
+	Registrar reportes
 	=============================================*/
+
 	static public function mdlIngresarReporte($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_categoria, codigo_reporte, usuario, lugar, descripcion, imagen) VALUES (:id_categoria, :codigo_reporte, :usuario, :lugar, :descripcion, :imagen)");
@@ -93,8 +94,9 @@ class ModeloReportes{
 	}
 
 	/*=============================================
-	EDITAR PRODUCTO
+	Editar reportes
 	=============================================*/
+
 	static public function mdlEditarReporte($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, codigo_reporte = :codigo_reporte, usuario = :usuario, lugar = :lugar, descripcion = :descripcion, imagen = :imagen WHERE codigo_reporte = :codigo_reporte");
@@ -122,7 +124,7 @@ class ModeloReportes{
 	}
 
 			/*=============================================
-					BActualizar Reporte
+					Actualizar Reporte
 			=============================================*/
 
 
@@ -150,7 +152,7 @@ class ModeloReportes{
 	}
 
 			/*=============================================
-					BORRAR PRODUCTO
+					Borrar reportes
 			=============================================*/
 
 	static public function mdlEliminarReportes($tabla, $datos){
@@ -212,7 +214,6 @@ class ModeloReportes{
 			$fechaFinal2 ->add(new DateInterval("P2D"));
 			$fechaFinalMasUno = $fechaFinal2->format("Y-m-d");
 
-var_dump($fechaFinalMasUno);
 			if($fechaFinalMasUno == $fechaActualMasUno){
 
 				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE fecha BETWEEN '$fechaInicial' AND '$fechaFinalMasUno'");

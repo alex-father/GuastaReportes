@@ -1,5 +1,3 @@
-
-
 <div class="content-wrapper">
 
     <section class="content-header">
@@ -67,7 +65,6 @@
 
             foreach ($reportes as $key => $value) {
 
-              
               $imagen = "<a href='".$reportes[$key]["imagen"]."' download><img src='".$reportes[$key]["imagen"]."' width='100' height='120'></a>";
 
         
@@ -84,9 +81,6 @@
                     <td>'.$value["usuario"].'</td>
                     <td>'.$value["descripcion"].'</td>';
 
-
-
-                  
                   if($value["estado"] == 1){
 
                         echo '<td><button class="btn btn-warning btn-xs " readonly idReporte="'.$value["id"].'" estadoReporte="2">En Proceso</button></td>';
@@ -185,10 +179,8 @@
 
                       $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-
                       foreach ($categorias as $key => $value) {
-                      
-
+                     
                       echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
 
                       }
@@ -229,7 +221,6 @@
 
                    echo'<input type="text" class="form-control input-lg" name="usuario" value="'.$_SESSION["usuario"].'" placeholder="'.$_SESSION["usuario"].'" readonly>'
 
-
                  ?>
 
                </div>
@@ -258,8 +249,7 @@
                     foreach ($ubicacion as $key => $value) {
 
                       echo '<option value="'.$value["aldea"].'">'.$value["aldea"].'</option>';
-
-                      
+ 
                     }
 
                    ?>
@@ -277,7 +267,6 @@
                 <label for="comment">Descripción:</label>
 
                 <textarea class="form-control" rows="4" id="nuevaDescripcion" name="nuevaDescripcion" required></textarea>
-
 
             </div>
 
@@ -315,6 +304,7 @@
 
           $crearReporte = new ControladorReportesUsuarios();
           $crearReporte ->ctrCrearReportes();
+          
           $bitacora = new ControladorBitacoraReportes();
           $bitacora -> ctrCrearBitacoraReportes();
 
@@ -400,8 +390,6 @@
 
                  <input type="text" class="form-control input-lg" name="editarUsuario"  id="editarUsuario" readonly>
 
-               
-
               </div>
 
             </div>
@@ -414,11 +402,7 @@
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                
-                  
                   <input class="form-control input-lg" name="editarUbicacion" readonly id="editarUbicacion"></input>
-
-                
 
               </div>
 
@@ -431,8 +415,7 @@
                 <label for="comment">Descripción:</label>
 
                 <textarea class="form-control" rows="4" id="editarDescripcion" name="editarDescripcion" readonly></textarea>
-
-
+                
             </div>
 
             <!-- Ver foto -->

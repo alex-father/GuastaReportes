@@ -3,10 +3,6 @@
 =            Crear codigo de Reporte            =
 ===============================================*/
 
-
-
-
-
 $("#nuevaCategoriaUsuario").change(function(){
 
 
@@ -36,8 +32,6 @@ $("#nuevaCategoriaUsuario").change(function(){
 
           var nuevoCodigo = Number(respuesta["codigo_reporte"])+1;
             $("#nuevoCodigo").val(nuevoCodigo);
-
-            
 
         }
                 
@@ -86,11 +80,8 @@ $(".tablas tbody").on("click", "button.btnEditarReporte", function(){
           dataType: "json",
           success:function(respuesta){
 
-            
-
             $("#editarCategoria").val(respuesta["id"]);
             $("#editarCategoria").html(respuesta["categoria"]);
-
 
           }
 

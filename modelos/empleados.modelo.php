@@ -134,7 +134,7 @@ class ModeloEmpleados{
 
 
 	/*=============================================
-	BORRAR USUARIO
+	Borrar empleado
 	=============================================*/
 
 	static public function mdlBorrarEmpleado($tabla, $datos){

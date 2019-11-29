@@ -1,13 +1,10 @@
 
 <div id="back"></div>
 
-
-
     <div class="login-box" >
 
       <img src="vistas/img/plantilla/login.png" class="img-responsive">
 
- 
         <div class="login-box-body">
 
             <p class="login-box-msg">Inicia sesion para comenzar</p>
@@ -24,7 +21,7 @@
 
                <div class="form-group has-feedback">
 
-              <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" required>
+                 <input type="password" class="form-control" placeholder="Contraseña" name="ingPassword" required>
 
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
      
@@ -32,27 +29,19 @@
 
                 <div>
              
-
                     <button type="submit" class="btn login_btn btn-block">Ingresar</button>
-
 
                     <a  class="btn login_btn btn-block" data-toggle="modal" data-target="#modalRegistroUsuario">Registrarse</a>
               
                </div>
 
-                  
-
               <?php
-
-             
 
               $login = new ControladorUsuarios();
               $login -> ctrIngresoUsuario();
 
 
               ?>
-
-
 
           </form>
 
@@ -63,13 +52,9 @@
 
           </center>
 
-       </div>
-
-
+          </div>
 
         </div>
-
-
 
     </div>
 
@@ -193,13 +178,8 @@
 
                   <!-- entrada para seleccionar el perfil -->
 
-                  
-
-                        <input type="hidden"  name="nuevoPerfil" id="nuevoPerfil" 
-                      value="Usuario" readonly >
-                      
+                 <input type="hidden"  name="nuevoPerfil" id="nuevoPerfil"value="Usuario" readonly >
                    
-
                   <div class="form-group">
                       
                        <div class="panel">Subir Foto</div>
@@ -208,10 +188,7 @@
 
                               <p class="help-block">Peso maximo de la foto 200MB</p>
 
-
                               <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
-
-
 
                         </div>
                   
@@ -233,9 +210,8 @@
 
             </form>
 
-        </div>
+         </div>
         
-
       </div>
 
   </div>

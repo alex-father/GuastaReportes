@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["perfil"] == "Usuario"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+  }
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -50,23 +66,28 @@
                       <th>Usuario</th>
                       <th>Foto</th>
                       <th>Perfirl</th>
+
                       <?php  
+
                       if($_SESSION["perfil"] =="Administrador"){
 
-                     echo ' <th>estado</th>';
-                   }
+                      echo ' <th>estado</th>';
+
+                          }
                       ?>
                       
                       <th>Ultimo Login</th>
 
-                      <?php  
+                      <?php 
+
                       if($_SESSION["perfil"] =="Administrador"){
 
-                     echo ' <th>Acción</th>';
-                   }
-                      ?>
-                      
+                         echo ' <th>Acción</th>';
 
+                        }
+
+                      ?>
+                    
                   </tr>
 
               </thead>
@@ -82,17 +103,15 @@
               
               foreach ($empleados as $key => $value){
                       
-                       echo ' 
-                          <td>'.($key+1).'</td>
-                          <td>'.$value["nombre"].'</td>
-                          <td>'.$value["usuario"].'</td>';
+                       echo '<td>'.($key+1).'</td>
+                             <td>'.$value["nombre"].'</td>
+                             <td>'.$value["usuario"].'</td>';
 
                   if($value["foto"] != ""){
 
                     echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
 
-                    }
-                    else  {
+                    }else{
 
                     echo '<td><img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
 
@@ -106,8 +125,7 @@
 
                     echo '<td><button class="btn btn-success btn-xs btnActivarEmpleado" idEmpleado="'.$value["id"].'" estadoEmpleado="0">Activado</button></td>';
 
-                  }
-                  else {
+                  }else{
 
                     echo '<td><button class="btn btn-danger btn-xs btnActivarEmpleado" idEmpleado="'.$value["id"].'" estadoEmpleado="1">Desactivado</button></td>';
 
@@ -134,7 +152,9 @@
                       }
 
                  echo' </tr>';
+
                  }
+
               ?>
                 
               </tbody>
@@ -250,9 +270,7 @@
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 
 
-                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">
-
-                      
+                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">     
 
                 </div>
           
@@ -306,7 +324,9 @@
       <div class="modal-header" style="background:#00a65a; color: white; ">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
+
         <h4 class="modal-title">Editar Empleados</h4>
+
       </div>
 
         <!--=============================================
@@ -375,9 +395,6 @@
 
                   <option value="Empleado">Empleado</option>
 
-                  
-                  
-
                 </select>
               
             </div>
@@ -413,20 +430,13 @@
 
                 </div>
 
-               
-                
-
                 <?php
 
                 $editarEmpleado = new ControladorEmpleados();
                 $editarEmpleado -> ctrEditarEmpleado();
 
 
-
                 ?>
-
-               
-
 
             </form>
 
@@ -436,10 +446,10 @@
 
     </div>
 
-     <?php
+         <?php
 
-    $borrarEmpleado = new ControladorEmpleados();
-    $borrarEmpleado -> ctrBorrarEmpleado();
+        $borrarEmpleado = new ControladorEmpleados();
+        $borrarEmpleado -> ctrBorrarEmpleado();
 
 
-    ?>
+        ?>

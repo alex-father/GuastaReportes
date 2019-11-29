@@ -11,7 +11,6 @@ if(localStorage.getItem("capturarRango") != null){
 }
 
 
-
 $(".tablas").on("click", ".btnImprimirReporte", function(){
 
 
@@ -19,7 +18,6 @@ $(".tablas").on("click", ".btnImprimirReporte", function(){
 
 
       window.open("extensiones/tcpdf/pdf/reporte.php?codigo="+codigoReporte, "_blank");
-
 
 })
 
@@ -56,8 +54,8 @@ $(".tablas").on("click", ".btnImprimirReporte", function(){
     })
 
     /*=============================================
-RANGO DE FECHAS
-=============================================*/
+       RANGO DE FECHAS
+    =============================================*/
 
 $('#daterange-btn').daterangepicker(
   {
