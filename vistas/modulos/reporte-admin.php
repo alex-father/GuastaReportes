@@ -399,7 +399,7 @@ MODAL AGREGAR Reporte
           <?php 
 
             $editar = new ControladorReportes();
-            $editar->ctrEditarProducto();
+            $editar->ctrEditarReporte();
 
 
 

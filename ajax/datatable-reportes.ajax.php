@@ -41,7 +41,6 @@ class TablaReportes{
 		  	$valor = $reportes[$i]["id_categoria"];
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-		  	var_dump($categorias);
 
 		  	/*=============================================
  	 		TRAEMOS LOS ESTADOS
