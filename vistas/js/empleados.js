@@ -216,7 +216,7 @@ $("#nuevoEmpleado").change(function(){
 
 
       swal({
-        title: '¿Desea eliminar el usuario?',
+        title: '¿Desea eliminar el empleado?',
         text: "¡Puede cancelar la accíón!",
         type: 'warning',
         showCancelButton: true,

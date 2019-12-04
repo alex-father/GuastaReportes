@@ -53,14 +53,14 @@ $(".tablas").on("click", ".btnEliminarLugar", function(){
 
 
       swal({
-        title: '¿Desea eliminar el usuario?',
+        title: '¿Desea eliminar la Ubicación?',
         text: "¡Puede cancelar la accíón!",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Si, borrar usuario!'
+          confirmButtonText: 'Si, borrar la Ubicación!'
       }).then(function(result){
 
         if(result.value){

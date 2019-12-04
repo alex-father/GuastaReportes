@@ -270,7 +270,7 @@ if($_SESSION["perfil"] == "Usuario"){
                       <p class="help-block">Peso maximo de la foto 2MB</p>
 
 
-                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="100px">     
+                      <img src="vistas/img/empleados/default/anonymous.png" class="img-thumbnail visualizar" width="120px">     
 
                 </div>
           

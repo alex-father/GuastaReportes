@@ -26,7 +26,7 @@ class ControladorLugares{
 
 							swal({
 								  type: "success",
-								  title: "Ha Ubicacion se guardo correctamente",
+								  title: "La Ubicacion se guardo correctamente",
 								  showConfirmButton: true,
 								  confirmButtonText: "Cerrar"
 								  }).then(function(result){

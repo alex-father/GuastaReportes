@@ -1,18 +1,4 @@
-<?php
 
-if($_SESSION["perfil"] == "Usuario"){
-
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
-  }
-
-?>
 
 <div class="content-wrapper">
 
